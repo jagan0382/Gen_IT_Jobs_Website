@@ -1,0 +1,338 @@
+
+
+
+
+
+<div class="bg-black text-white min-h-screen py-10 responsive-section">
+    <div class="container mx-auto px-4">
+      
+      <!-- Header Section -->
+      <div class="flex">
+        <div>
+          <h1>AI Resume Checker</h1>
+          <h2>Free resume score in seconds</h2>
+          <p class="black">
+            Discover the gaps in your resume, enhance its relevance, and <br> align it perfectly with the job you want, all for free.
+          </p>
+          <button (click)="scrollToSection()">Get Your Resume</button>
+  
+        </div>
+        <div>
+          <img src="assets/ResumeCheckerHeader.svg" alt="Illustration of a dashboard" class="rounded-lg shadow-lg w-full max-w-md">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <div class="resume-container">
+    <h1 class="title">Get Your Resume Checked in Seconds</h1>
+  
+    <div class="steps-container">
+      <div class="step1" *ngFor="let step of steps">
+        <div class="icon-wrapper">
+          <img [src]="step.image" [alt]="step.title" class="step-icon" />
+        </div>
+        <h2 class="step-title" [innerHTML]="step.title"></h2>
+        <p class="links" [innerHTML]="step.description"></p>
+  
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="container2">
+    <!-- Title -->
+    <h1 class="title1">How Resume Checker Works?</h1>
+  
+  </div>
+    <div class="upload-box">
+      <div class="steps">
+        <div class="step" [class.completed]="resumeUploaded">
+          <div class="circle">{{ resumeUploaded ? '✔' : '1' }}</div>
+          <span>Upload Resume</span>
+        </div>
+        <div class="line"></div>
+        <div class="step" [class.completed]="jdUploaded" [class.active]="currentStep === 2 && !jdUploaded">
+          <div class="circle">{{ jdUploaded ? '✔' : '2' }}</div>
+          <span>Add JD</span>
+        </div>
+        
+        <div class="line"></div>
+        <div class="step" [class.completed]="scanCompleted" [class.active]="currentStep === 3 && !scanCompleted">
+          <div class="circle">{{ scanCompleted ? '✔' : '3' }}</div>
+          <span>View Results</span>
+        </div>
+        
+        
+      </div>
+    
+      <p class="upload-text">{{ stepMessage }}</p>
+    
+      <!-- Upload Resume -->
+      <input type="file" #resumeInput (change)="onFileSelected($event, 'resume')" accept=".pdf,.docx" hidden>
+      <button class="upload-btn" (click)="resumeInput.click()" *ngIf="!resumeUploaded">
+        Upload Resume
+      </button>
+      <p class="file-info" *ngIf="resumeUploaded">✅ Resume uploaded successfully!</p>
+    
+      <!-- Upload JD (Disabled until Resume is uploaded) -->
+      <input type="file" #jdInput (change)="onFileSelected($event, 'jd')" accept=".pdf,.docx" hidden>
+      <button class="upload-btn" (click)="jdInput.click()" [disabled]="!resumeUploaded || jdUploaded" *ngIf="resumeUploaded && !jdUploaded">
+        Upload JD File
+      </button>
+      <p class="file-info" *ngIf="jdUploaded">✅ Job Description uploaded successfully!</p>
+    
+      <!-- Next Button (Hidden when both files uploaded) -->
+      <!-- <button class="next-btn" (click)="nextStep()" *ngIf="currentStep < 3 && !bothFilesUploaded" [disabled]="!canProceed">
+        Next
+      </button> -->
+    
+      <!-- Back & Scan Buttons (Appear after JD upload) -->
+      <div class="action-buttons" *ngIf="bothFilesUploaded">
+        <button class="back-btn" (click)="goBack()">Back</button>
+        <button class="scan-btn" (click)="scanResume()">Scan</button>
+      </div>
+    </div>
+  
+  
+  
+  
+
+    
+  
+    <div class="resume-container2">
+      <h1 class="heading">Optimize Your Resume for Better Job Match</h1>
+    
+      <!-- Section 1: Image First -->
+      <!-- <div class="section section1">
+        <div class="image-block">
+          <img 
+            src="https://incruiter.blob.core.windows.net/frontend/frontend-website/assets/ResumeCheckerFrame1.svg"
+            alt="Illustration of resume optimization"
+          />
+        </div>
+        <div class="content-block">
+          <h2 class="subheading">Ensure Your Resume Matches <br> Job Requirements</h2>
+          <p>
+            Match your resume's skills and keywords with the JD to boost <br> your chances of passing ATS filters.
+          </p>
+          <ul class="lists">
+            <li>Automated job description matching</li>
+            <li>Keyword alignment based on role requirements</li>
+            <li>Skill matching tailored to industry standards</li>
+          </ul>
+          <button class="primary-btn" (click)="scrollToSection()">Optimize Your Resume Now</button>
+        </div>
+      </div> -->
+    
+      <!-- Section 2: Content First -->
+      <div class="section section2">
+        <div class="content-block">
+          <h2 class="subheading">Check Your Resume for <br> Grammatical and Punctuation <br> Errors</h2>
+          <p>
+            A built-in content checker tool helps you stay on top of grammar <br> errors and clichés.
+          </p>
+          <ul class="lists">
+            <li>Wording and readability analysis</li>
+            <li>Eliminate typos and grammatical errors</li>
+            <li>Content analysis based on your job role</li>
+          </ul>
+          <button class="primary-btn" (click)="scrollToSection()">Check Your Resume Score</button>
+        </div>
+        <div class="image-block">
+          <img
+            src="https://incruiter.blob.core.windows.net/frontend/frontend-website/assets/ResumeCheckerFrame2.svg"
+            alt="Person checking grammar on laptop"
+          />
+        </div>
+      </div>
+    </div>
+    
+  
+     <!-- Section 1: Image First -->
+     <div class="section section3">
+      <div class="image-block">
+        <img 
+          src="https://incruiter.blob.core.windows.net/frontend/frontend-website/assets/ResumeCheckerFrame3.svg"
+          alt="Illustration of resume optimization"
+        />
+      </div>
+      <div class="content-block">
+        <h2 class="subheading">ATS Compatibility Check for <br> Enhanced Visibility</h2>
+        <p>
+          Improve your resume’s ATS score with an AI-powered compatibility check <br> that optimizes your format and content.
+        </p>
+        <ul class="lists">
+          <li>ATS-friendly formatting and layout check</li>
+          <li>Compatibility score to meet industry standards</li>
+          <li>Analysis of structure and length of content</li>
+        </ul>
+        <button class="primary-btn" (click)="scrollToSection()">Increase Your ATS Score</button>
+      </div>
+    </div>
+  
+  
+  
+    <!-- Title -->
+  <div class="text-center py-10">
+    <h1 class="text-3xl font-bold">Resumes that got the Job</h1>
+    <p class="mt-2">Explore examples of high-scoring resumes to enhance your own.</p>
+  </div>
+  
+  <!-- Swiper Slider -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div
+        class="swiper-slide cursor-pointer"
+        *ngFor="let resume of resumes"
+        (click)="openResume(resume)">
+        <img [src]="resume.image" [alt]="resume.title" />
+        <div class="slide-title">{{ resume.title }}</div>
+      </div>
+    </div>
+  
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+  <!-- Resume Modal -->
+  <div
+    *ngIf="selectedTemplateResume"
+    class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+    <div class="bg-white rounded-xl p-6 max-w-xl w-full text-center relative">
+      <button
+        class="absolute top-2 right-3 text-black text-2xl font-bold hover:text-red-600"
+        (click)="closeResume()">
+        &times;
+      </button>
+      <img
+        [src]="selectedTemplateResume.image"
+        [alt]="selectedTemplateResume.title"
+        class="mx-auto mb-4 rounded-md shadow"
+        width="320"
+        height="480" />
+      <div class="text-xl font-semibold text-black mb-4">
+        {{ selectedTemplateResume.title }}
+      </div>
+      <button
+        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mr-3 transition"
+        (click)="downloadResume()">
+        Download
+      </button>
+      <button
+        class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition"
+        (click)="closeResume()">
+        Cancel
+      </button>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+        
+    <!-- footer section -->
+        
+    
+    
+  <footer>
+  <div class="footer-top text-center">
+      <div class="container">
+          <div class="row justify-content-center gy-4">
+              <!-- Footer Contact -->
+              <div class="col-lg-3 col-md-6">
+                  <h3>GEN IT JOBS</h3>
+                  <p class="fot">
+                    GEN IT Job services was established in the year 2025. Since then we have been dominating the recruitment and staffing industry in India. We have branch office in Hyderabad.
+                  </p>
+  
+                  <div class="social-icons">
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                  </div>
+              </div>
+              
+  
+ <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+  
+        
+    <!-- Google Map -->
+                  <div class="col-lg-3 col-md-6">
+                      <h3>FIND US</h3>
+                      <div class="map-container">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  
+                      </div>
+                  </div>
+   </div>
+  </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom text-center">
+      <div class="container">
+          <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+          <p class="foot">Designed by <a href="#">GEN IT</a></p>
+      </div>
+  </div>
+  
+  
+  <!-- Scroll-to-Top Arrow Button -->
+  <button id="backToTop15" class="scroll-top-btn">
+      <img src="assets/arrow.png" alt="Scroll to top">
+  </button>
+  </footer>
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  
+  
+  <script src="assets/css/jquery.min.js"></script>
+  <script src="assets/css/bootstrap.bundle.min.js"></script>
+  <script src="assets/css/owl.carousel.min.js"></script>
+  <script src="assets/css/app.js"></script>
+  <script src="assets/css/video.js"></script>
+  
+  
+  
+  
+  

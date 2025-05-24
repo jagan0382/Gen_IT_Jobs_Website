@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+
+
+:root {
+    --brand: #131111;
+    --dark: #092032;
+    --body: #516171;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+    
+}
+
+
+body {
+    font-family: "Barlow", sans-serif;
+    color: var(--body);
+    line-height: 1.7;
+}
+
+h1,h2,h3,h4,h5,h6,
+.display-1,.display-2,.display-3,.display-4 {
+    font-weight: 700;
+    color: var(--dark);
+}
+.logo {
+    height: 70px; /* Increase the height for better visibility */
+    width: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Prevent overflow */
+    object-fit: contain; /* Ensure the logo fits nicely within its container */
+  }
+  
+
+.bg-cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    color: var(--dark);
+    transition: all 0.4s ease;
+    font-weight: 500;
+}
+
+
+
+
+
+/* navbar */
+.top-nav {
+    background-color: rgb(225, 107, 23);
+    color: #141212;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.top-nav p {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-right: 10px;
+    color: aliceblue;
+    
+}
+
+.top-nav span,
+.top-nav i {
+    vertical-align: middle;
+    color: #141212;
+}
+
+.navbar {
+    box-shadow: var(--shadow);
+    padding: 0.5rem 1rem; /* Adjust padding */
+    background-color: #fff; /* Ensure it's white */
+  }
+
+.social-icons a {
+    width: 38px;
+    height: 28px;
+    display: inline-flex;
+    color: #141212;
+    background-color: rgba(210, 119, 119, 0.25);
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+
+.social-icons a:hover {
+    background-color: #fff;
+    color: var(--brand);
+}
+
+/* Responsive Styling */
+
+@media (max-width: 480px) {
+    .social-icons a {
+      
+         margin-top: 5px;
+    }
+   
+}
+
+
+
+/*** Topbar Start ***/
+
+.topbar{
+    letter-spacing: 1px;
+}
+
+
+
+#note {
+    width: 600px;
+    overflow: hidden;
+}
+
+#note small {
+    color:rgb(42, 48, 40);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    animation: mymove 9s infinite;
+    animation-timing-function: all;
+}
+
+@keyframes mymove {
+    from {left: -100%;}
+    to {left: 100%;}
+}
+
+/*** Topbar End ***/
+
+
+@keyframes phoneRing {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(-15deg); }
+    20% { transform: rotate(15deg); }
+    30% { transform: rotate(-15deg); }
+    40% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+}
+
+.phone-shake {
+    display: inline-block;
+    animation: phoneRing 1s infinite ease-in-out;
+    color: #ffcc00; /* Optional: Change icon color */
+}

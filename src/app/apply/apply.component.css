@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.job-title {
+  text-align: center;
+  color: #003366;
+  margin: 30px 20px 20px;
+  font-size: 28px;
+}
+
+/* Left Section */
+.job-section-left {
+  width: 60%;
+  padding: 20px;
+  float: left;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin-left: 180px;
+}
+
+.job-section-left h3,
+.job-section-left h4 {
+  margin-top: 20px;
+  color: #333;
+}
+
+.job-section-left p {
+  margin: 8px 0;
+}
+
+.job-section-left ul {
+  padding-left: 20px;
+}
+
+.job-section-right{
+  margin-top: -500px;
+  margin-right: 200px;
+}
+
+/* Right Section */
+.job-section-right {
+  
+  width: 30%;
+  float: right;
+   background-color: #a6b9cd;
+  padding: 20px;
+  box-sizing: border-box;
+  border-left: 3px solid #003366;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+
+.apply-button {
+  width: 30%;
+  padding: 12px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.job-details p {
+  margin: 10px 0;
+}
+
+/* Clearfix */
+.job-section-left::after,
+.job-section-right::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .job-section-left,
+  .job-section-right {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  .job-section-right {
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 30px;
+    border-left: none;
+    border-top: 2px solid #003366;
+    background-color: #a6b9cd;
+  }
+
+  .job-title {
+    font-size: 22px;
+  }
+
+  .apply-button {
+  width: 50%;
+
+}
+}

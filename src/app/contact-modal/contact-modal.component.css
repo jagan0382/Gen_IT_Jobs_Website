@@ -1,0 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+
+
+
+:root {
+    --brand: #131111;
+    --dark: #092032;
+    --body: #516171;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+    
+}
+
+/* Global Styling */
+body {
+  font-family: "Barlow", sans-serif;
+  color: var(--body);
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Temporary Staffing Section */
+.temporary-staffing-section {
+    background: linear-gradient(
+        rgba(123, 119, 119, 0.5),
+        rgba(5, 0, 0, 0.5)
+      ),
+      url('src/assets/contact1.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 40vh; /* Full screen height */
+    display: flex;
+    align-items: flex-end; /* Align text to the bottom */
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+  }
+
+
+  
+  
+  /* Title Styling */
+  .title {
+    color: white;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+    padding-right: 20%;
+    padding-bottom: 50px; /* Space from the bottom */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Text shadow for visibility */
+    margin-right: -50px;
+    
+  }
+
+ .head{
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+    padding-bottom: 50px;
+    display: inline-block; /* Ensures it stays on the same line */
+    max-width: 900px; /* Controls text width */
+    margin-left: 45.5px;
+    margin-top: x0px;
+    
+    
+ }
+
+
+
+
+  @keyframes fadeZoom {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .title {
+    animation: fadeZoom 1.5s ease-out;
+  }
+  
+
+
+/* Style for the entire section heading */
+.temporary-staffing-content .section-heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #4385d6;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  display: flex;
+  gap: 0px; /* Adds space between "Permanent" and "Staffing" */
+}
+
+ 
+
+
+
+
+  .temporary-staffing-content .heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4385d6;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+
+
+  .temporary-staffing-content p,
+  .temporary-staffing-content ul {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .temporary-staffing-content ul {
+    padding-left: 20px;
+  }
+  
+  .temporary-staffing-content ul li {
+    margin-bottom: 10px;
+    font-weight: bold;
+
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 3rem; /* Smaller font size for tablets */
+ 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 2rem; /* Smaller font size for mobile */
+      
+    }
+  }
+
+
+
+
+
+  
+
+/* Sticky Top Behavior */
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1030; /* Ensure it stays above other content */
+}
+
+/* Navbar Toggler (for small screens) */
+.navbar-toggler {
+    border-color: #948c8c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer section */
+
+
+/* Footer Styles */
+footer {
+    background-color: #092032;
+    color: #fff;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  
+  footer h3 {
+    color: #952121; /* Sets the text color */
+    margin-bottom: 20px; /* Adds spacing below the heading */
+    font-weight: 700; /* Makes the text bold */
+    text-transform: uppercase; /* Optional: Converts text to uppercase */
+    font-size: 1.5rem; /* Adjusts the font size */
+    text-align: center; /* Centers the text */
+    position: relative; /* Enables styling the underline */
+  }
+  
+  footer h3::after {
+    content: ""; /* Creates the underline */
+    position: absolute; /* Positions the underline relative to the heading */
+    left: 50%; /* Starts the underline at the center */
+    transform: translateX(-40%); /* Centers the underline */
+    bottom: -5px; /* Adjusts the distance between the text and the underline */
+    width: 20%; /* Sets the underline width to half of the text width */
+    height: 3px; /* Sets the thickness of the underline */
+    background-color: #952121; /* Matches the text color */
+    border-radius: 2px; /* Rounds the edges of the underline */
+  }
+  
+  
+  
+  footer p {
+    color: #adb5bd;
+    font-size: 18px;
+    line-height: 2.0;
+  }
+
+  footer .foot{
+    color: #126fe0;
+    font-size: 14px;
+    line-height: 1.0;
+  }
+
+  footer .item{
+    color:  #adb5bd;
+    font-size: 18px;
+    line-height: 2.0;
+  }
+  
+  footer a {
+    color: #adb5bd; /* Default color for footer links */
+    text-decoration: none; /* Remove underlines */
+    transition: color 0.3s ease; /* Smooth transition for text color change */
+  }
+  
+  footer a:hover {
+    color: #ffc107; /* Change text color on hover */
+    text-decoration: underline; /* Add underline on hover if desired */
+  }
+  
+  /* Footer Links Styling */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links li a {
+    font-size: 14px;
+    color: #adb5bd; /* Default color for footer links */
+    text-decoration: none; /* Remove underlines */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+  }
+  
+  .footer-links li a:hover {
+    color: #ffc107; /* Change text color on hover */
+    text-decoration: none; /* Keep no underline if needed */
+  }
+  
+  /* Divider */
+.footer-divider {
+    border-top: 2px solid #ffc107; /* Bold line and updated color */
+    margin: 20px auto; /* Spacing above and below the line */
+    width: 80%; /* Line width relative to screen size */
+    transition: width 0.3s ease; /* Smooth adjustment effect */
+  }
+  
+  /* Bottom Section */
+  .footer-bottom {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  
+  .footer-bottom p a {
+    font-weight: 500;
+    color: #adb5bd; /* Footer bottom link color */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+  }
+  
+  .footer-bottom p a:hover {
+    color: #ffc107; /* Change text color on hover */
+    text-decoration: none; /* Keep no underline */
+  }
+  
+  /* Map Container */
+  .map-container {
+    width: 100%;
+    overflow: hidden;
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .map-container iframe {
+    border: none;
+    /* border-radius: 10px; */
+    width: 100%;
+    height: 200px;
+  }
+  
+
+
+
+
+
+/* Scroll-to-Top Button */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    /* background-color: var(--brand, #ffc107); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.scroll-top-btn img {
+    width: 50px;
+    height: 50px;
+    filter: invert(1); /* Ensure the arrow is visible on yellow */
+}
+
+.scroll-top-btn:hover {
+    background-color: #d64022;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-top-btn:active {
+    transform: scale(0.95);
+}
+
+
+
+.social-icons a {
+  width: 38px; /* Width of the icon container */
+  height: 38px; /* Height of the icon container */
+  display: inline-flex;
+  color: #141212; /* Icon color */
+  background-color: rgba(248, 242, 242, 0.25); /* Background color */
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Circular icons */
+  font-size: 24px; /* Adjust icon size */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  padding-left: 20%;
+}
+/* Optional: Add hover effect */
+.social-icons a:hover {
+  background-color: #ffc107; /* Change background on hover */
+  color: #fff; /* Change icon color on hover */
+}
+
+
+@media (max-width: 768px) {
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* .social-icons a {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  } */
+}
+
+
+
+/* Container */
+.container1 {
+    width: 70%;
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Form Styling */
+.form-container {
+    flex: 1;
+    background: #f1f1f1; /* Light gray background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-size: 0.8rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Submit Button Styling */
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Reduced padding to make it smaller */
+    font-size: 14px; /* Slightly smaller font */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: block;
+    margin: 10px ; /* Centers the button horizontally */
+    width: auto; /* Allows the button to adjust to content */
+    min-width: 120px; /* Ensures a reasonable size */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+
+/* Error Message */
+.error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+
+
+
+/* Contact Info Styling */
+.contact-info {
+    flex: 1;
+    background: #07037d; /* Light gray background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align all text */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+}
+
+.contact-info h3 {
+    margin-top: 50px;
+    color: white;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    color: white;
+    max-width: 80%; /* Keeps text readable and not too wide */
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container1 {
+        flex-direction: column;
+        /* align-items: center; */
+        width: 90%;
+    }
+
+    /* .form-container1 {
+        width: 100%;
+    } */
+   
+    .temporary-staffing-section h4{
+      text-align: justify;
+      padding: 5px 15px 50px 0px;
+    }
+
+
+    .content-info{
+      width: 100%;
+    }
+
+    
+}
+
+
+
+
+
+/* Overlay Background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Popup Box */
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+
+/* Checkmark Icon Animation */
+.success-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+    animation: checkmarkAppear 1.5s ease-out forwards;
+}
+
+/* Button */
+.popup-content button {
+    margin-top: 10px;
+    width: 100px;
+}
+
+
+
+/* Keyframe Animations */
+@keyframes popupFadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes checkmarkAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}

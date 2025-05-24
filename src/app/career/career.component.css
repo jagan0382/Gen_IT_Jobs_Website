@@ -1,0 +1,703 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+
+
+
+:root {
+    --brand: #131111;
+    --dark: #092032;
+    --body: #516171;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+    
+}
+
+/* Global Styling */
+body {
+  font-family: "Barlow", sans-serif;
+  color: var(--body);
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Temporary Staffing Section */
+.temporary-staffing-section {
+    background: linear-gradient(
+        rgba(123, 119, 119, 0.5),
+        rgba(5, 0, 0, 0.5)
+      ),
+      url('src/assets/back.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 40vh; /* Full screen height */
+    display: flex;
+    align-items: flex-end; /* Align text to the bottom */
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+  }
+
+
+  
+  
+  /* Title Styling */
+  .title {
+    color: white;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+    padding-right: 20%;
+    padding-bottom: 50px; /* Space from the bottom */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Text shadow for visibility */
+    margin-right: -50px;
+    
+  }
+
+ .head{
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+    padding-bottom: 50px;
+    display: inline-block; /* Ensures it stays on the same line */
+    max-width: 900px; /* Controls text width */
+    margin-left: 0px;
+    margin-top: 0px;
+    
+    
+ }
+
+
+
+
+  @keyframes fadeZoom {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .title {
+    animation: fadeZoom 1.5s ease-out;
+  }
+  
+
+
+/* Style for the entire section heading */
+.temporary-staffing-content .section-heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #4385d6;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  display: flex;
+  gap: 0px; /* Adds space between "Permanent" and "Staffing" */
+}
+
+ 
+
+
+
+
+  .temporary-staffing-content .heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4385d6;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+
+
+  .temporary-staffing-content p,
+  .temporary-staffing-content ul {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .temporary-staffing-content ul {
+    padding-left: 20px;
+  }
+  
+  .temporary-staffing-content ul li {
+    margin-bottom: 10px;
+    font-weight: bold;
+
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 3rem; /* Smaller font size for tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 2rem; /* Smaller font size for mobile */
+    }
+  }
+
+
+
+
+
+  
+
+/* Sticky Top Behavior */
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1030; /* Ensure it stays above other content */
+}
+
+/* Navbar Toggler (for small screens) */
+.navbar-toggler {
+    border-color: #948c8c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer section */
+
+
+/* Footer Styles */
+footer {
+  background-color: #0b1531;
+  color: #fff;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+footer h3 {
+  color: #a81bcb; /* Sets the text color */
+  margin-bottom: 20px; /* Adds spacing below the heading */
+  font-weight: 500; /* Makes the text bold */
+  text-transform: uppercase; /* Optional: Converts text to uppercase */
+  font-size: 1.5rem; /* Adjusts the font size */
+  text-align: center; /* Centers the text */
+  position: relative; /* Enables styling the underline */
+}
+
+footer h3::after {
+  content: ""; /* Creates the underline */
+  position: absolute; /* Positions the underline relative to the heading */
+  left: 50%; /* Starts the underline at the center */
+  transform: translateX(-40%); /* Centers the underline */
+  bottom: -5px; /* Adjusts the distance between the text and the underline */
+  width: 20%; /* Sets the underline width to half of the text width */
+  height: 3px; /* Sets the thickness of the underline */
+  background-color:  #a81bcb; /* Matches the text color */
+  border-radius: 2px; /* Rounds the edges of the underline */
+}
+
+
+
+footer p {
+  color: #ebedef;
+  font-size: 14px;
+  line-height: 2.0;
+  font-weight: 100;
+}
+
+footer .foot{
+  color: #126fe0;
+  font-size: 14px;
+  line-height: 1.0;
+}
+
+footer .item{
+  color: #ebedef;
+  font-size: 14px;
+  line-height: 1.0;
+  font-weight: 100;
+}
+
+footer a {
+  color: #ebedef; /* Default color for footer links */
+  text-decoration: none; /* Remove underlines */
+  transition: color 0.3s ease; /* Smooth transition for text color change */
+}
+
+footer a:hover {
+  color: #ffc107; /* Change text color on hover */
+  text-decoration: underline; /* Add underline on hover if desired */
+}
+
+/* Footer Links Styling */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links li a {
+  font-size: 14px;
+  color: #adb5bd; /* Default color for footer links */
+  text-decoration: none; /* Remove underlines */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.footer-links li a:hover {
+  color: #ffc107; /* Change text color on hover */
+  text-decoration: none; /* Keep no underline if needed */
+}
+
+/* Divider */
+.footer-divider {
+  border-top: 2px solid #ffc107; /* Bold line and updated color */
+  margin: 20px auto; /* Spacing above and below the line */
+  width: 80%; /* Line width relative to screen size */
+  transition: width 0.3s ease; /* Smooth adjustment effect */
+}
+
+/* Bottom Section */
+.footer-bottom {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.footer-bottom p a {
+  font-weight: 500;
+  color: #adb5bd; /* Footer bottom link color */
+  text-decoration: none; /* No underline */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.footer-bottom p a:hover {
+  color: #ffc107; /* Change text color on hover */
+  text-decoration: none; /* Keep no underline */
+}
+
+/* Map Container */
+.map-container {
+  width: 100%;
+  overflow: hidden;
+  /* border-radius: 10px; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  border: none;
+  /* border-radius: 10px; */
+  width: 100%;
+  height: 170px;
+}
+
+
+
+/* mobile footer view */
+
+@media (max-width: 768px) {
+  footer {
+    padding-top: 50px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+
+  footer h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  footer h3::after {
+    width: 30%;
+    transform: translateX(-50%);
+  }
+
+  footer p,
+  footer .item {
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
+  footer .foot {
+    font-size: 13px;
+  }
+
+  .footer-links {
+    padding-left: 0;
+    margin: 10px 0;
+  }
+
+  .footer-links li a {
+    font-size: 13px;
+  }
+
+  .footer-divider {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .footer-bottom {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 15px;
+    padding: 0 10px;
+  }
+
+  .map-container iframe {
+    width: 80%;
+    height: 150px;
+  }
+
+  .footer-bottom p.foot {
+    font-size: 13px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .footer-bottom .container3 {
+    padding: 0 10px;
+  }
+
+}
+  
+
+
+
+
+
+/* Scroll-to-Top Button */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    /* background-color: var(--brand, #ffc107); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.scroll-top-btn img {
+    width: 50px;
+    height: 50px;
+    filter: invert(1); /* Ensure the arrow is visible on yellow */
+}
+
+.scroll-top-btn:hover {
+    background-color: #d64022;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-top-btn:active {
+    transform: scale(0.95);
+}
+
+
+
+.social-icons a {
+  width: 38px; /* Width of the icon container */
+  height: 38px; /* Height of the icon container */
+  display: inline-flex;
+  color: #141212; /* Icon color */
+  background-color: rgba(248, 242, 242, 0.25); /* Background color */
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Circular icons */
+  font-size: 24px; /* Adjust icon size */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  padding-left: 20%;
+}
+/* Optional: Add hover effect */
+.social-icons a:hover {
+  background-color: #ffc107; /* Change background on hover */
+  color: #fff; /* Change icon color on hover */
+}
+
+
+@media (max-width: 768px) {
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* .social-icons a {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  } */
+}
+
+
+
+
+/* Hero section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b69c7;
+  color: #fff;
+   padding: 0px 50px; 
+  text-align: center;
+  min-height: 50vh; /* Full screen height */
+  margin-bottom: 80px;
+}
+
+
+.hero .outline {
+  background-color: #4670c3;
+  border: 2px solid white;
+  color: white;
+}
+
+.hero h1{
+  color: #1f2a28;
+  font-weight: 700;
+}
+
+.hero p{
+  color: white;
+}
+
+
+
+@media (max-width: 768px) {
+  .hero h1 {
+    margin-top: 60px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .hero p {
+    margin-top: 20px;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+
+}
+
+
+
+
+/* Career Section */
+.career-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 10%;
+  background: white;
+}
+
+.career-section .content {
+  width: 55%;
+}
+
+.career-section .image-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 40%;
+}
+
+.image-gallery img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* Why AmpleLogic Section */
+.why-amplelogic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 10%;
+  background: #fff;
+}
+
+.why-amplelogic .image {
+  width: 50%;
+}
+
+.why-amplelogic img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.why-amplelogic .content {
+  width: 45%;
+}
+
+.why-amplelogic h2 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .career-section, .why-amplelogic {
+      flex-direction: column;
+      text-align: center;
+  }
+  .career-section .content,
+  .why-amplelogic .content,
+  .career-section .image-gallery,
+  .why-amplelogic .image {
+      width: 100%;
+  }
+}
+
+
+
+/* Job Openings Section */
+.job-openings {
+  padding: 80px 20%;
+  background: white;
+  text-align: center;
+}
+
+.job-openings h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.job-openings .description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Jobs Container */
+.jobs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Job Card */
+.job-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.job-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.job-card .location {
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Apply Button */
+.apply-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #0a21a6;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.apply-btn:hover {
+  background: #002984;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .jobs-container {
+      grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+/* Mobile Responsiveness */
+
+
+@media screen and (max-width: 480px) {
+  .why-amplelogic {
+      padding: 20px 10px;
+  }
+
+  .why-amplelogic h2 {
+      font-size: 22px;
+      margin-top: 20px;
+  }
+
+  .why-amplelogic p {
+      font-size: 15px;
+      text-align: justify;
+      padding: 7px 7px;
+  }
+
+  .job-card {
+      width: 100%;
+      max-width: 300px;
+      padding: 15px;
+      
+  }
+
+  .apply-btn {
+      font-size: 12px;
+      padding: 8px 12px;
+  }
+
+  .image{
+    margin-top: 15px;
+  }
+
+  .job-openings .description{
+  font-size: 15px;
+  text-align: justify;
+  
+}
+
+
+}
+
+

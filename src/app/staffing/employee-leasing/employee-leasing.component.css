@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+
+
+
+:root {
+    --brand: #131111;
+    --dark: #092032;
+    --body: #516171;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+    
+}
+
+/* Global Styling */
+body {
+  font-family: "Barlow", sans-serif;
+  color: var(--body);
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Temporary Staffing Section */
+.temporary-staffing-section {
+    background: linear-gradient(
+        rgba(5, 0, 0, 0.5),
+        rgba(5, 0, 0, 0.5)
+      ),
+      url('src/assets/temp4.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh; /* Full screen height */
+    display: flex;
+    align-items: flex-end; /* Align text to the bottom */
+    justify-content: center;
+    position: relative;
+  }
+
+
+  
+  
+  /* Title Styling */
+  .title {
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 180px; /* Space from the bottom */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Text shadow for visibility */
+  }
+
+
+
+
+  @keyframes fadeZoom {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .title {
+    animation: fadeZoom 1.5s ease-out;
+  }
+  
+
+
+
+  /* General Container Adjustments */
+  .temporary-staffing-content {
+    max-width: 1200px; /* Limits content width for better readability */
+    margin: 0 auto; /* Centers content */
+    padding: 20px 0px; /* Adds padding on all sides */
+  }
+    
+  
+  
+  /* Style for the entire section heading */
+  .temporary-staffing-content .section-heading {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #4385d6;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    margin-right: 15px;
+    text-transform: uppercase;
+    display: flex;
+    gap: 0px; /* Adds space between "Permanent" and "Staffing" */
+  }
+  
+    .section-heading .highlight {
+      color: #151414; /* Specific color for 'Staffing' */
+    }
+    
+  
+  
+  .section-heading .underline{
+    text-decoration: underline;
+      text-decoration-style: double; /* Double underline */
+      text-decoration-color: #76b6d8; /* OrangeRed color */
+      text-decoration-thickness: 1.5px; /* Thickness of the underline */
+  }
+  
+  
+  
+    .temporary-staffing-content .heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #4385d6;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+
+
+  .temporary-staffing-content p,
+  .temporary-staffing-content ul {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .temporary-staffing-content ul {
+    padding-left: 20px;
+  }
+  
+  .temporary-staffing-content ul li {
+    margin-bottom: 10px;
+    font-weight: bold;
+
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 3rem; /* Smaller font size for tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 2rem; /* Smaller font size for mobile */
+    }
+  }
+
+
+  
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .temporary-staffing-content h2 {
+      width: 80%;
+  }
+
+
+  .temporary-staffing-content h3 {
+    text-align: center;
+}
+
+  .temporary-staffing-content p {
+    text-align: justify;
+      padding: 0 10px;
+  }
+
+  .headings-wrapper {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .headings-wrapper .col-md-6 {
+      width: 100%;
+  }
+
+}
+
+
+
+
+  
+
+/* Sticky Top Behavior */
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1030; /* Ensure it stays above other content */
+}
+
+/* Navbar Toggler (for small screens) */
+.navbar-toggler {
+    border-color: #948c8c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer section */
+
+
+/* Footer Styles */
+footer {
+  background-color: #24261c;
+    color: #fff;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  
+  footer h3 {
+    color: #952121; /* Sets the text color */
+    margin-bottom: 20px; /* Adds spacing below the heading */
+    font-weight: 700; /* Makes the text bold */
+    text-transform: uppercase; /* Optional: Converts text to uppercase */
+    font-size: 1.5rem; /* Adjusts the font size */
+    text-align: center; /* Centers the text */
+    position: relative; /* Enables styling the underline */
+  }
+  
+  footer h3::after {
+    content: ""; /* Creates the underline */
+    position: absolute; /* Positions the underline relative to the heading */
+    left: 50%; /* Starts the underline at the center */
+    transform: translateX(-40%); /* Centers the underline */
+    bottom: -5px; /* Adjusts the distance between the text and the underline */
+    width: 20%; /* Sets the underline width to half of the text width */
+    height: 3px; /* Sets the thickness of the underline */
+    background-color: #952121; /* Matches the text color */
+    border-radius: 2px; /* Rounds the edges of the underline */
+  }
+  
+  
+  
+  footer p {
+    color: #adb5bd;
+    font-size: 18px;
+    line-height: 2.0;
+  }
+
+  footer .foot{
+    color: #126fe0;
+    font-size: 14px;
+    line-height: 1.0;
+  }
+
+  footer .item{
+    color:  #adb5bd;
+    font-size: 18px;
+    line-height: 2.0;
+  }
+  
+  footer a {
+    color: #adb5bd; /* Default color for footer links */
+    text-decoration: none; /* Remove underlines */
+    transition: color 0.3s ease; /* Smooth transition for text color change */
+  }
+  
+  footer a:hover {
+    color: #ffc107; /* Change text color on hover */
+    text-decoration: underline; /* Add underline on hover if desired */
+  }
+  
+  /* Footer Links Styling */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links li a {
+    font-size: 14px;
+    color: #adb5bd; /* Default color for footer links */
+    text-decoration: none; /* Remove underlines */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+  }
+  
+  .footer-links li a:hover {
+    color: #ffc107; /* Change text color on hover */
+    text-decoration: none; /* Keep no underline if needed */
+  }
+  
+  /* Divider */
+.footer-divider {
+    border-top: 2px solid #ffc107; /* Bold line and updated color */
+    margin: 20px auto; /* Spacing above and below the line */
+    width: 80%; /* Line width relative to screen size */
+    transition: width 0.3s ease; /* Smooth adjustment effect */
+  }
+  
+  /* Bottom Section */
+  .footer-bottom {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  
+  .footer-bottom p a {
+    font-weight: 500;
+    color: #adb5bd; /* Footer bottom link color */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+  }
+  
+  .footer-bottom p a:hover {
+    color: #ffc107; /* Change text color on hover */
+    text-decoration: none; /* Keep no underline */
+  }
+  
+  /* Map Container */
+  .map-container {
+    width: 100%;
+    overflow: hidden;
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .map-container iframe {
+    border: none;
+    /* border-radius: 10px; */
+    width: 100%;
+    height: 200px;
+  }
+  
+
+
+
+
+
+/* Scroll-to-Top Button */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    /* background-color: var(--brand, #ffc107); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.scroll-top-btn img {
+    width: 50px;
+    height: 50px;
+    filter: invert(1); /* Ensure the arrow is visible on yellow */
+}
+
+.scroll-top-btn:hover {
+    background-color: #d64022;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-top-btn:active {
+    transform: scale(0.95);
+}
+
+
+
+.social-icons a {
+  width: 38px; /* Width of the icon container */
+  height: 38px; /* Height of the icon container */
+  display: inline-flex;
+  color: #141212; /* Icon color */
+  background-color: rgba(248, 242, 242, 0.25); /* Background color */
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Circular icons */
+  font-size: 24px; /* Adjust icon size */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  padding-left: 20%;
+}
+/* Optional: Add hover effect */
+.social-icons a:hover {
+  background-color: #ffc107; /* Change background on hover */
+  color: #fff; /* Change icon color on hover */
+}
+
+
+@media (max-width: 768px) {
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* .social-icons a {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  } */
+}

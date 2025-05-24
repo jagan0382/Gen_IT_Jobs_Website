@@ -1,0 +1,232 @@
+<!-- BOTTOM NAV -->
+<nav class="navbar navbar-expand-lg navbar-light custom-bg sticky-top">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img src="assets/final-one.jpg" class="logo" alt="Logo" />
+    </a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar -->
+    <div [ngClass]="{ 'collapse navbar-collapse': true, show: isNavbarOpen }" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+        <!-- HOME -->
+        <li class="nav-item nav-item-width">
+          <a class="nav-link nav-item-width" routerLink="/home"
+             (click)="setActive('none', 'home'); handleMenuClick()"
+             [class.active]="activeItem === 'home'">HOME</a>
+        </li>
+
+        <!-- STAFFING -->
+        <li class="nav-item dropdown" [class.show]="isStaffingOpen">
+          <a class="nav-link dropdown-toggle" (click)="isStaffingOpen = !isStaffingOpen"
+             [class.active]="activeParent === 'staffing'">STAFFING</a>
+          <ul class="dropdown-menu" [class.show]="isStaffingOpen">
+            <li>
+              <a class="dropdown-item" routerLink="/temporary-staffing"
+                 (click)="setActive('staffing', 'contract-staffing'); handleMenuClick()"
+                 [class.active]="activeItem === 'contract-staffing'">Contract Staffing</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/permanent-staffing"
+                 (click)="setActive('staffing', 'permanent-staffing'); handleMenuClick()"
+                 [class.active]="activeItem === 'permanent-staffing'">Permanent Staffing</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <!-- Freelancing -->
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" (click)="isFreelanceOpen = !isFreelanceOpen"
+                 [class.active]="activeItem.startsWith('freelance')">Freelancing</a>
+              <ul class="dropdown-menu" [class.show]="isFreelanceOpen">
+                <li>
+                  <a class="dropdown-item" routerLink="/itjobs"
+                     (click)="setActive('staffing', 'freelance-itjobs'); handleMenuClick()"
+                     [class.active]="activeItem === 'freelance-itjobs'">IT Jobs</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/interviews"
+                     (click)="setActive('staffing', 'freelance-interviewer'); handleMenuClick()"
+                     [class.active]="activeItem === 'freelance-interviewer'">As A Interviewer</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/mentorships"
+                     (click)="setActive('staffing', 'freelance-career-coach'); handleMenuClick()"
+                     [class.active]="activeItem === 'freelance-career-coach'">As A Career Coach</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- TRAINING -->
+        <li class="nav-item dropdown" [class.show]="isTrainingOpen">
+          <a class="nav-link dropdown-toggle" (click)="isTrainingOpen = !isTrainingOpen"
+             [class.active]="activeParent === 'training'">TRAINING</a>
+          <ul class="dropdown-menu" [class.show]="isTrainingOpen">
+            <li>
+              <a class="dropdown-item" routerLink="/corporate"
+                 (click)="setActive('training', 'training-corporate'); handleMenuClick()"
+                 [class.active]="activeItem === 'training-corporate'">Corporate Trainings</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/individual"
+                 (click)="setActive('training', 'training-individual'); handleMenuClick()"
+                 [class.active]="activeItem === 'training-individual'">Individual Learners</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/career-coach"
+                 (click)="setActive('training', 'training-career-coach'); handleMenuClick()"
+                 [class.active]="activeItem === 'training-career-coach'">Career Coaching</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <!-- Technologies Submenu -->
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" (click)="isTechOpen = !isTechOpen"
+                 [class.active]="activeItem.startsWith('tech-')">Technologies</a>
+              <ul class="dropdown-menu" [class.show]="isTechOpen">
+                <li>
+                  <a class="dropdown-item" routerLink="/home"
+                     (click)="setActive('training', 'tech-ai-ml'); handleMenuClick()"
+                     [class.active]="activeItem === 'tech-ai-ml'">AI/ML</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/home"
+                     (click)="setActive('training', 'tech-cloud'); handleMenuClick()"
+                     [class.active]="activeItem === 'tech-cloud'">Cloud</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/home"
+                     (click)="setActive('training', 'tech-data-engineering'); handleMenuClick()"
+                     [class.active]="activeItem === 'tech-data-engineering'">Data Engineering</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/home"
+                     (click)="setActive('training', 'tech-business-analyst'); handleMenuClick()"
+                     [class.active]="activeItem === 'tech-business-analyst'">Business Analyst</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/home"
+                     (click)="setActive('training', 'tech-testing'); handleMenuClick()"
+                     [class.active]="activeItem === 'tech-testing'">Testing</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/home"
+                     (click)="setActive('training', 'tech-devops'); handleMenuClick()"
+                     [class.active]="activeItem === 'tech-devops'">DevOps</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- FRESHERS -->
+        <li class="nav-item dropdown" [class.show]="isFresherOpen">
+          <a class="nav-link dropdown-toggle" (click)="isFresherOpen = !isFresherOpen"
+             [class.active]="activeParent === 'freshers'">FRESHERS PAGE</a>
+          <ul class="dropdown-menu" [class.show]="isFresherOpen">
+            <li>
+              <a class="dropdown-item" routerLink="/career-guidence"
+                 (click)="setActive('freshers', 'freshers-career-guidance'); handleMenuClick()"
+                 [class.active]="activeItem === 'freshers-career-guidance'">Career Guidance</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/hackathon"
+                 (click)="setActive('freshers', 'freshers-hackathon'); handleMenuClick()"
+                 [class.active]="activeItem === 'freshers-hackathon'">Hackathon</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/internship"
+                 (click)="setActive('freshers', 'freshers-internship'); handleMenuClick()"
+                 [class.active]="activeItem === 'freshers-internship'">Internship Program</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <!-- Knowledge Hub -->
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" (click)="isKnowledgeOpen = !isKnowledgeOpen"
+                 [class.active]="activeItem.startsWith('knowledge')">Knowledge Hub</a>
+              <ul class="dropdown-menu" [class.show]="isKnowledgeOpen">
+                <li>
+                  <a class="dropdown-item" routerLink="/article"
+                     (click)="setActive('freshers', 'knowledge-articles'); handleMenuClick()"
+                     [class.active]="activeItem === 'knowledge-articles'">Articles</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/technical"
+                     (click)="setActive('freshers', 'knowledge-technical-blog'); handleMenuClick()"
+                     [class.active]="activeItem === 'knowledge-technical-blog'">Technical Blog</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" routerLink="/discussion"
+                     (click)="setActive('freshers', 'knowledge-discussion-forums'); handleMenuClick()"
+                     [class.active]="activeItem === 'knowledge-discussion-forums'">Discussion Forums</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- RESUME SERVICE -->
+        <li class="nav-item dropdown" [class.show]="isResumeOpen">
+          <a class="nav-link dropdown-toggle" (click)="isResumeOpen = !isResumeOpen"
+             [class.active]="activeParent === 'resume-service'">RESUME AS A SERVICE</a>
+          <ul class="dropdown-menu" [class.show]="isResumeOpen">
+            <li>
+              <a class="dropdown-item" routerLink="/resume-building"
+                 (click)="setActive('resume-service', 'resume-builder'); handleMenuClick()"
+                 [class.active]="activeItem === 'resume-builder'">Resume Builder</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/resume-checker"
+                 (click)="setActive('resume-service', 'resume-checker'); handleMenuClick()"
+                 [class.active]="activeItem === 'resume-checker'">Resume Checker</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- INTERVIEW -->
+        <li class="nav-item nav-item-width">
+          <a class="nav-link nav-item-width" routerLink="/interviewservice"
+             (click)="setActive('none', 'interview-service'); handleMenuClick()"
+             [class.active]="activeItem === 'interview-service'">INTERVIEW AS A SERVICE</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Scripts -->
+<link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="assets/css/jquery.min.js"></script>
+<script src="assets/css/bootstrap.bundle.min.js"></script>
+<script src="assets/css/owl.carousel.min.js"></script>
+<script src="assets/css/app.js"></script>

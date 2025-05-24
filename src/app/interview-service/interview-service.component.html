@@ -1,0 +1,551 @@
+
+
+
+
+
+<div class="bg-black text-white min-h-screen py-10 responsive-section">
+    <div class="container mx-auto px-4">
+      
+      <!-- Header Section -->
+      <div class="flex">
+        <div>
+          <h1>IncServe</h1>
+          <h2>Interview as a Service</h2>
+          <p class="black">
+            Trusted Technical Interview Outsourcing Company with expert <br>Freelance Interviewers to make hiring faster and more efficient.
+          </p>
+          <button  (click)="openModal()">Book a Demo</button>
+        </div>
+        <div>
+          <img src="assets/interview.webp" alt="Illustration of a dashboard" class="rounded-lg shadow-lg w-full max-w-md">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <button class=" btn close-button" (click)="closeModal()">✖</button>
+      <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+  
+      <!-- Success Message -->
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+  
+      <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+        <!-- First Name -->
+        <div class="form-row">
+        <div class="form-group half">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+            <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+              First Name is required
+            </div>
+          </div>
+        
+          <!-- Last Name -->
+          <div class="form-group half">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+            <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+              Last Name is required
+            </div>
+          </div>
+        </div>
+  
+        <!-- Mail ID -->
+        <div class="form-row">
+        <div class="form-group half">
+          <label>Mail ID</label>
+          <input type="email" formControlName="email" placeholder="Enter your email" />
+          <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+            Valid Email is required
+          </div>
+        </div>
+  
+        <!-- Phone Number -->
+        <div class="form-group half">
+          <label>Phone Number</label>
+          <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+          <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+            Enter a valid 10-digit phone number
+          </div>
+        </div>
+        </div>
+  
+  
+  
+        <!-- Upload Resume -->
+        <div class="form-group">
+          <label>Upload Resume</label>
+          <input type="file" (change)="onFileChange($event)" />
+          <div class="error" *ngIf="resumeRequired">
+            Resume is required
+          </div>
+        </div>
+  
+        <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  <div *ngIf="showToast" class="toast-message">
+  Submitted successfully!
+  </div>
+  
+
+
+<!-- Popup Modal -->
+<!-- <div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <button class="close-button" (click)="closeModal()">✖</button>
+    <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+
+    <!-- Success Message -->
+    <!-- <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <form [formGroup]="demoForm" (ngSubmit)="submitForm()"> -->
+      <!-- Full Name -->
+      <!-- <div class="form-group">
+        <input type="text" formControlName="fullName" placeholder="Enter your full name" />
+        <div class="error" *ngIf="demoForm.controls['fullName'].invalid && demoForm.controls['fullName'].touched">
+          Full Name is required
+        </div>
+      </div> -->
+
+      <!-- Work Email -->
+      <!-- <div class="form-group">
+        <input type="email" formControlName="email" placeholder="Enter your work email" />
+        <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+          Enter a valid email address
+        </div>
+      </div> -->
+
+      <!-- Country and Phone Number in one row -->
+      <!-- <div class="form-row">
+        <div class="form-group">
+          <label>Country</label>
+          <select formControlName="country">
+            <option>India</option>
+            <option>USA</option>
+            <option>Japan</option>
+            <option>China</option>
+          </select>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" formControlName="phoneNumber" placeholder="+91" />
+          <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+            Enter a valid 10-digit phone number
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Submit Button -->
+      <!-- <button class="sche" type="submit" [disabled]="demoForm.invalid">Schedule Your Demo</button>
+    </form>
+  </div>
+</div> -->
+
+
+  
+  
+  
+  
+   <!--start -->
+   <!-- <div>
+    <div class="container1 py-5">
+        <div class="row g-5">
+            <div class="col-lg-5 col-md-6 col-sm-12" data-wow-delay=".3s">
+                <div>
+                    <img src="assets/interview1.svg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+                <h5 class="text-primary">With IncServe</h5>
+                <h1 class="mb-4">Interview as a Service: Outsource Technical Interviews For Faster Hiring</h1>
+                <p>Conducting countless interviews in-house can slow down your hiring process. Our robust Technical Interview as a Service platform streamlines recruitment by conducting interviews in just 6 hours. Share resumes and job descriptions with us, and our expert panels will evaluate candidates to match your organizational needs. Combining cutting-edge technology with human expertise, we ensure the right fit for every role.</p>
+                <p class="mb-4">With a pool of 3000+ skilled Freelance Interviewers, our Interview Services provide fair and efficient evaluations. Whether you're a Startup, SME, Enterprise, or IT staffing companies , we help you focus on your core goals while we handle your interviews effortlessly.</p>
+                <a class="btn btn-secondary"  (click)="openModal()">Get Started</a>
+            </div>
+        </div>
+    </div>
+  </div> -->
+  <!--  End -->
+
+  <!-- START -->
+<div class="why-join-section">
+  <div class="why-join-container">
+    <div class="why-join-image">
+      <img src="assets/interview1.svg" alt="Interviewer Benefits" />
+    </div>
+    <div class="why-join-content">
+      <h5 class="text-primary">With IncServe</h5>
+      <h1>Interview as a Service: Outsource Technical Interviews For Faster Hiring</h1>
+      <p>
+       Conducting countless interviews in-house can slow down your hiring process. Our robust Technical Interview as a Service platform streamlines recruitment by conducting interviews in just 6 hours. Share resumes and job descriptions with us, and our expert panels will evaluate candidates to match your organizational needs. Combining cutting-edge technology with human expertise, we ensure the right fit for every role.</p>
+       <p>With a pool of 3000+ skilled Freelance Interviewers, our Interview Services provide fair and efficient evaluations. Whether you're a Startup, SME, Enterprise, or IT staffing companies , we help you focus on your core goals while we handle your interviews effortlessly.</p>
+           <a class="btn btn-secondary"  (click)="openModal()">Get Started</a>
+      </div>
+  </div>
+</div>
+<!-- END -->
+
+  
+  
+  
+  
+  
+         <div class="container2">
+          <h1>What sets InCruiter apart from other Interview as a Service platforms?</h1>
+          <div class="stats">
+              <div class="stat">
+                  <h2>6 Hrs</h2>
+                  <p class="org">Turn Around Time</p>
+                  <p>Conduct interviews in 6 Hours with expert panelists.</p>
+              </div>
+              <div class="stat">
+                  <h2>70%</h2>
+                  <p class="org">Conversion Rate</p>
+                  <p>70% of our interviewed candidates have been hired.</p>
+              </div>
+              <div class="stat">
+                  <h2>3000+</h2>
+                  <p class="org">Expert Interviewers</p>
+                  <p>We have 3000+ freelance interviewers for 250+ technologies.</p>
+              </div>
+              <div class="stat">
+                <h2>2 Hrs</h2>
+                <p class="org">To Receive Feedback</p>
+                <p>Conduct interviews in 6 Hours with expert panelists.</p>
+            </div>
+            <div class="stat">
+              <h2 class="org">75%</h2>
+              <p class="org">Drop in Hiring Time</p>
+              <p>By outsourcing interviews to
+                InCruiter, reduce up to 75%
+                time-to-hire.</p>
+          </div>
+              <div class="stat">
+                  <h2>80%</h2>
+                  <p class="org">Savings in Hiring Cost</p>
+                  <p>We have reduced up to 80% of hiring costs for our clients.</p>
+              </div>
+          </div>
+      </div>
+  
+        
+        
+      <div class="interview-panel">
+        <h2>Why choose our Interview as a Service solution?</h2>
+    
+        <div class="interviewers">
+            <!-- First Section: Image Left, Content Right -->
+            <div class="interview-row">
+                <img class="illustration" src="assets/interview2.png" alt="Interview Panel">
+                <div class="content">
+                    <h3>Access to External Interview Panels</h3>
+                    <p>
+                        Access 3000+ expert Freelance Interviewers from top MNCs and startups,
+                        with 10+ years of experience in 250+ technologies, to assess tech and
+                        non-tech. Conduct in-depth evaluations of technical skills and
+                        problem-solving abilities to help you hire top talent.
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Second Section: Content Left, Image Right -->
+            <div class="interview-row reverse">
+              <img class="illustration" src="assets/interview3.svg" alt="Interview Process">
+                <div class="content">
+                    <h3>Eliminate Interview Fatigue</h3>
+                    <p>
+                        Juggling interviews with daily tasks can drain your team and impact
+                        productivity. Instead of overloading internal resources, outsource
+                        interviews to external interview panels. Reduce interview fatigue and
+                        speed up hiring.
+                    </p>
+                </div>
+               
+            </div>
+        </div>
+        <div class="interviewers">
+          <!-- First Section: Image Left, Content Right -->
+          <div class="interview-row">
+              <img class="illustration" src="assets/interview4.svg" alt="Interview Panel">
+              <div class="content">
+                  <h3>Structured Interview & Data-Driven Hiring</h3>
+                  <p>
+                    Structured interviews tailored to your hiring needs ensure candidates are evaluated on the most critical skills. Each skill is individually assessed and rated, providing precise insights. Our data-driven insight helps track performance and support confident hiring decisions.
+                  </p>
+              </div>
+          </div>
+  
+          <!-- Second Section: Content Left, Image Right -->
+          <div class="interview-row reverse">
+            <img class="illustration" src="assets/interview5.png" alt="Interview Process">
+              <div class="content">
+                  <h3>Higher Conversion Percentage</h3>
+                  <p>
+                    The structured evaluation process drives 50-70% Round-2 conversions, ensuring only top candidates move forward. Expert-led assessments identify the right talent early, reducing interview rounds and optimizing recruiter efforts. This enhances hiring efficiency and provides a smoother selection process.
+                  </p>
+              </div>
+             
+          </div>
+      </div>
+      
+      <div class="interviewers">
+        <!-- First Section: Image Left, Content Right -->
+        <div class="interview-row">
+            <img class="illustration" src="assets/interview6.svg" alt="Interview Panel">
+            <div class="content">
+                <h3>AI-Powered Proctoring Features</h3>
+                <p>
+                  Our specialized Video Interview Software ensures secure, cheat-proof interviews with AI-driven proctoring that prevents tab switching, detects dual noise, and tracks eye movement. Strict security protocols maintain interview integrity, providing fair assessments and a reliable, secure, risk-free environment for interviews.
+                </p>
+            </div>
+        </div>
+  
+        <!-- Second Section: Content Left, Image Right -->
+        <div class="interview-row reverse">
+          <img class="illustration" src="assets/interview7.png" alt="Interview Process">
+            <div class="content">
+                <h3>Customizable Reports with Company Branding</h3>
+                <p>
+                  With the White Labeling feature, seamlessly integrate your brand's logo to create a strong brand presence at every step of the hiring process. This customization builds trust and strengthens your brand, ensuring a consistent and credible hiring process.
+                </p>
+            </div>
+           
+        </div>
+    </div>
+      
+    </div>
+    
+  
+    <div class="impact-container">
+      <div class="impact-content">
+          <div class="impact-text">
+              <h1>Our Impact <br> So Far</h1>
+              <blockquote>Letting the numbers talk!</blockquote>
+          </div>
+          <div class="impact-image">
+              <img src="assets/interview8.svg" alt="Impact Statistics">
+          </div>
+      </div>
+  </div>
+  
+  
+  
+  <div class="container3">
+    <h1 class="title">How Interview as a Service has transformed<br> modern-day hiring</h1>
+    <div class="tables">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th colspan="2" class="before-table">Before Interview Outsourcing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Average time-to-hire: <span class="highlight-text">42 days</span></td>
+          </tr>
+          
+          <tr>
+            <td>Unstructured interview process</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Subjective Evaluation</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>In-house Interviewers</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Unpleasant Candidate Experience</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Heavy on the pocket</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>No Feedback</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th colspan="2" class="after-table">After Interview Outsourcing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Average time-to-hire: <span class="highlight-text">6 days</span></td>
+            
+          </tr>
+          <tr>
+            <td>Structured interview process</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Objective+Subjective Evaluation</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Industry Experts to Interview</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Positive Candidate Experience</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Cost-effective</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Detailed Feedback Reports</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+  <div class="faq-container">
+    <div class="faq-content">
+      <h2>Frequently Asked <br> Questions</h2>
+      <p>Got a question? We're here to answer!</p>
+      <button class="faq-button">View all FAQs</button>
+    </div>
+  
+    <div class="faq-list">
+      <div class="faq-item" *ngFor="let faq of faqs" (click)="toggleFaq(faq)">
+        <div class="faq-question">
+          {{ faq.question }}
+          <span class="toggle-icon">{{ faq.open ? '-' : '+' }}</span>
+        </div>
+        <div class="faq-answer" *ngIf="faq.open">
+          {{ faq.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+        
+    <!-- footer section -->
+        
+    
+    
+ <footer>
+  <div class="footer-top text-center">
+      <div class="container">
+          <div class="row justify-content-center gy-4">
+              <!-- Footer Contact -->
+              <div class="col-lg-3 col-md-6">
+                  <h3>GEN IT JOBS</h3>
+                  <p>
+                    GEN IT Job services was established in the year 2025. Since then we have been dominating the recruitment and staffing industry in India. We have branch office in Hyderabad.
+                  </p>
+
+                  <div class="social-icons">
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                  </div>
+              </div>
+              
+
+
+                <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+
+        
+    <!-- Google Map -->
+                  <div class="col-lg-3 col-md-6">
+                      <h3>FIND US</h3>
+                      <div class="map-container">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                      </div>
+                  </div>
+   </div>
+</div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom text-center">
+      <div class="container">
+          <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+          <p class="foot">Designed by <a href="#">GEN IT</a></p>
+      </div>
+  </div>
+
+
+  <!-- Scroll-to-Top Arrow Button -->
+  <button id="backToTop13" class="scroll-top-btn">
+      <img src="assets/arrow.png" alt="Scroll to top">
+  </button>
+</footer>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+<script src="assets/css/jquery.min.js"></script>
+<script src="assets/css/bootstrap.bundle.min.js"></script>
+<script src="assets/css/owl.carousel.min.js"></script>
+<script src="assets/css/app.js"></script>
+<script src="assets/css/video.js"></script>
+
+
+
+

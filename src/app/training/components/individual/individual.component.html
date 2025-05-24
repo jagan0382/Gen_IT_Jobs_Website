@@ -1,0 +1,468 @@
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Level Up Your Career with Expert-Led Courses</h1>
+    <p>On-demand and live learning experiences designed to help you thrive in today’s competitive world.</p>
+    <div class="hero-buttons">
+      
+      <button class="outline" (click)="openModal()">Start Learning Today</button>
+    </div>
+  </section>
+
+
+<!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <button class=" btn close-button" (click)="closeModal()">✖</button>
+      <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+  
+      <!-- Success Message -->
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+  
+      <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+        <!-- First Name -->
+        <div class="form-row">
+        <div class="form-group half">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+            <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+              First Name is required
+            </div>
+          </div>
+        
+          <!-- Last Name -->
+          <div class="form-group half">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+            <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+              Last Name is required
+            </div>
+          </div>
+        </div>
+  
+        <!-- Mail ID -->
+        <div class="form-row">
+        <div class="form-group half">
+          <label>Mail ID</label>
+          <input type="email" formControlName="email" placeholder="Enter your email" />
+          <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+            Valid Email is required
+          </div>
+        </div>
+  
+        <!-- Phone Number -->
+        <div class="form-group half">
+          <label>Phone Number</label>
+          <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+          <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+            Enter a valid 10-digit phone number
+          </div>
+        </div>
+        </div>
+
+
+
+        <!-- Upload Resume -->
+        <div class="form-group">
+          <label>Upload Resume</label>
+          <input type="file" (change)="onFileChange($event)" />
+          <div class="error" *ngIf="resumeRequired">
+            Resume is required
+          </div>
+        </div>
+  
+        <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+
+  
+  <div *ngIf="showToast" class="toast-message">
+  Submitted successfully!
+</div>
+
+
+  <!-- Why Learn With Us -->
+
+    <section class="why-choose-us">
+      <h2>Why Learn with Us</h2>
+      <div class="why-container">
+        <div class="why-row">
+      <div class="why-grid">
+    
+        <div class="why-card">
+          <img src="assets/corp1.png" alt="Tailored Programs">
+          <h3>Industry-Relevant Skills</h3>
+          <p>Stay updated with current technologies and practices.</p>
+        </div>
+    
+        <div class="why-card">
+          <img src="assets/Seminar-amico.svg" alt="Expert Trainers">
+          <h3>Top Instructors:</h3>
+          <p>Learn from experts with real-world experience.
+          </p>
+        </div>
+    
+        <div class="why-card">
+          <img src="assets/crop7.png" alt="Flexible Delivery">
+          <h3>Flexible Learning</h3>
+          <p>Self-paced and live sessions to suit your schedule.</p>
+        </div>
+      </div>
+    </div>
+        <!-- <div class="why-card single-center"> -->
+          <div class="why-card">
+          <img src="assets/corp8.png" alt="Measurable Outcomes">
+          <h3>Certification</h3>
+          <p>Boost your resume with industry-recognized credentials.</p>
+        </div>
+        
+    
+      </div>
+    </section>
+
+
+<!-- Course Categories -->
+<div class="container-fluid donation py-5">
+  <div class="container py-5">
+    <div class="text-center mx-auto pb-5" style="max-width: 800px;">
+      <h1 class="mb-2 head">Course Categories</h1>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig8.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">FullStack Java Developer</h4>
+            <p class="text-white mb-4">Master front-end and back-end development with Java, Spring Boot, Angular, and more to become a job-ready Full Stack Java Developer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig9.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">FullStack Dotnet Developer</h4>
+            <p class="text-white mb-4">Gain expertise in .NET technologies, C#, ASP.NET, and SQL Server to develop dynamic web applications as a Full Stack .NET Developer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig10.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">FullStack Data Engineering</h4>
+            <p class="text-white mb-4">Learn data pipelines, cloud tools, and Big Data technologies like Spark, Hadoop, and Kafka to become a skilled Data Engineer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig11.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">GenAI and Prompt Engineering</h4>
+            <p class="text-white mb-4">Explore the world of Generative AI, Prompt Engineering, and tools like ChatGPT to build intelligent, AI-powered applications.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig12.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">Data Science & Analytics</h4>
+            <p class="text-white mb-4">Develop strong foundations in statistics, Python, and machine learning to analyze data and generate insights in real-world projects.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig13.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">Testing and Automation</h4>
+            <p class="text-white mb-4">Become a QA expert by learning manual testing, automation tools like Selenium, and frameworks like TestNG, Cucumber, and JUnit.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig14.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">Career Readiness & Soft Skills</h4>
+            <p class="text-white mb-4">Build communication, interpersonal, and career development skills to excel in interviews and workplace environments.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig15.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">Cloud and DevOps</h4>
+            <p class="text-white mb-4">Master cloud platforms like AWS and Azure along with DevOps tools such as Docker, Jenkins, and Kubernetes to deploy and scale apps efficiently.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig16.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">Scrum Master and Agile Coach Training</h4>
+            <p class="text-white mb-4">Train to lead Agile teams effectively using Scrum methodology and tools like Jira, while mastering Agile coaching principles.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="donation-item">
+          <img src="assets/assig17.jpg" class="img-fluid w-100" alt="Image">
+          <div class="donation-content d-flex flex-column">
+            <h4 class="text-info mb-4">Business Analyst Training</h4>
+            <p class="text-white mb-4">Learn how to bridge the gap between business and technology by gathering requirements, analyzing data, and designing solutions.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Course Categories End -->
+
+    
+    
+
+  <!-- Causes Start --> <!-- How It Works -->
+ <div class="container-fluid causes py-5">
+  <div class="container py-5">
+      <div class="text-center mx-auto pb-5" style="max-width: 800px;">
+          <!-- <h5 class="text-uppercase text-primary">Recent Causes</h5> -->
+          <h1 class="mb-4 head">How It Works</h1>
+          
+      </div>
+      <div class="row g-4">
+          <div class="col-lg-6 col-xl-3">
+              <div class="causes-item">
+                  <div class="causes-img">
+                      <img src="assets/late10.jpg" class="img-fluid w-100" alt="Image">                  
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                        <span></span>
+                    </div>
+                </div>
+                  <div class="causes-content p-2">
+                      <h4 class="mb-3">1. Browse & Enroll</h4>
+                      <p class="mb-4">Choose from a wide range of expert-designed courses.</p>
+                      <!-- <a class="btn-hover-bg btn btn-primary text-white py-2 px-3" href="#">Read More</a> -->
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 col-xl-3">
+              <div class="causes-item">
+                  <div class="causes-img">
+                      <img src="assets/late13.jpg" class="img-fluid w-100" alt="Image">
+                     
+                  </div>
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                          <span></span>
+                      </div>
+                  </div>
+                  <div class="causes-content p-2">
+                      <h4 class="mb-3 heads">2. Offline and Online classes LIVE 
+                      </h4>
+                      <p class="mb-4">Access content anytime, anywhere.</p>
+                      <!-- <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a> -->
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 col-xl-3">
+              <div class="causes-item">
+                  <div class="causes-img">
+                      <img src="assets/late7.jpg" class="img-fluid w-100" alt="Image">
+                    
+                  </div>
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                          <span></span>
+                      </div>
+                  </div>
+                  <div class="causes-content p-4">
+                      <h4 class="mb-2.8 heads">3. Engage & Practice</h4>
+                      <p class="mb-2">Interactive quizzes, projects, and forums.</p>
+                      <!-- <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a> -->
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 col-xl-3">
+              <div class="causes-item">
+                  <div class="causes-img">
+                      <img src="assets/late8.jpg" class="img-fluid w-100" alt="Image">
+                    
+                  </div>
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                          <span></span>
+                      </div>
+                  </div>
+                  <div class="causes-content p-2">
+                      <h4 class="mb-3">4. Get Certified</h4>
+                      <p class="mb-4">Earn a certificate upon successful completion.</p>
+                      <!-- <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a> -->
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 col-xl-3">
+            <div class="causes-item">
+                <div class="causes-img">
+                    <img src="assets/late9.jpg" class="img-fluid w-100" alt="Image">
+                  
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="causes-content p-3">
+                    <h4 class="mb-3">5.  Involve in a POC</h4>
+                    <p class="mb-4">Earn a certificate upon successful completion.</p>
+                    <!-- <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a> -->
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+  <!-- How It END -->
+
+
+  <!-- How It Works -->
+ 
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>Success Stories</h2>
+    <blockquote>
+      “This platform helped me switch careers into tech with confidence. The learning path was well-structured and practical.”
+      <br><span>– Ayesha, Front-End Developer</span>
+    </blockquote>
+  </section>
+
+  <!-- Hiring Partners -->
+  <section class="clients">
+    <h2>Top Hiring Partners</h2>
+    <div class="logo-grid">
+      <img src="assets/log1.jpg" alt="Company 1">
+      <img src="assets/log1.jpg" alt="Company 2">
+      <img  src="assets/log1.jpg"  alt="Company 3">
+      <img src="assets/log1.jpg"  alt="Company 4">
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Start Your Journey Today</h2>
+    <p>Take control of your career with personalized learning paths.</p>
+    <div class="hero-buttons">
+      <!-- <button>Browse Courses</button> -->
+      <button class="outline" (click)="openModal()">Contact Support</button>
+    </div>
+  </section>
+
+      
+  <footer>
+    <div class="footer-top text-center">
+        <div class="container">
+            <div class="row justify-content-center gy-4">
+                <!-- Footer Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>GEN IT JOBS</h3>
+                    <p>
+                      GEN IT Job services was established in the year 2025. Since then we have been dominating the recruitment and staffing industry in India. We have branch office in Hyderabad.
+                    </p>
+  
+                    <div class="social-icons">
+                      <a href="#"><i class="bx bxl-facebook"></i></a>
+                      <a href="#"><i class="bx bxl-twitter"></i></a>
+                      <a href="#"><i class="bx bxl-instagram"></i></a>
+                      <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+                
+  
+                <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+  
+          
+      <!-- Google Map -->
+                    <div class="col-lg-3 col-md-6">
+                        <h3>FIND US</h3>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  
+                        </div>
+                    </div>
+     </div>
+  </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+            <p class="foot">Designed by <a href="#">GEN IT</a></p>
+        </div>
+    </div>
+  
+  
+    <!-- Scroll-to-Top Arrow Button -->
+    <button id="backToTop11" class="scroll-top-btn">
+        <img src="assets/arrow.png" alt="Scroll to top">
+    </button>
+  </footer>
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  
+  
+  <script src="assets/css/jquery.min.js"></script>
+  <script src="assets/css/bootstrap.bundle.min.js"></script>
+  <script src="assets/css/owl.carousel.min.js"></script>
+  <script src="assets/css/app.js"></script>
+  
+  

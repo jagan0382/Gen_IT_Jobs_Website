@@ -1,0 +1,268 @@
+
+
+<!-- Hero Section for Articles -->
+<section class="hero">
+  <h1>Explore Insights That Empower Your Career</h1>
+  <p>
+    Dive into a curated collection of thought-provoking articles, industry reports, and leadership case studies. <br>
+    Stay ahead of the curve with emerging trends, practical strategies, and expert perspectives designed to keep you informed and inspired. <br>
+    Whether you're a student, professional, or business leader knowledge starts here.
+  </p>
+  <button class="apply-button" (click)="openModal()">
+    <span>Register Now</span>
+  </button>
+</section>
+
+
+
+<body>
+  <main>
+    <section class="intro">
+      <h2>Your Learning Ecosystem</h2>
+      <p>Stay updated with industry trends, case studies, and leadership articles.</p>
+    </section>
+
+    <section>
+      <h3 class="section-title">Articles</h3>
+      <div class="card-grid">
+        <!-- Repeat this block for each article -->
+        <div class="card">
+          <img src="https://storage.googleapis.com/a1aa/image/178bf0ac-43b1-4473-844a-8918276c7524.jpg" alt="Industry Trends 2024"/>
+          <div class="card-content">
+            <h4>Industry Trends 2024: What to Expect</h4>
+            <p>Explore the key trends shaping the industry landscape in 2024 and how to stay ahead.</p>
+            <a>Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://storage.googleapis.com/a1aa/image/83c0bea1-793e-4476-ea19-abc22e529480.jpg" alt="Leadership Case Study"/>
+          <div class="card-content">
+            <h4>Leadership Case Study: Driving Change</h4>
+            <p>A deep dive into how effective leadership can transform organizations and inspire teams.</p>
+            <a>Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://storage.googleapis.com/a1aa/image/37930828-e673-418f-24ce-c41237559c81.jpg" alt="Case Studies Insights"/>
+          <div class="card-content">
+            <h4>Case Studies Insights: Best Practices</h4>
+            <p>Learn from successful case studies and discover best practices to apply in your work.</p>
+            <a>Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://storage.googleapis.com/a1aa/image/b2bfc50a-9e66-494f-3f69-79aece8ddbec.jpg" alt="Emerging Tech"/>
+          <div class="card-content">
+            <h4>Emerging Technologies to Watch</h4>
+            <p>Stay informed about the latest emerging technologies and their potential impact.</p>
+            <a>Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://storage.googleapis.com/a1aa/image/626aee7f-f1ce-4981-a1c8-a638a5f8423e.jpg" alt="Leadership Tips"/>
+          <div class="card-content">
+            <h4>Leadership Tips for New Managers</h4>
+            <p>Practical advice and strategies for new managers to lead effectively and build strong teams.</p>
+            <a>Read More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://storage.googleapis.com/a1aa/image/68635822-5194-4c80-6d9e-335f04065a6e.jpg" alt="Industry Analysis"/>
+          <div class="card-content">
+            <h4>In-depth Industry Analysis 2024</h4>
+            <p>Comprehensive analysis of current industry challenges and opportunities for growth.</p>
+            <a>Read More →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <footer>
+    © 2024 Knowledge Hub. All rights reserved.
+  </footer> -->
+</body>
+
+
+
+
+
+  
+<!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <button class=" btn close-button" (click)="closeModal()">✖</button>
+    <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+      <!-- First Name -->
+      <div class="form-row">
+      <div class="form-group half">
+          <label>First Name</label>
+          <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+          <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+            First Name is required
+          </div>
+        </div>
+      
+        <!-- Last Name -->
+        <div class="form-group half">
+          <label>Last Name</label>
+          <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+          <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+            Last Name is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Mail ID -->
+      <div class="form-row">
+      <div class="form-group half">
+        <label>Mail ID</label>
+        <input type="email" formControlName="email" placeholder="Enter your email" />
+        <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+          Valid Email is required
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group half">
+        <label>Phone Number</label>
+        <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+        <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+          Enter a valid 10-digit phone number
+        </div>
+      </div>
+      </div>
+
+
+
+      <!-- Upload Resume -->
+      <div class="form-group">
+        <label>Upload Resume</label>
+        <input type="file" (change)="onFileChange($event)" />
+        <div class="error" *ngIf="resumeRequired">
+          Resume is required
+        </div>
+      </div>
+
+      <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+<div *ngIf="showToast" class="toast-message">
+Submitted successfully!
+</div>
+
+
+
+
+
+
+
+
+
+      
+  <footer>
+    <div class="footer-top text-center">
+        <div class="container">
+            <div class="row justify-content-center gy-4">
+                <!-- Footer Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>GEN IT JOBS</h3>
+                    <p>
+                      GEN IT Job services was established in the year 2025. Since then we have been dominating the recruitment and staffing industry in India. We have branch office in Hyderabad.
+                    </p>
+  
+                    <div class="social-icons">
+                      <a href="#"><i class="bx bxl-facebook"></i></a>
+                      <a href="#"><i class="bx bxl-twitter"></i></a>
+                      <a href="#"><i class="bx bxl-instagram"></i></a>
+                      <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+                
+  
+  
+ <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+  
+  
+          
+      <!-- Google Map -->
+                    <div class="col-lg-3 col-md-6">
+                        <h3>FIND US</h3>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  
+                        </div>
+                    </div>
+     </div>
+  </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+            <p class="foot">Designed by <a href="#">GEN IT</a></p>
+        </div>
+    </div>
+  
+  
+    <!-- Scroll-to-Top Arrow Button -->
+    <button id="backToTop19" class="scroll-top-btn">
+        <img src="assets/arrow.png" alt="Scroll to top">
+    </button>
+  </footer>
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  
+  
+  <script src="assets/css/jquery.min.js"></script>
+  <script src="assets/css/bootstrap.bundle.min.js"></script>
+  <script src="assets/css/owl.carousel.min.js"></script>
+  <script src="assets/css/app.js"></script>
+  
+  

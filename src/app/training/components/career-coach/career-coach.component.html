@@ -1,0 +1,180 @@
+
+
+
+<div class="relative min-h-screen custom-bg text-white">
+    <!-- Overlay to lighten or darken the image -->
+    <div class="absolute inset-0 bg-white/50 z-0"></div>
+  
+    <div class="relative z-10 container mx-auto px-4 py-10">
+      <!-- Header Section -->
+      <div class="flex">
+        <div>
+          <h1 class="text-4xl">Supercharge your career with</h1>
+          <h2 class="text-2xl">Long Term Mentorship or Short Term Mentorship</h2>
+          <p class="black">
+            Land your dream job, role, and company faster than ever with 1:1 mentorship.
+          </p>
+          <button (click)="openModal()">Book a Free Trail</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+<!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <button class=" btn close-button" (click)="closeModal()">✖</button>
+      <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+  
+      <!-- Success Message -->
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+  
+      <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+        <!-- First Name -->
+        <div class="form-row">
+        <div class="form-group half">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+            <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+              First Name is required
+            </div>
+          </div>
+        
+          <!-- Last Name -->
+          <div class="form-group half">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+            <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+              Last Name is required
+            </div>
+          </div>
+        </div>
+  
+        <!-- Mail ID -->
+        <div class="form-row">
+        <div class="form-group half">
+          <label>Mail ID</label>
+          <input type="email" formControlName="email" placeholder="Enter your email" />
+          <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+            Valid Email is required
+          </div>
+        </div>
+  
+        <!-- Phone Number -->
+        <div class="form-group half">
+          <label>Phone Number</label>
+          <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+          <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+            Enter a valid 10-digit phone number
+          </div>
+        </div>
+        </div>
+
+
+        <!-- Primary Skillset -->
+        <div class="form-group">
+          <label>Primary Skillset</label>
+          <input type="text" formControlName="primarySkillset" placeholder="Enter your primary skills" />
+          <div class="error" *ngIf="demoForm.controls['primarySkillset'].invalid && demoForm.controls['primarySkillset'].touched">
+            Skillset is required
+          </div>
+        </div>
+  
+        <!-- Career Break -->
+        <div class="form-group">
+          <label>Do you have any break in your career?</label>
+          <select formControlName="careerBreak">
+            <option value="" disabled selected>Select an option</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <div class="error" *ngIf="demoForm.controls['careerBreak'].invalid && demoForm.controls['careerBreak'].touched">
+            This field is required
+          </div>
+        </div>
+  
+        <!-- Fresher or Experienced -->
+        <div class="form-row">
+        <div class="form-group half">
+          <label>Are you a fresher?</label>
+          <select formControlName="fresherStatus">
+            <option value="" disabled selected>Select an option</option>
+            <option value="fresher">Yes, I’m a Fresher</option>
+            <option value="experienced">No, I’m Experienced</option>
+          </select>
+          <div class="error" *ngIf="demoForm.controls['fresherStatus'].invalid && demoForm.controls['fresherStatus'].touched">
+            Please select your status
+          </div>
+        </div>
+  
+        <!-- Years of Experience -->
+        <div class="form-group half">
+          <label>Years of Experience</label>
+          <input type="number" formControlName="experience" placeholder="Enter your experience in years" min="0" />
+          <div class="error" *ngIf="demoForm.controls['experience'].invalid && demoForm.controls['experience'].touched">
+            Please enter years of experience
+          </div>
+        </div>
+        </div>
+        <!-- Upload Resume -->
+        <div class="form-group">
+          <label>Upload Resume</label>
+          <input type="file" (change)="onFileChange($event)" />
+          <div class="error" *ngIf="resumeRequired">
+            Resume is required
+          </div>
+        </div>
+  
+        <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+
+  
+  <div *ngIf="showToast" class="toast-message">
+  Submitted successfully!
+</div>
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+        
+   
+
+
+  <!-- Scroll-to-Top Arrow Button -->
+  <button id="backToTop12" class="scroll-top-btn">
+      <img src="assets/arrow.png" alt="Scroll to top">
+  </button>
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+<script src="assets/css/jquery.min.js"></script>
+<script src="assets/css/bootstrap.bundle.min.js"></script>
+<script src="assets/css/owl.carousel.min.js"></script>
+<script src="assets/css/app.js"></script>
+<script src="assets/css/video.js"></script>
+
+
+
+

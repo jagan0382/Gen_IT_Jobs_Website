@@ -1,0 +1,239 @@
+
+
+
+
+
+<!-- <div class="temporary-staffing-section">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h1 class="title">PERMANENT STAFFING</h1>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Find the Right Talent with Expert Contract Staffing Solutions</h1>
+    <p>Flexible and reliable staffing services to meet your business needs and drive success.</p>
+    <div class="hero-buttons">
+      <button class="outline" (click)="openModal()">Join Us</button>
+    </div>
+  </section>
+  
+
+
+  
+<!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <button class=" btn close-button" (click)="closeModal()">✖</button>
+    <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+      <!-- First Name -->
+      <div class="form-row">
+      <div class="form-group half">
+          <label>First Name</label>
+          <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+          <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+            First Name is required
+          </div>
+        </div>
+      
+        <!-- Last Name -->
+        <div class="form-group half">
+          <label>Last Name</label>
+          <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+          <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+            Last Name is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Mail ID -->
+      <div class="form-row">
+      <div class="form-group half">
+        <label>Mail ID</label>
+        <input type="email" formControlName="email" placeholder="Enter your email" />
+        <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+          Valid Email is required
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group half">
+        <label>Phone Number</label>
+        <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+        <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+          Enter a valid 10-digit phone number
+        </div>
+      </div>
+      </div>
+
+
+
+      <!-- Upload Resume -->
+      <div class="form-group">
+        <label>Upload Resume</label>
+        <input type="file" (change)="onFileChange($event)" />
+        <div class="error" *ngIf="resumeRequired">
+          Resume is required
+        </div>
+      </div>
+
+      <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+<div *ngIf="showToast" class="toast-message">
+Submitted successfully!
+</div>
+
+
+
+  
+  <div class="temporary-staffing-content container py-5">
+    <h2 class="temporary-staffing-content section-heading">
+        <span class="">Permanent</span>&nbsp;<span class="highlight">Staffing</span>
+      </h2>
+      
+
+    <p>
+        Hiring permanent employees and absorbing them into your organisation is a serious commitment, so you better make sure that you’re making this commitment to the right people. We are here to help you pick out just the right ones.
+    </p>
+    <p>
+      GEN IT Job's permanent staffing solutions give you access to fully screened and qualified candidates in any industry of your choice. We have strong team of consultants who dedicate themselves to helping your company achieve its business objectives.
+    </p>
+    
+    <h3 class="heading">Find the Right Employees for Your Business</h3>
+    <p>
+      If you find yourself wading knee-deep in resumes from candidates who do not meet the requirements of your project or business, you are wasting precious time, money, and energy. Leave staffing problems to the professionals, so you can focus your energy and attention on what really matters - your core business.
+    </p>
+    
+    <h3 class="heading">What We Do</h3>
+    <p>
+      Before we start looking for candidates, we first study your requirements in detail, undertake comprehensive research on the industry, and create interest around your company to attract the best talent.
+    </p>
+  
+    <h3 class="heading">Our Process</h3>
+    <ul>
+      <li>Understand your requirements</li>
+        <p>The first step in our process is understanding the client - you. We will spend time understanding your business, long-term and short-term objectives, company culture, and background. If needed, we will also visit your workplace to get a thorough understanding of the roles and responsibilities of the ideal candidate that you're looking for.</p>
+      <li>Customised recruitment plan</li>
+        <p>Once we gather all the details, we will develop a tailor-made recruiting plan just for you. We have a large network of job seekers and talented candidates who may currently not be actively looking for a new job, but may be interested in a good offer. We also use our strategic alliances, personal networks, and contacts at civic and professional organisations to widen our search.</p>
+      <li>Shortlisting and verification of candidates</li>
+        <p>Once we identify a few candidates, we will start with customised interviews to start the shortlisting process. The top candidates will have the hard and soft skills that are necessary for the profile. We also conduct a background check, and verification of work history and professional references.
+            Out of this pool, we select the most suitable candidates and forward you their profiles. We work closely with you to help you select the best candidate and finalise the job offer.</p>
+      <li>Finalising the job offer and follow-up</li>
+        <p>We will also help you with the final job offer, managing negotiations, and securing the signed offer letter from the candidate. We also have an ongoing follow-up process where we work with you and the candidate to ensure that the on boarding process goes without a hitch. In the dynamic market today, it is hard to find reliable talent that meets your unique needs. GEN IT Jobs Consulting solves your staffing problem by sourcing and recruiting the best candidates who have the potential to become permanent assets for your organisation.</p>
+    </ul>
+  </div>
+          
+      
+      
+      
+      
+     <!-- footer section -->
+        
+    
+    
+     <footer>
+      <div class="footer-top text-center">
+          <div class="container">
+              <div class="row justify-content-center gy-4">
+                  <!-- Footer Contact -->
+                  <div class="col-lg-3 col-md-6">
+                      <h3>GEN IT JOBS</h3>
+                      <p>
+                        GEN IT Job services was established in the year 2025. Since then we have been dominating the recruitment and staffing industry in India. We have branch office in Hyderabad.
+                      </p>
+  
+                      <div class="social-icons">
+                        <a href="#"><i class="bx bxl-facebook"></i></a>
+                        <a href="#"><i class="bx bxl-twitter"></i></a>
+                        <a href="#"><i class="bx bxl-instagram"></i></a>
+                        <a href="#"><i class="bx bxl-linkedin"></i></a>
+                      </div>
+                  </div>
+                  
+  
+                   <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+  
+            
+        <!-- Google Map -->
+                      <div class="col-lg-3 col-md-6">
+                          <h3>FIND US</h3>
+                          <div class="map-container">
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  
+                          </div>
+                      </div>
+       </div>
+  </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom text-center">
+          <div class="container">
+              <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+              <p class="foot">Designed by <a href="#">GEN IT</a></p>
+          </div>
+      </div>
+  
+  
+      <!-- Scroll-to-Top Arrow Button -->
+      <button id="backToTop6" class="scroll-top-btn">
+          <img src="assets/arrow.png" alt="Scroll to top">
+      </button>
+  </footer>
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  
+  
+  <script src="assets/css/jquery.min.js"></script>
+  <script src="assets/css/bootstrap.bundle.min.js"></script>
+  <script src="assets/css/owl.carousel.min.js"></script>
+  <script src="assets/css/app.js"></script>
+  
+  

@@ -24,9 +24,26 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+               "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/owl.theme.default.min.css",
+              "node_modules/swiper/swiper-bundle.min.css"
+              
+              
             ],
-            "scripts": []
+            "scripts": [
+        
+          "src/assets/css/jquery.min.js",
+          "src/assets/css/owl.carousel.min.js",
+          "src/assets/css/app.js",
+          "src/assets/css/bootstrap.bundle.min.js",
+          "node_modules/swiper/swiper-bundle.min.js",
+          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      
+           
+
+            ]
           },
           "configurations": {
             "production": {

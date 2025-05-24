@@ -1,0 +1,231 @@
+<!-- <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true"> -->
+
+
+
+<div class="container1">
+    <!-- Job Description Section -->
+    <div class="job-description">
+        <h2>Sr .NET Developer</h2>
+        <p>The Senior Developer will be responsible for leading the development of high-quality software solutions,
+            providing technical guidance to team members, and collaborating with stakeholders to deliver projects on
+            time and within budget.</p>
+
+        <h3>Responsibilities:</h3>
+        <ul>
+            <li>Lead the design, development, and implementation of software solutions, ensuring high standards of
+                quality and performance.</li>
+            <li>Provide technical leadership, mentor junior developers, and foster continuous learning.</li>
+            <li>Collaborate with product managers, designers, and BAs to define project requirements.</li>
+            <li>Participate in code reviews, architectural discussions, and technical design sessions.</li>
+            <li>Stay updated with emerging technologies and industry trends.</li>
+            <li>Troubleshoot and debug complex issues.</li>
+            <li>Contribute to coding standards, documentation, and best practices.</li>
+        </ul>
+
+        <p><strong>Technologies:</strong> Angular, .Net Core, Asp.Net, EF Core, DB knowledge, LINQ, Cloud Architecture,
+            Microservices</p>
+        <p><strong>Experience:</strong> 5 Years</p>
+    </div>
+
+    <div class="application-form">
+        <h3>Apply Now</h3>
+        <form [formGroup]="applyForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group-inline">
+                    <label>First Name *</label>
+                    <input type="text" formControlName="firstName" placeholder="First Name">
+                    <div class="error" *ngIf="applyForm.get('firstName')?.invalid && applyForm.get('firstName')?.touched">
+                        First Name is required
+                    </div>
+                </div>
+                <div class="form-group-inline">
+                    <label>Last Name *</label>
+                    <input type="text" formControlName="lastName" placeholder="Last Name">
+                    <div class="error" *ngIf="applyForm.get('lastName')?.invalid && applyForm.get('lastName')?.touched">
+                        Last Name is required
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>Current Company *</label>
+                <input type="text" formControlName="currentCompany" placeholder="Current Company">
+                <div class="error" *ngIf="applyForm.get('currentCompany')?.invalid && applyForm.get('currentCompany')?.touched">
+                    Current Company is required
+                </div>
+            </div>
+    
+            <!-- <div class="form-group">
+                <label>Position Applied For *</label>
+                <select formControlName="position">
+                    <option value="">- Select -</option>
+                    <option value="Senior .NET Developer">Senior .NET Developer</option>
+                    <option value="Technical Product Manager">Technical Product Manager</option>
+                    <option value="UI/UX Developer">UI/UX Developer</option>
+                </select>
+                <div class="error" *ngIf="applyForm.get('position')?.invalid && applyForm.get('position')?.touched">
+                    Position is required
+                </div>
+            </div> -->
+
+            <div class="form-group">
+                <label>Position Applied For *</label>
+                <input type="text" formControlName="position" placeholder="Position Applied For">
+                <div class="error" *ngIf="applyForm.get('position')?.invalid && applyForm.get('position')?.touched">
+                    Position is required
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" formControlName="email" placeholder="Email Address">
+                <div class="error" *ngIf="applyForm.get('email')?.invalid && applyForm.get('email')?.touched">
+                    Valid Email is required
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" formControlName="phoneNumber" placeholder="Phone Number">
+                <div class="error" *ngIf="applyForm.get('phoneNumber')?.invalid && applyForm.get('phoneNumber')?.touched">
+                    Phone number must be 10 digits
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>Country *</label>
+                <select formControlName="country">
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+                <div class="error" *ngIf="applyForm.get('country')?.invalid && applyForm.get('country')?.touched">
+                    Country is required
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>Additional Information *</label>
+                <textarea formControlName="requirement" placeholder="Additional Information"></textarea>
+                <div class="error" *ngIf="applyForm.get('requirement')?.invalid && applyForm.get('requirement')?.touched">
+                    This field is required
+                </div>
+            </div>
+    
+            <!-- <div class="form-group small-upload"> -->
+            <div class="form-group">
+                <label>Upload Resume</label>
+                <input type="file" (change)="onFileSelected($event)">
+            </div>
+    
+            <button type="submit" class="small-btn" [disabled]="applyForm.invalid">Submit Form</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Success Popup Modal -->
+<div *ngIf="showSuccessPopup1" class="popup-overlay">
+    <div class="popup-content">
+        <img src="assets/tick-mark.png" alt="Success" class="success-icon">
+        <h2>Thank You!!</h2>
+        <p>Submitted successfully.</p>
+    </div>
+</div>
+
+
+
+
+
+
+    
+<footer>
+    <div class="footer-top text-center">
+        <div class="container">
+            <div class="row justify-content-center gy-4">
+                <!-- Footer Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>VR DIZI IT SERVICES</h3>
+                    <p>
+                        VR Dizi IT services was established in the year 2025. Since then we have been dominating the recruitment and staffing industry in India. We have branch office in Hyderabad.
+                      </p>
+
+                    <div class="social-icons">
+                      <a href="#"><i class="bx bxl-facebook"></i></a>
+                      <a href="#"><i class="bx bxl-twitter"></i></a>
+                      <a href="#"><i class="bx bxl-instagram"></i></a>
+                      <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+                
+
+        
+  <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+          
+      <!-- Google Map -->
+                    <div class="col-lg-3 col-md-6">
+                        <h3>FIND US</h3>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3806.3444783446857!2d78.39086147516625!3d17.44321888345354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%20500081!5e0!3m2!1sen!2sin!4v1739769923381!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="foot">&copy; Copyright <strong>VR Dizi</strong>. All Rights Reserved</p>
+            <p class="foot">Designed by <a href="#">VR Dizi</a></p>
+        </div>
+    </div>
+
+
+    <!-- Scroll-to-Top Arrow Button -->
+    <button id="backToTop1" class="scroll-top-btn">
+        <img src="assets/arrow.png" alt="Scroll to top">
+    </button>
+</footer>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+<script src="assets/css/jquery.min.js"></script>
+<script src="assets/css/bootstrap.bundle.min.js"></script>
+<script src="assets/css/owl.carousel.min.js"></script>
+<script src="assets/css/app.js"></script>
+
+
+
+

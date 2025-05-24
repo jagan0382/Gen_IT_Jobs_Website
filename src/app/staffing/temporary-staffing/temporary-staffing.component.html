@@ -1,0 +1,234 @@
+
+
+
+
+
+<!-- <div class="temporary-staffing-section">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <h1 class="title">CONTRACT STAFFING</h1>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Find the Right Talent with Expert Contract Staffing Solutions</h1>
+    <p>Flexible and reliable staffing services to meet your business needs and drive success.</p>
+    <div class="hero-buttons">
+      <button class="outline" (click)="openModal()">Join Us</button>
+    </div>
+  </section>
+  
+
+
+  
+<!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <button class=" btn close-button" (click)="closeModal()">✖</button>
+    <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+      <!-- First Name -->
+      <div class="form-row">
+      <div class="form-group half">
+          <label>First Name</label>
+          <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+          <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+            First Name is required
+          </div>
+        </div>
+      
+        <!-- Last Name -->
+        <div class="form-group half">
+          <label>Last Name</label>
+          <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+          <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+            Last Name is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Mail ID -->
+      <div class="form-row">
+      <div class="form-group half">
+        <label>Mail ID</label>
+        <input type="email" formControlName="email" placeholder="Enter your email" />
+        <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+          Valid Email is required
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group half">
+        <label>Phone Number</label>
+        <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+        <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+          Enter a valid 10-digit phone number
+        </div>
+      </div>
+      </div>
+
+
+
+      <!-- Upload Resume -->
+      <div class="form-group">
+        <label>Upload Resume</label>
+        <input type="file" (change)="onFileChange($event)" />
+        <div class="error" *ngIf="resumeRequired">
+          Resume is required
+        </div>
+      </div>
+
+      <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+<div *ngIf="showToast" class="toast-message">
+Submitted successfully!
+</div>
+
+
+
+<div class="temporary-staffing-content container py-5">
+  <h2 class="temporary-staffing-content section-heading">
+      <span class="">Contract</span>&nbsp;<span class="highlight">Staffing</span>
+    </h2>
+    
+
+  <p>
+    Across the country, organisations big and small are struggling to deal with increased government regulations and volatile market demand. When things are uncertain, you may not want to hire permanent employees on a full-time basis. You want the flexibility of an agile, on-demand workforce who is equipped to run your business operations just the way you want them to.
+  </p>
+  <p>
+    GEN IT Jobs Consulting provides reliable temporary staffing solutions that offer you the ability to build your staff strength without absorbing them full time, assist overloaded employees during critical times, and keep projects moving. We are one of the leading employee leasing services in India, offering a full service, cost-effective, and efficient Human Resource Management services to organisations that may not have the necessary infrastructure or inclination to perform these labour-intensive tasks. When you hire us as your temporary staffing agency, we would work just like your company's own HR Department, minus the hassles and tediousness that you’d otherwise have to deal with.
+  </p>
+  <p>Highlights of our temporary staffing services:</p>
+  <ul>
+    <li>Temporary employees who will stay on our rolls</li>
+    <li>Standard contractual procedures that we will handle</li>
+    <li>Payroll and personnel administration</li>
+    <li>Statutory compliance, remittance of statutory payments, and other related administration</li>
+    <li>Employee registration under ESIC & EPF schemes</li>
+  </ul>
+  
+  <h3 class="heading">We recruit for your needs</h3>
+  <p>
+    We have a proven, time-tested recruitment process which allows us to recruit just the right candidates for your company. We have professional networks all over the country which give us access to a huge base of candidates. We vigorously screen, shortlist, and evaluate potential candidates to give you the choicest picks.
+  </p>
+  
+  <h3 class="heading">Decrease your costs</h3>
+  <p>
+    Our temporary staffing services will allow your company to staff up or down depending on the needs of your current business cycle. Temporary staffing allows you to bring down your costs on hiring, training, and providing benefits to new employees, along with the administrative costs of the human resources department. It also lets you give a respite to your permanent staff who may be overloaded during busy periods.
+
+  <h3 class="heading">Reduce administrative burden</h3>
+    <p>There are umpteen laws that organisations have to comply with in India - minimum wages, gratuity, ESIC, PF etc. just to name a few. GEN IT Jobs Consulting takes over the burden of all administrative tasks by acting as the central point for all temporary staffing requirements including labour law compliance and other legal issues. We have a team of legal eagles and compliance officers to ensure that your business will be in 100% compliance with all the statutory regulations in the market.
+    </p>
+    <h3 class="heading"> Employee leasing and contract staffing</h3>
+      <p>Our employee leasing service works by simply transferring employees from a company on to the payroll of GEN IT Job's employee leasing services, and then releasing them back to the company on a temporary basis. This facilitates GEN IT Jobs to become the legal employer, thus taking over all your HR administrative and management hassles.</p>
+      <p>When you outsource your HR administration to us, it will give you more time to focus on your core business, while saving you money, time, and resources. We have a huge, multidisciplinary selection of temporary staff including attorneys, qualified accountants, insurance experts, and other professionals. No matter what kind of personneI you're looking for, or for what duration, we can find the right people for you.</p>
+      <p>Contract labour has been in existence for a long time, but now it is becoming more prominent even in white-collar jobs. Contract staffing is advantageous for both businesses and employees. Organisations have the flexibility of finding people for short projects, while talented employees also get to chart out a clear career path by progressively handling more challenging and higher positions in different companies.</p>
+      <p>Approach us when you need people for a short duration, a specific project, or to tide over your seasonal staffing requirements.</p>
+</div>
+        
+    
+    
+    
+    
+<footer>
+  <div class="footer-top text-center">
+      <div class="container">
+          <div class="row justify-content-center gy-4">
+              <!-- Footer Contact -->
+              <div class="col-lg-3 col-md-6">
+                  <h3>GEN IT JOBS</h3>
+                  <p>
+                    GEN IT Job services was established in the year 2025. Since then we have been dominating the recruitment and staffing industry in India. We have branch office in Hyderabad.
+                  </p>
+
+                  <div class="social-icons">
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                  </div>
+              </div>
+              
+
+            <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+
+        
+    <!-- Google Map -->
+                  <div class="col-lg-3 col-md-6">
+                      <h3>FIND US</h3>
+                      <div class="map-container">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                      </div>
+                  </div>
+   </div>
+</div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom text-center">
+      <div class="container">
+          <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+          <p class="foot">Designed by <a href="#">GEN IT</a></p>
+      </div>
+  </div>
+
+
+  <!-- Scroll-to-Top Arrow Button -->
+  <button id="backToTop30" class="scroll-top-btn">
+      <img src="assets/arrow.png" alt="Scroll to top">
+  </button>
+</footer>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+<script src="assets/css/jquery.min.js"></script>
+<script src="assets/css/bootstrap.bundle.min.js"></script>
+<script src="assets/css/owl.carousel.min.js"></script>
+<script src="assets/css/app.js"></script>
+

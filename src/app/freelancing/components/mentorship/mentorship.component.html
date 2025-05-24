@@ -1,0 +1,397 @@
+
+
+
+
+<!-- <div class="mentor-main-container"> -->
+  <!-- Left Section -->
+  <!-- <div class="mentor-selection-container">
+    <h2>Find Your Ideal Mentor</h2>
+    <p><span class="highlight">From 600+ Top Experienced Mentors</span></p>
+
+    <div class="selection-buttons">
+      <button [class.active]="userType === 'fresher'" (click)="selectUserType('fresher')">
+        <i class="icon">🎓</i> Fresher
+      </button>
+      <button [class.active]="userType === 'working'" (click)="selectUserType('working')">
+        <i class="icon">💼</i> Working Professional
+      </button>
+    </div> -->
+
+    <!-- Dropdown for Mentorship Tags -->
+    <!-- <div class="dropdown-area">
+      <label>Looking for mentorship in</label>
+      <div class="dropdown" (click)="toggleDropdown()" tabindex="0">
+        <div class="selected-tags">
+          <span *ngFor="let tag of selectedTags" class="tag selected">
+            {{ tag }}
+            <span class="remove" (click)="removeTag(tag, $event)">✕</span>
+          </span>
+          <span *ngIf="selectedTags.length === 0">eg: frontend, backend, etc...</span>
+        </div>
+        <div class="arrow">&#9662;</div>
+        <div class="dropdown-list" *ngIf="dropdownOpen">
+          <div *ngFor="let tag of tags" 
+               class="tag" 
+               [class.active]="selectedTags.includes(tag)" 
+               (click)="toggleTag(tag)">
+            {{ tag }}
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <button class="find-btn">Find Matching Mentors ➔</button>
+   
+  </div> -->
+
+  <!-- Right Section -->
+  <!-- <div class="mentor-carousel">
+    <div class="mentor-column" *ngFor="let col of [0, 1]">
+      <div class="mentor-track">
+        <div class="mentor-card" *ngFor="let mentor of dummyMentors">
+          <img [src]="mentor.img" alt="{{ mentor.name }}" class="mentor-img" />
+          <div class="mentor-info">
+            <h4>{{ mentor.name }}</h4>
+            <p>{{ mentor.title }}</p>
+            <div class="mentor-company">
+              <img [src]="mentor.companyLogo" alt="{{ mentor.company }} logo" class="company-logo" />
+              {{ mentor.company }}
+            </div>
+          </div>
+        </div> -->
+        <!-- Duplicate for seamless loop -->
+        <!-- <div class="mentor-card" *ngFor="let mentor of dummyMentors">
+          <img [src]="mentor.img" alt="{{ mentor.name }}" class="mentor-img" />
+          <div class="mentor-info">
+            <h4>{{ mentor.name }}</h4>
+            <p>{{ mentor.title }}</p>
+            <div class="mentor-company">
+              <img [src]="mentor.companyLogo" alt="{{ mentor.company }} logo" class="company-logo" />
+              {{ mentor.company }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- Page Title -->
+<!-- <div class="page-title">
+  <h1>Become a Freelance Career Coach</h1>
+</div> -->
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container2">
+    <div class="page-title">
+      <h1>Become a Freelance Career Coach</h1>
+    </div>
+    <h2>Empower Engineers. Build Careers. Work on Your Own Terms.</h2>
+    <p>
+      Join our growing network of freelance career coaches who are shaping the future of engineering talent across industries.
+    </p>
+    <div class="cta-buttons">
+      <!-- <button class="primary-btn">Join as a Coach</button> -->
+      <button class="secondary-btn" (click)="openModal()">Join as a Coach</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <button class="close-button" (click)="closeModal()">✖</button>
+
+    <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+      <!-- First Name and Last Name -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>First Name</label>
+          <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+          <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+            First Name is required
+          </div>
+        </div>
+
+        <div class="form-group half">
+          <label>Last Name</label>
+          <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+          <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+            Last Name is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile and Mail ID -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Mobile Number</label>
+          <input type="tel" formControlName="mobile" placeholder="Enter 10-digit mobile number" />
+          <div class="error" *ngIf="demoForm.controls['mobile'].invalid && demoForm.controls['mobile'].touched">
+            Valid 10-digit Mobile Number is required
+          </div>
+        </div>
+
+        <div class="form-group half">
+          <label>Mail ID</label>
+          <input type="email" formControlName="email" placeholder="Enter your email" />
+          <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+            Valid Email is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Primary Skills and Experience -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Primary Skills</label>
+          <input type="text" formControlName="primarySkills" placeholder="Enter primary skills" />
+          <div class="error" *ngIf="demoForm.controls['primarySkills'].invalid && demoForm.controls['primarySkills'].touched">
+            Primary Skills are required
+          </div>
+        </div>
+
+        <div class="form-group half">
+          <label>Experience (Years)</label>
+          <input type="number" formControlName="primaryExperience" placeholder="Years of experience" min="0" />
+          <div class="error" *ngIf="demoForm.controls['primaryExperience'].invalid && demoForm.controls['primaryExperience'].touched">
+            Experience is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Skills and Experience -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Secondary Skills</label>
+          <input type="text" formControlName="secondarySkills" placeholder="Enter secondary skills" />
+          <div class="error" *ngIf="demoForm.controls['secondarySkills'].invalid && demoForm.controls['secondarySkills'].touched">
+            Secondary Skills are required
+          </div>
+        </div>
+
+        <div class="form-group half">
+          <label>Experience (Years)</label>
+          <input type="number" formControlName="secondaryExperience" placeholder="Years of experience" min="0" />
+          <div class="error" *ngIf="demoForm.controls['secondaryExperience'].invalid && demoForm.controls['secondaryExperience'].touched">
+            Experience is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Previous Career Coach Experience -->
+      <div class="form-group">
+        <label>Do you have previous experience as a career coach?</label>
+        <select formControlName="coachExperience">
+          <option value="" disabled>Select an option</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <div class="error" *ngIf="demoForm.controls['coachExperience'].invalid && demoForm.controls['coachExperience'].touched">
+          This field is required
+        </div>
+      </div>
+
+      <!-- Hours of Availability -->
+      <div class="form-row">
+      <div class="form-group half">
+        <label>No. of hours of availability</label>
+        <input type="number" formControlName="availabilityHours" placeholder="Enter hours per week" min="1" />
+        <div class="error" *ngIf="demoForm.controls['availabilityHours'].invalid && demoForm.controls['availabilityHours'].touched">
+          Availability is required
+        </div>
+      </div>
+
+      <!-- Resume Upload -->
+      <div class="form-group half">
+        <label>Upload Resume</label>
+        <input type="file" (change)="onFileChange($event)" />
+        <div class="error" *ngIf="resumeRequired">
+          Resume is required
+        </div>
+      </div>
+    </div>
+      <button class="btn" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- Success Toast -->
+<div *ngIf="showToast" class="toast-message">
+  Submitted successfully!
+</div>
+
+
+<!-- Section 1 -->
+<section class="section">
+  <div class="container2 flex-container">
+    <div class="text-content">
+      <h2 class="head">The Power of Freelance Career Coaching</h2>
+      <p class="para">
+        As a freelance career coach, you have the opportunity to guide professionals through some of the most pivotal transitions in their careers...
+      </p>
+      <ul class="list">
+        <li>Flexibility to coach when and where you want</li>
+        <li>Make meaningful contributions to someone’s career journey</li>
+        <li>Leverage your industry experience in a rewarding way</li>
+        <li>Build your personal brand as a thought leader</li>
+        <li>Earn income doing what you love</li>
+      </ul>
+    </div>
+    <div class="image-content">
+      <img src="assets/free1.jpg" alt="Freelance Coaching" />
+    </div>
+  </div>
+</section>
+
+
+<!-- Section 2 -->
+<section class="section reverse">
+  <div class="container2 flex-container">
+    <div class="image-content">
+      <img src="assets/free2.jpg" alt="Freelance Coaching" />
+    </div>
+    <div class="text-content">
+    <h2 class="head">Drive Growth and Transformation in Tech Careers</h2>
+    <p class="para">
+      Engineers today are seeking more than just a job—they want direction, growth, and purpose...
+    </p>
+    <ul class="list">
+      <li>Transition into leadership, product management, or architecture roles</li>
+      <li>Upskill in areas like automation, AI, or cloud technologies</li>
+      <li>Build confidence for interviews and technical evaluations</li>
+      <li>Improve resumes, LinkedIn profiles, and personal branding</li>
+      <li>Set clear career goals and build a roadmap to achieve them</li>
+    </ul>
+  </div>
+
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section class="section">
+  <div class="container2 flex-container">
+    <div class="text-content">
+    <h2 class="head">Is This for You?</h2>
+    <p class="para">
+      If you’re a mid-to-senior level professional with a passion for mentoring and a track record of success in the tech industry...
+    </p>
+    <ul class="list">
+      <li >8+ years of experience in software, QA, DevOps, or data engineering</li>
+      <li>Strong communication and coaching mindset</li>
+      <li>Willingness to guide, support, and empower others</li>
+      <li>Interest in freelance or part-time flexible work</li>
+    </ul>
+  </div>
+  <div class="image-content">
+    <img src="assets/free3.jpg" alt="Freelance Coaching" />
+  </div>
+  </div>
+</section>
+
+<!-- Section 4 -->
+<section class="hero-section light-blue-bg">
+  <div class="container2 text-center">
+    <h2>Start Your Coaching Journey Today</h2>
+    <p>
+      Whether you're exploring coaching for the first time or looking to expand your impact...
+    </p>
+    <div class="ct-buttons">
+      <!-- <button class="primary-btn">Login to Your Dashboard</button> -->
+      <button class="secondary-btn blue" (click)="openModal()">Apply to Become a Coach</button>
+    </div>
+  </div>
+</section>
+
+      
+      
+  <footer>
+    <div class="footer-top text-center">
+        <div class="container">
+            <div class="row justify-content-center gy-4">
+                <!-- Footer Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>GEN IT JOBS</h3>
+                    <p>
+                      GEN IT Job services was established in the year 2025. Since then we have been dominating the recruitment and staffing industry in India. We have branch office in Hyderabad.
+                    </p>
+  
+                    <div class="social-icons">
+                      <a href="#"><i class="bx bxl-facebook"></i></a>
+                      <a href="#"><i class="bx bxl-twitter"></i></a>
+                      <a href="#"><i class="bx bxl-instagram"></i></a>
+                      <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+                
+  
+                <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li> 
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+                       
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+  
+          
+      <!-- Google Map -->
+                    <div class="col-lg-3 col-md-6">
+                        <h3>FIND US</h3>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  
+                        </div>
+                    </div>
+     </div>
+  </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+            <p class="foot">Designed by <a href="#">GEN IT</a></p>
+        </div>
+    </div>
+  
+  
+    <!-- Scroll-to-Top Arrow Button -->
+    <button id="backToTop9" class="scroll-top-btn">
+        <img src="assets/arrow.png" alt="Scroll to top">
+    </button>
+  </footer>
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  
+  
+  <script src="assets/css/jquery.min.js"></script>
+  <script src="assets/css/bootstrap.bundle.min.js"></script>
+  <script src="assets/css/owl.carousel.min.js"></script>
+  <script src="assets/css/app.js"></script>
+  
+  

@@ -1,0 +1,26 @@
+<h1 class="job-title">{{ jobDetail.title }}</h1>
+
+<!-- Job Description Section (Left) -->
+<section class="job-section-left">
+  <h3>Job Description:</h3>
+  <p><strong>{{ jobDetail.designation }}</strong></p>
+  <p><strong>Work location:</strong> {{ jobDetail.location }}</p>
+  <p><strong>Shift:</strong> {{ jobDetail.shift }}</p>
+  <h4>Responsibilities:</h4>
+  <ul>
+    <li *ngFor="let item of jobDetail.responsibilities">{{ item }}</li>
+  </ul>
+</section>
+
+<!-- Job Apply Details Section (Right) -->
+<aside class="job-section-right">
+  <button class="apply-button">APPLY NOW</button>
+  <div class="job-details">
+    <p><strong>Location:</strong> {{ jobDetail.location }}</p>
+    <p><strong>Experience:</strong> {{ jobDetail.experience }}</p>
+    <p><strong>Skills:</strong> {{ jobDetail.skills || '-' }}</p>
+    <p><strong>Posted Date:</strong> {{ jobDetail.postedDate }}</p>
+    <p><strong>No Of Openings:</strong> {{ jobDetail.openings }}</p>
+    <p><strong>Job Category:</strong> {{ jobDetail.category }}</p>
+  </div>
+</aside>

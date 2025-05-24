@@ -1,0 +1,677 @@
+<!-- <div class="slider-container">
+  
+    <div class="slider">
+      <div #slide class="slide">
+        <img src="assets/bg_banner1.jpg" alt="Slider Image1">
+        <div class="slide-text">
+          <h1>Hiring Right People</h1>
+          <p>Plan For Business Expansion</p>
+        </div>
+      </div>
+      <div #slide class="slide">
+        <img src="assets/home3.jpg" alt="Slider Image3">
+        <div class="slide-text">
+          <h1>Best IT Solutions</h1>
+          <p>Quality Digital Services You Really Need!</p>
+        </div>
+      </div>
+      <div #slide class="slide">
+        <img src="assets/home4.jpg" alt="Slider Image2">
+        <div class="slide-text">
+          <h1>GEN IT JOBS</h1>
+          <p>Creativity Starts With an Open Mind.</p>
+        </div>
+      </div>
+    </div>
+  
+
+    <button class="prev" (click)="moveSlide(-1)">&#10094;</button>
+    <button class="next" (click)="moveSlide(1)">&#10095;</button>
+  
+  </div> -->
+
+
+<section class="section main-banner" id="top" data-section="section1">
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="assets/course-video.mp4" type="video/mp4" />
+    </video>
+
+    <div class="video-overlay header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="caption">
+                        <!-- <h6>Hello Students</h6> -->
+                        <h2>Welcome to GEN IT JOBS</h2>
+                        <p>GEN IT JOBS is dedicated to empowering individuals to build successful careers in the IT
+                            industry. We provide valuable resources, job opportunities, and career guidance to help you
+                            achieve your professional goals. Join us and take the next step toward a brighter future in
+                            technology.</p>
+                        <button class="apply-button mobile-center" (click)="openModal()">
+                            <span>Register Now</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Main Banner Area End ***** -->
+
+
+
+
+<!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+    <div class="modal-content">
+        <button class=" btn close-button" (click)="closeModal()">✖</button>
+        <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+
+        <!-- Success Message -->
+        <div *ngIf="successMessage" class="success-message">
+            {{ successMessage }}
+        </div>
+
+        <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+            <!-- First Name -->
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+                    <div class="error"
+                        *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+                        First Name is required
+                    </div>
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group half">
+                    <label>Last Name</label>
+                    <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+                    <div class="error"
+                        *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+                        Last Name is required
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mail ID -->
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>Mail ID</label>
+                    <input type="email" formControlName="email" placeholder="Enter your email" />
+                    <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+                        Valid Email is required
+                    </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group half">
+                    <label>Phone Number</label>
+                    <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+                    <div class="error"
+                        *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+                        Enter a valid 10-digit phone number
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Upload Resume -->
+            <div class="form-group">
+                <label>Upload Resume</label>
+                <input type="file" (change)="onFileChange($event)" />
+                <div class="error" *ngIf="resumeRequired">
+                    Resume is required
+                </div>
+            </div>
+
+            <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+<div *ngIf="showToast" class="toast-message">
+    Submitted successfully!
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section class="staffing-section">
+        <h2 class="section-title">CORE <span>STAFFING SOLUTIONS</span> LIST</h2>
+        <p class="section-subtitle">WE OFFER OUR CUSTOMERS THE BEST SERVICES & SOLUTIONS, THIS IS OUR MAIN STAFFING SOLUTIONS LIST.</p>
+
+        <div class="staffing-grid"> -->
+<!-- Permanent Staffing -->
+<!-- <div class="staffing-card" id="permanent-staffing">
+                        <div class="icon"><i class="fa-solid fa-user-lock"></i></div>
+                        <h3>PERMANENT STAFFING</h3>
+                        <p>An organisation can achieve and maintain success only with the help of committed employees. Use our permanent staffing solutions to find just the right people.</p>
+                        <a routerLink="/permanent-staffing">Read more <i class="fa-solid fa-hand-point-right"></i></a>
+                    </div> -->
+
+<!-- Employee leasing -->
+<!-- <div class="staffing-card" id="freelancing">
+            <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>FREELANCING</h3>
+            <p>Freelancing offers businesses flexible access to top talent for specific projects without long-term commitments. Our freelancing solutions help you find skilled professionals quickly and efficiently.</p>
+            <a routerLink="/employee-leasing">Read more <i class="fa-solid fa-hand-point-right"></i></a>
+        </div> -->
+
+<!-- Temporary Staffing -->
+<!-- <div class="staffing-card" id="temporary-staffing">
+                        <div class="icon"><i class="fa-solid fa-user-clock"></i></div>
+                        <h3>CONTRACT STAFFING</h3>
+                        <p>In an uncertain climate, organisations are often required to hire temporary employees. Use our temporary staffing solutions to build a staff strength in a flexible way.</p>
+                        <a routerLink="/temporary-staffing">Read more <i class="fa-solid fa-hand-point-right"></i></a>
+                    </div>
+
+
+        </div>
+    </section> -->
+
+
+<!-- About Start -->
+<div class="container-fluid py-5 my-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+                <div class="h-100 position-relative">
+                    <img src="assets/home1.jpg" class="img-fluid w-75 rounded" alt="" style="margin-bottom: 25%;">
+                    <div class="position-absolute w-75" style="top: 25%; left: 25%;">
+                        <img src="assets/home2.jpg" class="img-fluid w-100 rounded" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+                <h5 class="text-primary">About Us</h5>
+                <h1 class="mb-4">Your Partner in IT Staffing & Talent Solutions</h1>
+                <p>
+                    At GenITJobs, we specialize in connecting top-tier IT professionals
+                    with industry-leading companies. Founded in 2025, our mission is to
+                    accelerate your career and help businesses build high-performance
+                    tech teams.
+                </p>
+                <p class="mb-4">
+                    From contract staffing to permanent placements and employee leasing,
+                    our tailored approach ensures we understand your unique needs. We
+                    blend deep industry expertise with a vast network of candidates to
+                    deliver the right talent fast.
+                </p>
+                <button class="apply-button mobile-center" (click)="openModal()">
+                    <span>More Details</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+
+<!-- Services Start -->
+<div class="container-fluid services py-5 my-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+            <h5 class="text-primary">Our Services</h5>
+            <h1>Comprehensive IT Staffing & Workforce Solutions</h1>
+        </div>
+        <div class="row g-5 services-inner">
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fa fa-briefcase fa-3x mb-4 text-primary"></i>
+                            <h4 class="mb-3">Contract Staffing</h4>
+                            <p class="mb-4">
+                                Flexible, on-demand IT talent for short-term projects and peak loads.
+                                Quickly scale your team with certified professionals.
+                            </p>
+                            <a class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fa fa-user-tie fa-3x mb-4 text-primary"></i>
+                            <h4 class="mb-3">Permanent Placement</h4>
+                            <p class="mb-4">
+                                End-to-end recruitment to help you hire full-time IT professionals
+                                who fit your culture and technical requirements.
+                            </p>
+                            <a class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fas fa-handshake fa-3x mb-4 text-primary"></i>
+                            <h4 class="mb-3">Freelance &amp; Leasing</h4>
+                            <p class="mb-4">
+                                Access a pool of vetted freelance IT specialists for short-term
+                                assignments, with hassle-free leasing agreements.
+                            </p>
+                            <a class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fas fa-file-invoice-dollar fa-3x mb-4 text-primary"></i>
+                            <h4 class="mb-3">Payroll &amp; Compliance</h4>
+                            <p class="mb-4">
+                                We handle payroll, benefits administration, and regulatory compliance
+                                so you can focus on your core business.
+                            </p>
+                            <a class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fas fa-search fa-3x mb-4 text-primary"></i>
+                            <h4 class="mb-3">Executive Search</h4>
+                            <p class="mb-4">
+                                Targeted headhunting for C-level and senior leadership roles in IT
+                                and technology.
+                            </p>
+                            <a class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fas fa-chalkboard-teacher fa-3x mb-4 text-primary"></i>
+                            <h4 class="mb-3">Training &amp; Upskilling</h4>
+                            <p class="mb-4">
+                                Customized IT training programs and workshops to bridge skill gaps
+                                and boost team productivity.
+                            </p>
+                            <a class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+
+<!-- Vendor Start -->
+<!-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5 mb-5">
+            <div class="bg-white">
+                <div class="owl-carousel vendor-carousel">
+                    <img src="assets/vendor-1.jpg" alt="">
+                    <img src="assets/vendor-2.jpg" alt="">
+                    <img src="assets/vendor-3.jpg" alt="">
+                    <img src="assets/vendor-4.jpg" alt="">
+                    <img src="assets/vendor-5.jpg" alt="">
+                    <img src="assets/vendor-6.jpg" alt="">
+                    <img src="assets/vendor-7.jpg" alt="">
+                    <img src="assets/vendor-8.jpg" alt="">
+                    <img src="assets/vendor-9.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div> -->
+<!-- Vendor End -->
+
+
+<!-- Team Start -->
+<!-- <div class="container-fluid py-5 my-5 team">
+            <div class="container py-5">
+                <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+                    <h5 class="text-primary">Our Team</h5>
+                    <h1>Meet our expert Team</h1>
+                </div>
+                <div class="owl-carousel team-carousel wow fadeIn" data-wow-delay=".5s">
+                    <div class="rounded team-item">
+                        <div class="team-content">
+                            <div class="team-img-icon">
+                                <div class="team-img rounded-circle">
+                                    <img src="assets/team.jpg" class="img-fluid w-100 rounded-circle" alt="">
+                                </div>
+                                <div class="team-name text-center py-3">
+                                    <h4 class="">Full Name</h4>
+                                    <p class="m-0">Designation</p>
+                                </div>
+                                <div class="team-icon d-flex justify-content-center pb-4">
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded team-item">
+                        <div class="team-content">
+                            <div class="team-img-icon">
+                                <div class="team-img rounded-circle">
+                                    <img src="assets/team2.jpg" class="img-fluid w-100 rounded-circle" alt="">
+                                </div>
+                                <div class="team-name text-center py-3">
+                                    <h4 class="">Full Name</h4>
+                                    <p class="m-0">Designation</p>
+                                </div>
+                                <div class="team-icon d-flex justify-content-center pb-4">
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded team-item">
+                        <div class="team-content">
+                            <div class="team-img-icon">
+                                <div class="team-img rounded-circle">
+                                    <img src="assets/team3.jpg" class="img-fluid w-100 rounded-circle" alt="">
+                                </div>
+                                <div class="team-name text-center py-3">
+                                    <h4 class="">Full Name</h4>
+                                    <p class="m-0">Designation</p>
+                                </div>
+                                <div class="team-icon d-flex justify-content-center pb-4">
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded team-item">
+                        <div class="team-content">
+                            <div class="team-img-icon">
+                                <div class="team-img rounded-circle">
+                                    <img src="assets/team1.jpg" class="img-fluid w-100 rounded-circle" alt="">
+                                </div>
+                                <div class="team-name text-center py-3">
+                                    <h4 class="">Full Name</h4>
+                                    <p class="m-0">Designation</p>
+                                </div>
+                                <div class="team-icon d-flex justify-content-center pb-4">
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+<!-- Team End -->
+
+
+<!-- #Contact Us Area start -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-heading left">
+                    <h4>Let's Talk about Your Business</h4>
+                </div>
+                <div class="contact-form-box margin-30px-top">
+                    <div class="no-margin-lr" id="success-contact-form" style="display: none;"></div>
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div>
+                                    <input type="text" formControlName="name" placeholder="Name*" />
+                                    <div class="error-text"
+                                        *ngIf="contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched">
+                                        Name is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div>
+                                    <input type="email" formControlName="email" placeholder="Email*" />
+                                    <div class="error-text"
+                                        *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched">
+                                        Email is required.
+                                    </div>
+                                    <div
+                                        *ngIf="contactForm.get('email')?.hasError('email') && contactForm.get('email')?.touched">
+                                        Invalid email format.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div>
+                                    <input type="text" formControlName="subject" placeholder="Subject*" />
+                                    <div class="error-text"
+                                        *ngIf="contactForm.get('subject')?.hasError('required') && contactForm.get('subject')?.touched">
+                                        Subject is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div>
+                                    <textarea formControlName="message" placeholder="Message*"></textarea>
+                                    <div class="error-text"
+                                        *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched">
+                                        Message is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary " [disabled]="contactForm.invalid">
+                                    Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-info-box padding-30px-left sm-no-padding">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="contact-info-section no-padding-top margin-10px-top">
+                                <h4>Get in Touch</h4>
+                                <p> Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse consequat.</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-info-section">
+                                <h4>The Office</h4>
+                                <ul class="list-style-1 no-margin-bottom">
+                                    <li>
+                                        <p><i class="fa fa-phone text-center"></i> <strong>Address:</strong> Regina ST,
+                                            London, SK 8GH.</p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fa fa-globe text-center"></i> <strong>Phone:</strong> (+44) 123 456
+                                            789</p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fa fa-envelope text-center"></i> <strong>Email:</strong> <a
+                                                href="javascript:void(0)"
+                                                class="email_color_site">email&#64;youradress.com</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-info-section border-none no-padding-bottom no-margin-bottom">
+                                <h4>Business Hours</h4>
+                                <ul class="list-style-2">
+                                    <li>Monday - Friday - 9am to 5pm</li>
+                                    <li>Saturday - 9am to 2pm</li>
+                                    <li>Sunday - Closed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Feedback message after form submission -->
+<div 
+  class="toast-container" 
+  *ngIf="showToasting" 
+  [ngClass]="toastType === 'success' ? 'toast-success' : 'toast-error'">
+  {{ toastMessage }}
+</div>
+
+
+
+
+
+
+
+<!-- #Contact Us Area End -->
+<!-- #Start map  Area -->
+<!-- <section class=" p0">
+        <div class="container-fluid p0">
+           <div id="contatti" class=" maps">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11880.492291371422!2d12.4922309!3d41.8902102!3m2!1i1024!2i768!4f13.1!3m3!1m2! 0.5s0x0%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2! 0.5sit!2sit!4v1524815927977" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+           </div>
+        </div>
+     </section> -->
+<!-- #End map  Area -->
+
+
+
+<!-- footer section -->
+
+
+
+<footer>
+    <div class="footer-top text-center">
+        <div class="container">
+            <div class="row justify-content-center gy-4">
+                <!-- Footer Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>GEN IT JOBS</h3>
+                    <p>
+                        GEN IT Job services was established in the year 2025. Since then we have been dominating the
+                        recruitment and staffing industry in India. We have branch office in Hyderabad.
+                    </p>
+
+                    <div class="social-icons">
+                        <a href="#"><i class="bx bxl-facebook"></i></a>
+                        <a href="#"><i class="bx bxl-twitter"></i></a>
+                        <a href="#"><i class="bx bxl-instagram"></i></a>
+                        <a href="#"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
+
+                <!-- Useful Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Useful Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li>
+                        <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>Our Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+                        <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+                        <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+                        <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+                        <li><a class="item" routerLink="/internship">Internship Program</a></li>
+                        <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Google Map -->
+                <div class="col-lg-3 col-md-6">
+                    <h3>FIND US</h3>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom text-center">
+        <div class="container2">
+            <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+            <p class="foot">Designed by <a href="#">GEN IT</a></p>
+        </div>
+    </div>
+
+
+    <!-- Scroll-to-Top Arrow Button -->
+    <button id="backToTop5" class="scroll-top-btn">
+        <img src="assets/arrow.png" alt="Scroll to top">
+    </button>
+</footer>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+<script src="assets/css/jquery.min.js"></script>
+<script src="assets/css/bootstrap.bundle.min.js"></script>
+<script src="assets/css/owl.carousel.min.js"></script>
+<script src="assets/css/app.js"></script>
+<script src="assets/css/video.js"></script>
