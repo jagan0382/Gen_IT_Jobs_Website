@@ -999,7 +999,7 @@ footer {
   flex: 1;
   max-width: 400px;
   height: auto;
-  border-radius: 0; /* Removes the rounded corners */
+  border-radius: 15px; /* Removes the rounded corners */
   background: none; /* Removes any background */
   box-shadow: none; /* Ensures no shadow is applied */
 

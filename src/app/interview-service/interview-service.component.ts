@@ -98,11 +98,11 @@ export class InterviewServiceComponent implements OnInit {
     },
     { 
       question: 'Which is the top Interview as a Service platform in India?', 
-      answer: 'InCruiter is one of the top Interview as a Service platforms in India.', 
+      answer: 'Gen IT is one of the top Interview as a Service platforms in India.', 
       open: false 
     },
     { 
-      question: 'What are the features of InCruiter Interview as a Service?', 
+      question: 'What are the features of Gen IT Interview as a Service?', 
       answer: [
         '3000+ expert interviewer panel',
         '6 hours of TAT',

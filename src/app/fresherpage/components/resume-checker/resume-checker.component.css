@@ -447,12 +447,24 @@ button:hover {
 
 
 /* Image Styling */
-img {
+/* img {
   width: 100%;
   max-width: 700px;
   border-radius: 8px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+} */
+
+
+.img-block img
+{
+  width: 110%;
+  max-width: 700px;
+  height: 500px; /* 👈 Set your desired height here */
+  border-radius: 290px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensures the image fills the area without distortion */
 }
+
 
 /* Flex alignment adjustments for responsiveness */
 @media (min-width: 1024px) {
@@ -521,6 +533,10 @@ img {
     margin-bottom: 40px;
   }
 
+  .responsive-section .img-block img {
+    max-height: 200px;
+    border-radius: 90px;
+  }
 
 }
 
@@ -961,6 +977,7 @@ footer {
 
 .image-block img {
   width: 100%;
+  border-radius: 100px;
   height: auto;
   display: block;
   margin: 0 auto;
