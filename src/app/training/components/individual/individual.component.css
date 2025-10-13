@@ -356,6 +356,7 @@ body {
   h1, h2 {
     margin-bottom: 20px;
     font-weight: 600;
+    color: #b8d20f;
   }
   
   p {
@@ -377,18 +378,18 @@ body {
   button {
     padding: 12px 24px;
     /* margin: 10px; */
-    border: none;
+    /* border: none; */
     border-radius: 30px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #2563eb;
+    /* background-color: #2563eb; */
     color: white;
     transition: background-color 0.3s ease;
   }
   
-  button:hover {
+  /* button:hover {
     background-color: #1e40af;
-  }
+  } */
   
   button.outline {
     background: #2563eb;
@@ -496,7 +497,7 @@ body {
   
   
   .cta {
-    background-color: #0f172a;
+    background-color: #5d5e5f;
     color: white;
   }
   
@@ -1244,3 +1245,62 @@ textarea{
 
 }
  }
+
+
+ 
+.apply-button {
+  position: relative;
+  padding: 12px 36px;
+  font-size: 1.125rem;
+  color: white;
+  border: 2px solid white;
+  border-radius: 9999px;
+  background-color: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.apply-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #426f02;
+  border-radius: 9999px;
+  z-index: 0; /* Important: background layer */
+  transform: scale(0);
+  transition: transform 0.4s ease;
+}
+
+.apply-button:hover::before {
+  transform: scale(1);
+}
+
+.apply-button:hover {
+  color: white; /* Ensure text color is visible on dark background */
+}
+
+.apply-button span {
+  position: relative;
+  z-index: 1; /* Important: keep text above background */
+}
+
+.decor-top,
+.decor-bottom {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  opacity: 0.2;
+  pointer-events: none;
+  user-select: none;
+}
+
+.decor-top {
+  top: 16px;
+  left: 16px;
+}
+
+.decor-bottom {
+  bottom: 16px;
+  right: 16px;
+}
