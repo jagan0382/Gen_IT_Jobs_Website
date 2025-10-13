@@ -1,32 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Contact } from './models/contact.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ContactDetails } from './models/ContactDetails.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
+  private baseUrl = 'http://localhost:8082/api/contact-details/submit';
 
- 
+  constructor(private http: HttpClient) {}
 
-    private baseUrl = 'http://localhost:8082/api/email/contact';
-    constructor( private http: HttpClient) { }
-  
-    
-  
-    submitContact(contact: Contact): Observable<any>{
-  
+  submitContact(contact: ContactDetails): Observable<string> {
     const formData = new FormData();
-    formData.append('contactform', JSON.stringify(contact));
-  
-    // if (file){
-    //   formData.append('file', file);
-    // }
-  
-    return this.http.post(this.baseUrl, formData);
+    formData.append('contactDetails', JSON.stringify(contact));
+
+    // responseType: 'text' needs "as 'json'" trick for typing
+    return this.http.post<string>(this.baseUrl, formData, {
+      responseType: 'text' as 'json'
+    });
   }
-  
-  
-  
 }

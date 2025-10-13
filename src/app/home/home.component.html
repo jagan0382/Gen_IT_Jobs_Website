@@ -32,30 +32,32 @@
 
 
 <section class="section main-banner" id="top" data-section="section1">
-    <video id="bg-video" autoplay muted loop playsinline>
-        <source src="assets/course-video.mp4" type="video/mp4" />
-    </video>
+  <video id="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="assets/course-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-    <div class="video-overlay header-text">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="caption">
-                        <!-- <h6>Hello Students</h6> -->
-                        <h2>Welcome to GEN IT JOBS</h2>
-                        <p>GEN IT JOBS is dedicated to empowering individuals to build successful careers in the IT
-                            industry. We provide valuable resources, job opportunities, and career guidance to help you
-                            achieve your professional goals. Join us and take the next step toward a brighter future in
-                            technology.</p>
-                        <button class="apply-button mobile-center" (click)="openModal()">
-                            <span>Register Now</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+  <div class="video-overlay header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="caption">
+            <h2>Welcome to GEN IT JOBS</h2>
+            <p>
+              GEN IT JOBS is dedicated to empowering individuals to build successful careers in the IT
+              industry. We provide valuable resources, job opportunities, and career guidance to help you
+              achieve your professional goals.
+            </p>
+            <button class="apply-button mobile-center" (click)="openModal()">
+              <span>Register Now</span>
+            </button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
+
 <!-- ***** Main Banner Area End ***** -->
 
 
@@ -76,7 +78,7 @@
             <!-- First Name -->
             <div class="form-row">
                 <div class="form-group half">
-                    <label>First Name</label>
+                    <label>First Name*</label>
                     <input type="text" formControlName="firstName" placeholder="Enter your first name" />
                     <div class="error"
                         *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
@@ -86,7 +88,7 @@
 
                 <!-- Last Name -->
                 <div class="form-group half">
-                    <label>Last Name</label>
+                    <label>Last Name*</label>
                     <input type="text" formControlName="lastName" placeholder="Enter your last name" />
                     <div class="error"
                         *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
@@ -98,7 +100,7 @@
             <!-- Mail ID -->
             <div class="form-row">
                 <div class="form-group half">
-                    <label>Mail ID</label>
+                    <label>Mail ID*</label>
                     <input type="email" formControlName="email" placeholder="Enter your email" />
                     <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
                         Valid Email is required
@@ -107,7 +109,7 @@
 
                 <!-- Phone Number -->
                 <div class="form-group half">
-                    <label>Phone Number</label>
+                    <label>Phone Number*</label>
                     <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
                     <div class="error"
                         *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
@@ -116,73 +118,74 @@
                 </div>
             </div>
 
+            <!-- Applied For -->
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>Applying For*</label>
+                    <select formControlName="appliedFor">
+                        <option value="">Select an option</option>
+                        <option value="New Registration">New Registration</option>
+                        <!-- <option value="Contract Staffing">Contract Staffing</option> -->
+                    </select>
+                    <div class="error"
+                        *ngIf="demoForm.controls['appliedFor'].invalid && demoForm.controls['appliedFor'].touched">
+                        Please select an option
+                    </div>
+                </div>
 
 
-            <!-- Upload Resume -->
-            <div class="form-group">
-                <label>Upload Resume</label>
-                <input type="file" (change)="onFileChange($event)" />
-                <div class="error" *ngIf="resumeRequired">
-                    Resume is required
+                <!-- Upload Resume  -->
+                <div class="form-group">
+                    <label>Upload Resume</label>
+                    <input type="file" (change)="onFileChange($event)" />
+                    <!-- <div class="error" *ngIf="resumeRequired">
+                        Resume is required
+                    </div> -->
                 </div>
             </div>
 
-            <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+
+            <!-- Requirement -->
+            <div class="form-row">
+                <div class="form-group full">
+                    <label>Requirement*</label>
+                    <textarea formControlName="requirement" placeholder="Enter your requirement"
+                        class="requirement-box"></textarea>
+                    <div class="error"
+                        *ngIf="demoForm.controls['requirement'].invalid &&demoForm.controls['requirement'].touched">
+                        Requirement is required
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button> -->
+            <!-- <button class="btns" type="submit" [disabled]="demoForm.invalid">Submit</button> -->
+             <button class="btns" type="submit" [disabled]="demoForm.invalid || submitting">
+  {{ submitting ? 'Submitting...' : 'Submit' }}
+</button>
+
+
+
         </form>
     </div>
 </div>
 
 
 
-<div *ngIf="showToast" class="toast-message">
-    Submitted successfully!
+
+<!-- Toast message -->
+<!-- Toast message -->
+<div *ngIf="showToast" class="toast-message" [ngClass]="toastType">
+  {{ toastMessage }}
 </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-<!-- <section class="staffing-section">
-        <h2 class="section-title">CORE <span>STAFFING SOLUTIONS</span> LIST</h2>
-        <p class="section-subtitle">WE OFFER OUR CUSTOMERS THE BEST SERVICES & SOLUTIONS, THIS IS OUR MAIN STAFFING SOLUTIONS LIST.</p>
-
-        <div class="staffing-grid"> -->
-<!-- Permanent Staffing -->
-<!-- <div class="staffing-card" id="permanent-staffing">
-                        <div class="icon"><i class="fa-solid fa-user-lock"></i></div>
-                        <h3>PERMANENT STAFFING</h3>
-                        <p>An organisation can achieve and maintain success only with the help of committed employees. Use our permanent staffing solutions to find just the right people.</p>
-                        <a routerLink="/permanent-staffing">Read more <i class="fa-solid fa-hand-point-right"></i></a>
-                    </div> -->
-
-<!-- Employee leasing -->
-<!-- <div class="staffing-card" id="freelancing">
-            <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
-            <h3>FREELANCING</h3>
-            <p>Freelancing offers businesses flexible access to top talent for specific projects without long-term commitments. Our freelancing solutions help you find skilled professionals quickly and efficiently.</p>
-            <a routerLink="/employee-leasing">Read more <i class="fa-solid fa-hand-point-right"></i></a>
-        </div> -->
-
-<!-- Temporary Staffing -->
-<!-- <div class="staffing-card" id="temporary-staffing">
-                        <div class="icon"><i class="fa-solid fa-user-clock"></i></div>
-                        <h3>CONTRACT STAFFING</h3>
-                        <p>In an uncertain climate, organisations are often required to hire temporary employees. Use our temporary staffing solutions to build a staff strength in a flexible way.</p>
-                        <a routerLink="/temporary-staffing">Read more <i class="fa-solid fa-hand-point-right"></i></a>
-                    </div>
-
-
-        </div>
-    </section> -->
 
 
 <!-- About Start -->
@@ -276,38 +279,8 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-file-invoice-dollar fa-3x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Payroll &amp; Compliance</h4>
-                            <p class="mb-4">
-                                We handle payroll, benefits administration, and regulatory compliance
-                                so you can focus on your core business.
-                            </p>
-                            <a class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-search fa-3x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Executive Search</h4>
-                            <p class="mb-4">
-                                Targeted headhunting for C-level and senior leadership roles in IT
-                                and technology.
-                            </p>
-                            <a class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-             <!-- New Career Guidance Service -->
+            <!-- New Career Guidance Service -->
             <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
                 <div class="services-item bg-light">
                     <div class="p-4 text-center services-content">
@@ -359,115 +332,10 @@
 </div>
 <!-- Services End -->
 
-<!-- Vendor Start -->
-<!-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5 mb-5">
-            <div class="bg-white">
-                <div class="owl-carousel vendor-carousel">
-                    <img src="assets/vendor-1.jpg" alt="">
-                    <img src="assets/vendor-2.jpg" alt="">
-                    <img src="assets/vendor-3.jpg" alt="">
-                    <img src="assets/vendor-4.jpg" alt="">
-                    <img src="assets/vendor-5.jpg" alt="">
-                    <img src="assets/vendor-6.jpg" alt="">
-                    <img src="assets/vendor-7.jpg" alt="">
-                    <img src="assets/vendor-8.jpg" alt="">
-                    <img src="assets/vendor-9.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </div> -->
-<!-- Vendor End -->
 
 
-<!-- Team Start -->
-<!-- <div class="container-fluid py-5 my-5 team">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-                    <h5 class="text-primary">Our Team</h5>
-                    <h1>Meet our expert Team</h1>
-                </div>
-                <div class="owl-carousel team-carousel wow fadeIn" data-wow-delay=".5s">
-                    <div class="rounded team-item">
-                        <div class="team-content">
-                            <div class="team-img-icon">
-                                <div class="team-img rounded-circle">
-                                    <img src="assets/team.jpg" class="img-fluid w-100 rounded-circle" alt="">
-                                </div>
-                                <div class="team-name text-center py-3">
-                                    <h4 class="">Full Name</h4>
-                                    <p class="m-0">Designation</p>
-                                </div>
-                                <div class="team-icon d-flex justify-content-center pb-4">
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded team-item">
-                        <div class="team-content">
-                            <div class="team-img-icon">
-                                <div class="team-img rounded-circle">
-                                    <img src="assets/team2.jpg" class="img-fluid w-100 rounded-circle" alt="">
-                                </div>
-                                <div class="team-name text-center py-3">
-                                    <h4 class="">Full Name</h4>
-                                    <p class="m-0">Designation</p>
-                                </div>
-                                <div class="team-icon d-flex justify-content-center pb-4">
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded team-item">
-                        <div class="team-content">
-                            <div class="team-img-icon">
-                                <div class="team-img rounded-circle">
-                                    <img src="assets/team3.jpg" class="img-fluid w-100 rounded-circle" alt="">
-                                </div>
-                                <div class="team-name text-center py-3">
-                                    <h4 class="">Full Name</h4>
-                                    <p class="m-0">Designation</p>
-                                </div>
-                                <div class="team-icon d-flex justify-content-center pb-4">
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded team-item">
-                        <div class="team-content">
-                            <div class="team-img-icon">
-                                <div class="team-img rounded-circle">
-                                    <img src="assets/team1.jpg" class="img-fluid w-100 rounded-circle" alt="">
-                                </div>
-                                <div class="team-name text-center py-3">
-                                    <h4 class="">Full Name</h4>
-                                    <p class="m-0">Designation</p>
-                                </div>
-                                <div class="team-icon d-flex justify-content-center pb-4">
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-facebook"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href=""><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-<!-- Team End -->
+
+
 
 
 <!-- #Contact Us Area start -->
@@ -586,29 +454,12 @@
 
 
 <!-- Feedback message after form submission -->
-<div 
-  class="toast-container" 
-  *ngIf="showToasting" 
-  [ngClass]="toastType === 'success' ? 'toast-success' : 'toast-error'">
-  {{ toastMessage }}
+<div class="toast-container" *ngIf="showToasting" [ngClass]="toastType === 'success' ? 'toast-success' : 'toast-error'">
+    {{ toastMessage }}
 </div>
 
 
 
-
-
-
-
-<!-- #Contact Us Area End -->
-<!-- #Start map  Area -->
-<!-- <section class=" p0">
-        <div class="container-fluid p0">
-           <div id="contatti" class=" maps">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11880.492291371422!2d12.4922309!3d41.8902102!3m2!1i1024!2i768!4f13.1!3m3!1m2! 0.5s0x0%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2! 0.5sit!2sit!4v1524815927977" frameborder="0" style="border:0" allowfullscreen=""></iframe>
-           </div>
-        </div>
-     </section> -->
-<!-- #End map  Area -->
 
 
 

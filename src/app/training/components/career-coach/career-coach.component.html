@@ -1,164 +1,297 @@
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Supercharge your career with</h1>
+  <h2>Long Term Mentorship or Short Term Mentorship</h2>
+  <p> Land your dream job, role, and company faster than ever with 1:1 mentorship.</p>
 
+  <button class="apply-button" (click)="openModal()">
+    <span>Book a Free Trail</span>
+  </button>
+</section>
 
+<!-- Mentorship Cards Section -->
+<section class="mentorship-section">
+  <h2 class="mentorship-title">Choose Your Mentorship Path</h2>
+  <p class="mentorship-subtitle">
+    Whether you’re looking for long-term career guidance or short-term project support, we’ve got you covered.
+  </p>
 
-<div class="relative min-h-screen custom-bg text-white">
-    <!-- Overlay to lighten or darken the image -->
-    <div class="absolute inset-0 bg-white/50 z-0"></div>
-  
-    <div class="relative z-10 container mx-auto px-4 py-10">
-      <!-- Header Section -->
-      <div class="flex">
-        <div>
-          <h1 class="text-4xl">Supercharge your career with</h1>
-          <h2 class="text-2xl">Long Term Mentorship or Short Term Mentorship</h2>
-          <p class="black">
-            Land your dream job, role, and company faster than ever with 1:1 mentorship.
-          </p>
-          <button (click)="openModal()">Book a Free Trail</button>
-        </div>
+  <div class="mentorship-cards">
+    <!-- Long Term Mentorship Card -->
+    <div class="mentorship-card">
+      <div class="icon">
+        <i class="fas fa-user-tie"></i>
       </div>
+      <h3>Long Term Mentorship</h3>
+      <p>
+        Build strong industry connections and receive continuous career guidance to achieve long-term growth and
+        success.
+      </p>
+      <button class="card-btn" (click)="openModal()">Get Started</button>
+    </div>
+
+    <!-- Short Term Mentorship Card -->
+    <div class="mentorship-card">
+      <div class="icon">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <h3>Short Term Mentorship</h3>
+      <p>
+        Gain quick, actionable insights from experts to overcome specific challenges or prepare for interviews
+        effectively.
+      </p>
+      <button class="card-btn" (click)="openModal()">Get Started</button>
     </div>
   </div>
-  
+</section>
 
 
 
 <!-- Popup Modal -->
 <div class="modal-overlay" *ngIf="isModalOpen">
-    <div class="modal-content">
-      <button class=" btn close-button" (click)="closeModal()">✖</button>
-      <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
-  
-      <!-- Success Message -->
-      <div *ngIf="successMessage" class="success-message">
-        {{ successMessage }}
-      </div>
-  
-      <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
-        <!-- First Name -->
-        <div class="form-row">
+  <div class="modal-content">
+    <button class=" btn close-button" (click)="closeModal()">✖</button>
+    <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+      <!-- First Name -->
+      <div class="form-row">
         <div class="form-group half">
-            <label>First Name</label>
-            <input type="text" formControlName="firstName" placeholder="Enter your first name" />
-            <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
-              First Name is required
-            </div>
-          </div>
-        
-          <!-- Last Name -->
-          <div class="form-group half">
-            <label>Last Name</label>
-            <input type="text" formControlName="lastName" placeholder="Enter your last name" />
-            <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
-              Last Name is required
-            </div>
+          <label>First Name*</label>
+          <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+          <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+            First Name is required
           </div>
         </div>
-  
-        <!-- Mail ID -->
-        <div class="form-row">
+
+        <!-- Last Name -->
         <div class="form-group half">
-          <label>Mail ID</label>
+          <label>Last Name*</label>
+          <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+          <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+            Last Name is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Mail ID -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Mail ID*</label>
           <input type="email" formControlName="email" placeholder="Enter your email" />
           <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
             Valid Email is required
           </div>
         </div>
-  
+
         <!-- Phone Number -->
         <div class="form-group half">
-          <label>Phone Number</label>
+          <label>Phone Number*</label>
           <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
-          <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+          <div class="error"
+            *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
             Enter a valid 10-digit phone number
           </div>
         </div>
-        </div>
+      </div>
 
 
-        <!-- Primary Skillset -->
+      <!-- Primary Skills -->
+      <div class="form-row">
         <div class="form-group">
-          <label>Primary Skillset</label>
-          <input type="text" formControlName="primarySkillset" placeholder="Enter your primary skills" />
-          <div class="error" *ngIf="demoForm.controls['primarySkillset'].invalid && demoForm.controls['primarySkillset'].touched">
-            Skillset is required
+          <label>Primary Skills*</label>
+          <input type="text" formControlName="primarySkills" placeholder="Enter your primary skills" />
+          <div class="error"
+            *ngIf="demoForm.controls['primarySkills'].invalid && demoForm.controls['primarySkills'].touched">
+            Skills is required
           </div>
         </div>
-  
-        <!-- Career Break -->
-        <div class="form-group">
-          <label>Do you have any break in your career?</label>
-          <select formControlName="careerBreak">
-            <option value="" disabled selected>Select an option</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <div class="error" *ngIf="demoForm.controls['careerBreak'].invalid && demoForm.controls['careerBreak'].touched">
-            This field is required
-          </div>
-        </div>
-  
-        <!-- Fresher or Experienced -->
-        <div class="form-row">
         <div class="form-group half">
-          <label>Are you a fresher?</label>
-          <select formControlName="fresherStatus">
-            <option value="" disabled selected>Select an option</option>
-            <option value="fresher">Yes, I’m a Fresher</option>
-            <option value="experienced">No, I’m Experienced</option>
+          <label>Mentorship Terms*</label>
+          <select formControlName="mentorship">
+            <!-- <option [ngValue]="null" disabled>Select an option</option>
+            <option [ngValue]="true">Long Term Mentorship</option>
+            <option [ngValue]="false">Short Term Mentorship</option> -->
+             <option value="">Select an option</option>
+            <option value="Long Term Mentorship">Long Term Mentorship</option>
+            <option value="Short Term Mentorship">Short Term Mentorship</option>
+
+         
           </select>
-          <div class="error" *ngIf="demoForm.controls['fresherStatus'].invalid && demoForm.controls['fresherStatus'].touched">
+          <div class="error" *ngIf="demoForm.controls['mentorship'].invalid && demoForm.controls['mentorship'].touched">
+            Please select your mentorship
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Career Break -->
+      <div class="form-group">
+        <label>Do you have any break in your career?*</label>
+        <select formControlName="careerBreak">
+          <!-- <option [ngValue]="null" disabled>Select an option</option>
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option> -->
+
+             <option value="">Select an option</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <div class="error" *ngIf="demoForm.controls['careerBreak'].invalid && demoForm.controls['careerBreak'].touched">
+          This field is required
+        </div>
+      </div>
+
+      <!-- Fresher or Experienced -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Are you a fresher?*</label>
+          <select formControlName="fresherStatus">
+            <!-- <option [ngValue]="null" disabled>Select an option</option>
+            <option [ngValue]="true">Yes, I’m a Fresher</option>
+            <option [ngValue]="false">No, I’m Experienced</option> -->
+
+
+            <option value="">Select an option</option>
+            <option value="Yes, I’m a Fresher">Yes, I’m a Fresher</option>
+            <option value="No, I’m Experienced">No, I’m Experienced</option>
+          </select>
+          <div class="error"
+            *ngIf="demoForm.controls['fresherStatus'].invalid && demoForm.controls['fresherStatus'].touched">
             Please select your status
           </div>
         </div>
-  
+
         <!-- Years of Experience -->
         <div class="form-group half">
-          <label>Years of Experience</label>
+          <label>Years of Experience*</label>
           <input type="number" formControlName="experience" placeholder="Enter your experience in years" min="0" />
           <div class="error" *ngIf="demoForm.controls['experience'].invalid && demoForm.controls['experience'].touched">
             Please enter years of experience
           </div>
         </div>
-        </div>
-        <!-- Upload Resume -->
-        <div class="form-group">
-          <label>Upload Resume</label>
-          <input type="file" (change)="onFileChange($event)" />
-          <div class="error" *ngIf="resumeRequired">
-            Resume is required
-          </div>
-        </div>
-  
-        <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
-      </form>
-    </div>
-  </div>
-  
+      </div>
 
-  
-  <div *ngIf="showToast" class="toast-message">
-  Submitted successfully!
+
+      <div class="form-group">
+        <label>Upload Resume</label>
+        <input type="file" (change)="onFileChange($event)" />
+        <!-- <div class="error" *ngIf="resumeRequired">
+                        Resume is required
+                    </div> -->
+      </div>
+
+      <!-- <button class="btn" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button> -->
+      <button class="btns" type="submit" [disabled]="demoForm.invalid || submitting">
+        {{ submitting ? 'Submitting...' : 'Submit' }}
+      </button>
+    </form>
+  </div>
 </div>
 
-  
-  
-  
 
-  
-  
-  
-  
-  
-  
-        
-   
+
+
+
+<!-- Toast message -->
+<div *ngIf="showToast" class="toast-message" [ngClass]="toastType">
+  {{ toastMessage }}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <div class="footer-top text-center">
+    <div class="container">
+      <div class="row justify-content-center gy-4">
+        <!-- Footer Contact -->
+        <div class="col-lg-3 col-md-6">
+          <h3>GEN IT JOBS</h3>
+          <p>
+            GEN IT Job services was established in the year 2025. Since then we have been dominating the recruitment and
+            staffing industry in India. We have branch office in Hyderabad.
+          </p>
+
+          <div class="social-icons">
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+
+
+        <!-- Useful Links -->
+        <div class="col-lg-3 col-md-6">
+          <h3>Useful Links</h3>
+          <ul class="list-unstyled">
+            <li><a class="item" routerLink="/home" (click)="scrollTop()">Home</a></li>
+            <li><a class="item" routerLink="/home" (click)="scrollTop()">Staffing</a></li>
+            <li><a class="item" routerLink="/home" (click)="scrollTop()">Training</a></li>
+            <li><a class="item" routerLink="/home" (click)="scrollTop()">Interview As a Service</a></li>
+            <li><a class="item" routerLink="/home" (click)="scrollTop()">Resume As a Service</a></li>
+            <li><a class="item" routerLink="/home" (click)="scrollTop()">Fresher page</a></li>
+
+          </ul>
+        </div>
+
+        <!-- Our Services -->
+        <div class="col-lg-3 col-md-6">
+          <h3>Our Services</h3>
+          <ul class="list-unstyled">
+            <li><a class="item" routerLink="/itjobs">Freelancing</a></li>
+            <li><a class="item" routerLink="/corporate">Corporate Trainings</a></li>
+            <li><a class="item" routerLink="/resume-building">Resume Builder</a></li>
+            <li><a class="item" routerLink="/career-guidence">Career Guidance</a></li>
+            <li><a class="item" routerLink="/internship">Internship Program</a></li>
+            <li><a class="item" routerLink="/technical">Knowledge Hub</a></li>
+          </ul>
+        </div>
+
+
+        <!-- Google Map -->
+        <div class="col-lg-3 col-md-6">
+          <h3>FIND US</h3>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7612.683361954236!2d78.38794022983383!3d17.44335289524848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMaa%20Nilayam%2C%203rd%20Floor%2C%201-98%2F9%2F3%2F20%20Sy%20No%2071%2C%20Madhapur%2CSerilingampally%2CHyderabad%2C%20Telangana%C2%A0500081!5e0!3m2!1sen!2sin!4v1739772018652!5m2!1sen!2sin"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom text-center">
+    <div class="container">
+      <p class="foot">&copy; Copyright <strong>GEN IT</strong>. All Rights Reserved</p>
+      <p class="foot">Designed by <a href="#">GEN IT</a></p>
+    </div>
+  </div>
 
 
   <!-- Scroll-to-Top Arrow Button -->
   <button id="backToTop12" class="scroll-top-btn">
-      <img src="assets/arrow.png" alt="Scroll to top">
+    <img src="assets/arrow.png" alt="Scroll to top">
   </button>
+</footer>
+
 
 
 
@@ -169,12 +302,8 @@
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
 
-<script src="assets/css/jquery.min.js"></script>
+<!-- <script src="assets/css/jquery.min.js"></script>
 <script src="assets/css/bootstrap.bundle.min.js"></script>
 <script src="assets/css/owl.carousel.min.js"></script>
 <script src="assets/css/app.js"></script>
-<script src="assets/css/video.js"></script>
-
-
-
-
+<script src="assets/css/video.js"></script> -->

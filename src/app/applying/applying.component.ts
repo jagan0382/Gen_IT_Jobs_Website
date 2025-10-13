@@ -50,10 +50,12 @@ export class ApplyingComponent  {
     lastName: '',
     email: '',
     phoneNumber: '',
-    currentCompany: '',
-    position: '',
-    country: '',
+    appliedFor: '',
     requirement: ''
+   // currentCompany: '',
+    //position: '',
+    //country: '',
+    //requirement: ''
     
   };
 
@@ -78,10 +80,10 @@ document.getElementById('backToTop1').addEventListener('click', function () {
       this.application.lastName = this.applyForm.value.lastName;
       this.application.email = this.applyForm.value.email;
       this.application.phoneNumber = this.applyForm.value.phoneNumber;
-      this.application.currentCompany = this.applyForm.value.currentCompany;
-      this.application.position = this.applyForm.value.position;
-      this.application.country = this.applyForm.value.country;
-      this.application.requirement = this.applyForm.value.requirement;
+      //this.application.currentCompany = this.applyForm.value.currentCompany;
+      //this.application.position = this.applyForm.value.position;
+      //this.application.country = this.applyForm.value.country;
+      //this.application.requirement = this.applyForm.value.requirement;
       
   
       this.showSuccessPopup1 = true;

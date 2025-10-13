@@ -169,6 +169,9 @@ section {
 
 
 
+
+
+
   /* Adjustments for smaller screens */
   @media (max-width: 768px) {
     .dropdown-menu {
@@ -350,12 +353,6 @@ input.form-control {
 .service img {
     width: 90px;
 }
-
-
-
-
-
-
 
 
 
@@ -1196,7 +1193,7 @@ banner
 
 .video-overlay {
     position: absolute;
-    background-color: rgba(54, 64, 69, 0.75);
+    /* background-color: rgba(54, 64, 69, 0.75); */
     top: 0;
     left: 0;
     bottom: 0;
@@ -1225,8 +1222,8 @@ banner
   margin-bottom: 20px;
   font-size: 36px;
   text-transform: uppercase;
-  font-weight: 800;
-  color: #0de0a1;
+  font-weight: 500;
+  color: #09f211;
   letter-spacing: 1px;
 }
 
@@ -1237,9 +1234,10 @@ banner
 }
 
 .main-banner .caption p {
-  color: #fff;
+  color: #fbf8f8;
   font-size: 14px;
   max-width: 570px;
+  font-weight: 600;
 }
 
 .main-banner .caption .main-button-red {
@@ -1263,8 +1261,9 @@ banner
   .main-banner .caption p {
     font-size: 13px;
     text-align: justify;
-    padding: 2px 6px;
-    margin-top: -10px;
+    /* padding: 2px 12px;
+    margin-top: -10px; */
+    margin: 10px 15px 0 0px;
 }
 
 
@@ -1288,7 +1287,7 @@ banner
 
   .video-overlay {
     position: absolute;
-    background-color: rgba(54, 64, 69, 0.75);
+    /* background-color: rgba(54, 64, 69, 0.75); */
     top: 0;
     left: 0;
     bottom: 0;
@@ -1443,24 +1442,26 @@ strong {
 }
 input,
 select {
+  
   border: 1px solid #d1d1d1;
   font-size: 14px;
   padding: 8px 15px;
   width: 100%;
-  margin: 0 0 15px 0;
+  margin: 0 0 5px 0;
   max-width: 100%;
   resize: none;
-  height: 50px;
+  /* height: 50px; */
 }
 textarea{
+  border-radius: 5px;
   border: 1px solid #d1d1d1;
   font-size: 14px;
   padding: 8px 15px;
   width: 100%;
-  margin: 0 0 15px 0;
+  margin: 0 0 0px 0;
   max-width: 100%;
   resize: none;
-  height: 200px;
+   /* height: 200px;  */
 }
 
 input[type="button"],
@@ -1500,6 +1501,15 @@ iframe {
   list-style-type: none;
 }
 
+
+@media screen and (max-width: 576px){
+textarea{
+ 
+  font-size: 10px;
+  padding: 8px 15px;
+ 
+}
+ }
 
 
 
@@ -1619,47 +1629,8 @@ iframe {
 }
 
 
-@media (max-width: 768px) {
-  .contact-info-box {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-  }
-
-  .contact-info-section {
-    margin-bottom: 20px;
-  }
-
-  .contact-info-section h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .contact-info-section p,
-  .contact-info-section li {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .list-style-1,
-  .list-style-2 {
-    padding-left: 0;
-    list-style: none;
-  }
-
-  .list-style-1 li,
-  .list-style-2 li {
-    margin-bottom: 8px;
-  }
-
-  .email_color_site {
-    word-break: break-word;
-  }
-}
-
-
-
-
- /* Form Page */
+ 
+/* Form Page */
 
 .modal-overlay {
   position: fixed;
@@ -1684,7 +1655,7 @@ border-radius: 8px;
 width: 500px;
 text-align: center;
 position: relative;
-top: 87px;  /* Moves the popup a bit downward */
+top: 68px;  /* Moves the popup a bit downward */
 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -1745,10 +1716,11 @@ display: flex;
 flex-direction: column;
 margin-bottom: 10px;
 text-align: left;
+font-size: 15px;
 }
 
 input, select {
-padding: 8px;
+/* padding: 8px; */
 font-size: 14px;
 width: 100%;
 border: 1px solid #ccc;
@@ -1814,7 +1786,7 @@ cursor: not-allowed;
 
   .form-group label {
     width: 100%;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     font-size: 13px;
   }
 
@@ -1824,16 +1796,77 @@ cursor: not-allowed;
 
   input,select {
   font-size: 10.5px;
-  padding: 8px 15px;
-  width: 50%;
+  /* padding: 8px 15px;
+  width: 50%; */
   max-width: 100%;
   resize: none;
   margin: 0 0 5px 0;
   color: #000;
-  height: 40px;
-}
+  /* height: 40px; */
 }
 
+.error{
+    color: red;
+    font-size: 0.6rem;
+    margin-top: 3px;
+}
+
+.btns {
+
+border: none;
+background-color: #2563eb;
+padding: 8px 20px;         /* Padding inside the button */
+border-radius: 28px;         /* Rounded corners */
+font-size: 0.9rem;            /* Font size */
+
+}
+
+
+}
+
+
+
+.requirement-box {
+  width: 100%;
+  /* min-height: 120px; default height */
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+/* When user focuses on the box */
+.requirement-box:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* ✅ Make box taller on larger screens */
+@media (min-width: 768px) {
+  .requirement-box {
+    padding: 12px;
+    font-size: 15px;
+
+} 
+}
+
+@media screen and (max-width: 576px){
+  .requirement-box {
+    padding: 12px;
+    font-size: 10px;
+
+} 
+
+}
+
+@media (min-width: 1024px) {
+  .requirement-box {
+    /* min-height: 200px; 👈 looks great on desktop screens */
+  }
+}
 
 
 
@@ -1846,8 +1879,8 @@ cursor: not-allowed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #070c02;
-  color: white;
+  background-color: #f8043d;
+  color: rgb(243, 238, 238);
   padding: 12px 24px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -1869,20 +1902,33 @@ cursor: not-allowed;
     bottom: 28px;               /* a bit closer to edge */
     padding: 10px 10px;         /* slimmer padding */
     border-radius: 6px;      
-    background: rgba(0, 0, 0, 0.80); 
+    background-color: #f8043d;
     text-align: center;   
     white-space: normal;  
   }
 }
 
 
+@media screen and (max-width: 576px){
+ .toast-message {
+    font-size: 12px;
+    width: 60%;                 /* stretch nearly full-width */
+    bottom: 28px;               /* a bit closer to edge */
+    padding: 10px 10px;         /* slimmer padding */
+    border-radius: 6px;      
+    background-color: #f8043d;
+    text-align: center;   
+    white-space: normal;  
+  }
+ }
+
 
 .apply-button {
   position: relative;
   padding: 12px 36px;
   font-size: 1.125rem;
-  color: #80e4e8;
-  border: 2px solid #0ad3de;
+  color: #11010e;
+  border: 2px solid  #160613;
   border-radius: 9999px;
   background-color: transparent;
   cursor: pointer;
@@ -1894,7 +1940,7 @@ cursor: not-allowed;
   content: '';
   position: absolute;
   inset: 0;
-  background-color: #64ccd3;
+  background-color: #510739;
   border-radius: 9999px;
   z-index: 0; /* Important: background layer */
   transform: scale(0);
@@ -1950,6 +1996,16 @@ cursor: not-allowed;
 .error-text {
   color: red;
   font-size: 14px;
-  margin-top: -10px;
+  margin-top: -5px;
   margin-bottom: 12px;
 }
+
+
+@media screen and (max-width: 576px){
+  .error-text {
+  color: red;
+  font-size: 10px;
+  margin-top: -5px;
+  margin-bottom: 12px;
+}
+ }

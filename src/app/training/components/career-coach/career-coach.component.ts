@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CareerCoach } from 'src/app/models/career-coach.model';
+import { CareerCoachService } from 'src/app/services/career-coach.service';
 
 @Component({
   selector: 'app-career-coach',
@@ -27,17 +29,25 @@ document.getElementById('backToTop12').addEventListener('click', function () {
   successMessage = '';
   resumeFile: File | null = null;
   resumeRequired: boolean = false;
+  isSubmitting = false;
+    showToasting: boolean = false;
+    toastMessage: string = '';
+    toastType: 'success' | 'error' = 'success';
+    submitting: boolean;
 
-  constructor(private fb: FormBuilder) {
+
+
+  constructor(private fb: FormBuilder, private service: CareerCoachService) {
     this.demoForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      primarySkillset: ['', Validators.required],
+      primarySkills: ['', Validators.required],
+      mentorship: ['', Validators.required],
       careerBreak: ['', Validators.required],
       fresherStatus: ['', Validators.required],
-      experience: [0,  Validators.required]
+      experience: [0, Validators.required]
     });
   }
 
@@ -48,7 +58,7 @@ document.getElementById('backToTop12').addEventListener('click', function () {
 
   closeModal() {
     this.isModalOpen = false;
-   // this.successMessage = '';
+   this.successMessage = '';
   }
 
   onFileChange(event: any) {
@@ -59,24 +69,59 @@ document.getElementById('backToTop12').addEventListener('click', function () {
     }
   }
 
-  submitForm() {
-    if (this.demoForm.invalid || !this.resumeFile) {
-      if (!this.resumeFile) this.resumeRequired = true;
-      return;
-    }
 
-    this.closeModal();
-    this.showToast = true;
+   submitForm() {
+  // if (this.demoForm.invalid || !this.resumeFile) {
+  //   if (!this.resumeFile) this.resumeRequired = true;
+  //   return;
+  // }
 
-   // this.successMessage = 'Form submitted successfully!';
-    this.demoForm.reset();
-    this.resumeFile = null;
-
-    setTimeout(() => {
-     // this.successMessage = '';
-     this.showToast = false;
-    }, 3000);
+      if (this.demoForm.invalid) {
+    return; // Only stop if form is invalid
   }
 
- 
+
+  //  if (this.isSubmitting) {
+  //   return; // prevent double trigger
+  //}
+
+   this.submitting = true;  // Disable button
+
+  //this.isSubmitting = true;
+  const data: CareerCoach = this.demoForm.value;
+
+  
+
+  this.service.submitCareerCoach(data, this.resumeFile).subscribe({
+    next: (res) => {
+      this.toastMessage = 'Application submitted successfully!';
+      this.toastType = 'success';
+      this.showToast = true;
+      this.closeModal();
+      this.demoForm.reset();
+      this.resumeFile = null;
+      this.submitting = false;
+
+       setTimeout(() => (this.showToast = false), 3000);
+    },
+        error: (err) => {
+      console.error('Failed to submit application', err);
+
+      this.toastMessage = !navigator.onLine
+        ? 'Internet connection failed. Please check your connection and try again.'
+        : 'Failed to submit application. Please try again.';
+      this.toastType = 'error';
+      this.showToast = true;
+      this.submitting = false;
+
+      setTimeout(() => (this.showToast = false), 3000);
+    }
+  });
+}
+
+  scrollTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
 }

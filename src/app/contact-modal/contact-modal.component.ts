@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Contact } from '../models/contact.model';
+//import { Contact } from '../models/contact-details.model';
 import { ContactService } from '../contact.service';
 
 
@@ -49,22 +49,22 @@ document.getElementById('backToTop4').addEventListener('click', function () {
 
 
 
-  contact: Contact = {
-    firstName: '',
-    lastName: '',
-    companyName: '',
-    email: '',
-    phoneNumber: '',
-    country: '',
-    requirement: '',
+  // contact: Contact = {
+  //   firstName: '',
+  //   lastName: '',
+  //   companyName: '',
+  //   email: '',
+  //   phoneNumber: '',
+  //   country: '',
+  //   requirement: '',
     
-  };
+  // };
 
 
 
 
 
-  onSubmit() {
+  /*onSubmit() {
      
 
     if (this.contactForm.valid) {
@@ -108,5 +108,5 @@ document.getElementById('backToTop4').addEventListener('click', function () {
 
   closePopup() {
     this.showSuccessPopup = false;
-  }
+  }*/
 }

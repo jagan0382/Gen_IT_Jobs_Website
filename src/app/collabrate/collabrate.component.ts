@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ContactService } from '../contact.service';
-import { Contact } from '../models/contact.model';
+//import { ContactDetails } from '../models/contact-details.model';
 
 @Component({
   selector: 'app-collabrate',
@@ -57,22 +57,22 @@ export class CollabrateComponent implements OnInit {
  
  
  
-   contact: Contact = {
-     firstName: '',
-     lastName: '',
-     companyName: '',
-     email: '',
-     phoneNumber: '',
-     country: '',
-     requirement: '',
+  //  contact: Contact = {
+  //    firstName: '',
+  //    lastName: '',
+  //    companyName: '',
+  //    email: '',
+  //    phoneNumber: '',
+  //    country: '',
+  //    requirement: '',
      
-   };
+  //  };
  
  
  
  
  
-   onSubmit() {
+  /* onSubmit() {
       
  
      if (this.contactForm.valid) {
@@ -116,7 +116,7 @@ export class CollabrateComponent implements OnInit {
  
    closePopup() {
      this.showSuccessPopup = false;
-   }
+   }*/
  }
  
 

@@ -6,9 +6,9 @@ import { PermanentStaffingComponent } from './staffing/permanent-staffing/perman
 import { TemporaryStaffingComponent } from './staffing/temporary-staffing/temporary-staffing.component';
 import { ApplyingComponent } from './applying/applying.component';
 import { CareerComponent } from './career/career.component';
-import { ContactModalComponent } from './contact-modal/contact-modal.component';
+//import { ContactModalComponent } from './contact-modal/contact-modal.component';
 import { InterviewComponent } from './freelancing/components/interview/interview.component';
-import { CollabrateComponent } from './collabrate/collabrate.component';
+//import { CollabrateComponent } from './collabrate/collabrate.component';
 import { InterviewServiceComponent } from './interview-service/interview-service.component';
 import { ResumeBuildingComponent } from './fresherpage/components/resume-building/resume-building.component';
 import { ResumeCheckerComponent } from './fresherpage/components/resume-checker/resume-checker.component';
@@ -32,10 +32,10 @@ const routes: Routes = [
   { path: 'permanent-staffing', component: PermanentStaffingComponent },
   { path: 'employee-leasing', component: EmployeeLeasingComponent },
   {path: 'career', component:CareerComponent} ,
-  {path: 'contact', component:ContactModalComponent},
+  //{path: 'contact', component:ContactModalComponent},
   {path: 'applying',component:ApplyingComponent},
   {path: 'interviews', component:InterviewComponent},
-  {path: 'collabrate', component:CollabrateComponent},
+  //{path: 'collabrate', component:CollabrateComponent},
   {path: 'interviewservice', component:InterviewServiceComponent},
   {path: 'resume-building', component:ResumeBuildingComponent},
   {path: 'resume-checker', component:ResumeCheckerComponent},

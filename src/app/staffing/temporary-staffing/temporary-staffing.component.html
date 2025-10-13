@@ -40,7 +40,7 @@
       <!-- First Name -->
       <div class="form-row">
       <div class="form-group half">
-          <label>First Name</label>
+          <label>First Name*</label>
           <input type="text" formControlName="firstName" placeholder="Enter your first name" />
           <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
             First Name is required
@@ -49,7 +49,7 @@
       
         <!-- Last Name -->
         <div class="form-group half">
-          <label>Last Name</label>
+          <label>Last Name*</label>
           <input type="text" formControlName="lastName" placeholder="Enter your last name" />
           <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
             Last Name is required
@@ -60,7 +60,7 @@
       <!-- Mail ID -->
       <div class="form-row">
       <div class="form-group half">
-        <label>Mail ID</label>
+        <label>Mail ID*</label>
         <input type="email" formControlName="email" placeholder="Enter your email" />
         <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
           Valid Email is required
@@ -69,7 +69,7 @@
 
       <!-- Phone Number -->
       <div class="form-group half">
-        <label>Phone Number</label>
+        <label>Phone Number*</label>
         <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
         <div class="error" *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
           Enter a valid 10-digit phone number
@@ -79,24 +79,69 @@
 
 
 
-      <!-- Upload Resume -->
-      <div class="form-group">
-        <label>Upload Resume</label>
-        <input type="file" (change)="onFileChange($event)" />
-        <div class="error" *ngIf="resumeRequired">
-          Resume is required
-        </div>
-      </div>
+ <!-- Applied For -->
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>Applying For*</label>
+                    <select formControlName="appliedFor">
+                        <option value="">Select an option</option>
+                        <option value="Contract Staffing">Contract Staffing</option>
+                         
+                    </select>
+                    <div class="error"
+                        *ngIf="demoForm.controls['appliedFor'].invalid && demoForm.controls['appliedFor'].touched">
+                        Please select an option
+                    </div>
+                </div>
 
-      <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
-    </form>
-  </div>
+
+                <!-- Upload Resume  -->
+                <div class="form-group">
+                    <label>Upload Resume</label>
+                    <input type="file" (change)="onFileChange($event)" />
+                    <!-- <div class="error" *ngIf="resumeRequired">
+                        Resume is required
+                    </div> -->
+                </div>
+            </div>
+
+
+            <!-- Requirement -->
+            <div class="form-row">
+                <div class="form-group full">
+                    <label>Requirement*</label>
+                    <textarea formControlName="requirement" placeholder="Enter your requirement"
+                        class="requirement-box"></textarea>
+                    <div class="error"
+                        *ngIf="demoForm.controls['requirement'].invalid &&demoForm.controls['requirement'].touched">
+                        Requirement is required
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button> -->
+            <!-- <button class="btns" type="submit" [disabled]="demoForm.invalid">Submit</button> -->
+             <button class="btns" type="submit" [disabled]="demoForm.invalid || submitting">
+  {{ submitting ? 'Submitting...' : 'Submit' }}
+</button>
+
+
+
+        </form>
+    </div>
 </div>
 
 
 
-<div *ngIf="showToast" class="toast-message">
-Submitted successfully!
+
+<!-- Toast message -->
+<!-- Toast message -->
+<div *ngIf="showToast" class="toast-message" [ngClass]="toastType">
+  {{ toastMessage }}
 </div>
 
 

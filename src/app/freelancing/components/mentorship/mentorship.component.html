@@ -1,86 +1,5 @@
 
 
-
-
-<!-- <div class="mentor-main-container"> -->
-  <!-- Left Section -->
-  <!-- <div class="mentor-selection-container">
-    <h2>Find Your Ideal Mentor</h2>
-    <p><span class="highlight">From 600+ Top Experienced Mentors</span></p>
-
-    <div class="selection-buttons">
-      <button [class.active]="userType === 'fresher'" (click)="selectUserType('fresher')">
-        <i class="icon">🎓</i> Fresher
-      </button>
-      <button [class.active]="userType === 'working'" (click)="selectUserType('working')">
-        <i class="icon">💼</i> Working Professional
-      </button>
-    </div> -->
-
-    <!-- Dropdown for Mentorship Tags -->
-    <!-- <div class="dropdown-area">
-      <label>Looking for mentorship in</label>
-      <div class="dropdown" (click)="toggleDropdown()" tabindex="0">
-        <div class="selected-tags">
-          <span *ngFor="let tag of selectedTags" class="tag selected">
-            {{ tag }}
-            <span class="remove" (click)="removeTag(tag, $event)">✕</span>
-          </span>
-          <span *ngIf="selectedTags.length === 0">eg: frontend, backend, etc...</span>
-        </div>
-        <div class="arrow">&#9662;</div>
-        <div class="dropdown-list" *ngIf="dropdownOpen">
-          <div *ngFor="let tag of tags" 
-               class="tag" 
-               [class.active]="selectedTags.includes(tag)" 
-               (click)="toggleTag(tag)">
-            {{ tag }}
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <button class="find-btn">Find Matching Mentors ➔</button>
-   
-  </div> -->
-
-  <!-- Right Section -->
-  <!-- <div class="mentor-carousel">
-    <div class="mentor-column" *ngFor="let col of [0, 1]">
-      <div class="mentor-track">
-        <div class="mentor-card" *ngFor="let mentor of dummyMentors">
-          <img [src]="mentor.img" alt="{{ mentor.name }}" class="mentor-img" />
-          <div class="mentor-info">
-            <h4>{{ mentor.name }}</h4>
-            <p>{{ mentor.title }}</p>
-            <div class="mentor-company">
-              <img [src]="mentor.companyLogo" alt="{{ mentor.company }} logo" class="company-logo" />
-              {{ mentor.company }}
-            </div>
-          </div>
-        </div> -->
-        <!-- Duplicate for seamless loop -->
-        <!-- <div class="mentor-card" *ngFor="let mentor of dummyMentors">
-          <img [src]="mentor.img" alt="{{ mentor.name }}" class="mentor-img" />
-          <div class="mentor-info">
-            <h4>{{ mentor.name }}</h4>
-            <p>{{ mentor.title }}</p>
-            <div class="mentor-company">
-              <img [src]="mentor.companyLogo" alt="{{ mentor.company }} logo" class="company-logo" />
-              {{ mentor.company }}
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- Page Title -->
-<!-- <div class="page-title">
-  <h1>Become a Freelance Career Coach</h1>
-</div> -->
-
 <!-- Hero Section -->
 <section class="hero-section">
   <div class="container2">
@@ -108,7 +27,7 @@
       <!-- First Name and Last Name -->
       <div class="form-row">
         <div class="form-group half">
-          <label>First Name</label>
+          <label>First Name*</label>
           <input type="text" formControlName="firstName" placeholder="Enter your first name" />
           <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
             First Name is required
@@ -116,7 +35,7 @@
         </div>
 
         <div class="form-group half">
-          <label>Last Name</label>
+          <label>Last Name*</label>
           <input type="text" formControlName="lastName" placeholder="Enter your last name" />
           <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
             Last Name is required
@@ -127,15 +46,16 @@
       <!-- Mobile and Mail ID -->
       <div class="form-row">
         <div class="form-group half">
-          <label>Mobile Number</label>
-          <input type="tel" formControlName="mobile" placeholder="Enter 10-digit mobile number" />
-          <div class="error" *ngIf="demoForm.controls['mobile'].invalid && demoForm.controls['mobile'].touched">
-            Valid 10-digit Mobile Number is required
-          </div>
+         <label>Phone Number*</label>
+                    <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+                    <div class="error"
+                        *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+                        Enter a valid 10-digit phone number
+                    </div>
         </div>
 
         <div class="form-group half">
-          <label>Mail ID</label>
+          <label>Mail ID*</label>
           <input type="email" formControlName="email" placeholder="Enter your email" />
           <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
             Valid Email is required
@@ -146,7 +66,7 @@
       <!-- Primary Skills and Experience -->
       <div class="form-row">
         <div class="form-group half">
-          <label>Primary Skills</label>
+          <label>Primary Skills*</label>
           <input type="text" formControlName="primarySkills" placeholder="Enter primary skills" />
           <div class="error" *ngIf="demoForm.controls['primarySkills'].invalid && demoForm.controls['primarySkills'].touched">
             Primary Skills are required
@@ -165,7 +85,7 @@
       <!-- Secondary Skills and Experience -->
       <div class="form-row">
         <div class="form-group half">
-          <label>Secondary Skills</label>
+          <label>Secondary Skills*</label>
           <input type="text" formControlName="secondarySkills" placeholder="Enter secondary skills" />
           <div class="error" *ngIf="demoForm.controls['secondarySkills'].invalid && demoForm.controls['secondarySkills'].touched">
             Secondary Skills are required
@@ -182,46 +102,60 @@
       </div>
 
       <!-- Previous Career Coach Experience -->
-      <div class="form-group">
-        <label>Do you have previous experience as a career coach?</label>
-        <select formControlName="coachExperience">
-          <option value="" disabled>Select an option</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <div class="error" *ngIf="demoForm.controls['coachExperience'].invalid && demoForm.controls['coachExperience'].touched">
-          This field is required
-        </div>
-      </div>
+<div class="form-group">
+  <label>Do you have previous experience as a career coach?*</label>
+  <select formControlName="careerCoachExperience">
+    <option value="">Select an option</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+  <div class="error" *ngIf="demoForm.controls['careerCoachExperience'].invalid && demoForm.controls['careerCoachExperience'].touched">
+    This field is required
+  </div>
+</div>
+
 
       <!-- Hours of Availability -->
       <div class="form-row">
       <div class="form-group half">
-        <label>No. of hours of availability</label>
+        <label>Hours of Availability*</label>
         <input type="number" formControlName="availabilityHours" placeholder="Enter hours per week" min="1" />
         <div class="error" *ngIf="demoForm.controls['availabilityHours'].invalid && demoForm.controls['availabilityHours'].touched">
           Availability is required
         </div>
       </div>
 
+
+
       <!-- Resume Upload -->
-      <div class="form-group half">
-        <label>Upload Resume</label>
-        <input type="file" (change)="onFileChange($event)" />
-        <div class="error" *ngIf="resumeRequired">
-          Resume is required
-        </div>
-      </div>
+      <div class="form-group">
+                    <label>Upload Resume</label>
+                    <input type="file" (change)="onFileChange($event)" />
+                    <!-- <div class="error" *ngIf="resumeRequired">
+                        Resume is required
+                    </div> -->
+                </div>
     </div>
-      <button class="btn" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button>
+      <!-- <button class="btn" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button> -->
+       <button class="btns" type="submit" [disabled]="demoForm.invalid || submitting">
+  {{ submitting ? 'Submitting...' : 'Submit' }}
+</button>
     </form>
   </div>
 </div>
 
 <!-- Success Toast -->
-<div *ngIf="showToast" class="toast-message">
+<!-- <div *ngIf="showToast" class="toast-message">
   Submitted successfully!
+</div> -->
+
+
+
+<!-- Toast message -->
+<div *ngIf="showToast" class="toast-message" [ngClass]="toastType">
+  {{ toastMessage }}
 </div>
+
 
 
 <!-- Section 1 -->

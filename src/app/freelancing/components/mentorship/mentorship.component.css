@@ -641,6 +641,9 @@ footer {
 
 
 
+
+ /* Form Page */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -652,19 +655,19 @@ footer {
   justify-content: center;
   align-items: center; /* ✅ Center vertically */
   z-index: 1000;
-  padding: 0.4rem;
+  padding: 1rem; /* ✅ For safe spacing on smaller screens */
   box-sizing: border-box;
 }
 
 
 .modal-content {
 background: white;
-padding: 12px;
+padding: 20px;
 border-radius: 8px;
 width: 500px;
 text-align: center;
 position: relative;
-top: 87px;  /* Moves the popup a bit downward */
+top: 80px;  /* Moves the popup a bit downward */
 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -680,25 +683,42 @@ float: right;
 cursor: pointer;
 background: none;
 border: none;
-font-size: 20px;
+/* font-size: 20px; */
 padding: 5px;
 margin-top: -10px;
 border-radius: 5px;
-outline: none; /* Remove focus outline */
-color: black; /* Keep text color unchanged */
+outline: none;
+/* color: black;  */
 }
 
 
-.btn {
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  cursor: pointer;
-  border: none;
-  transition: all 0.3s ease;
-  background-color: blue; /* ✅ make it black */
-  color: white;
+
+.btn:hover {
+background-color: none; 
+color: none;           
+border: none
 }
+
+.btn:hover {
+box-shadow: none;
+}
+
+.btns {
+/* background-color: #1e40af;  */
+/* color: white; */
+border: none;
+background-color: #2563eb;
+padding: 12px 24px;         /* Padding inside the button */
+border-radius: 28px;         /* Rounded corners */
+font-size: 1rem;            /* Font size */
+cursor: pointer;           /* Cursor changes to pointer */
+position: relative;         /* To position the pseudo elements */
+overflow: hidden;           /* Hide any overflow */
+/* border: 2px solid transparent; */
+
+}
+
+
 
 
 .form-group {
@@ -706,19 +726,16 @@ display: flex;
 flex-direction: column;
 margin-bottom: 10px;
 text-align: left;
+font-size: 15px;
 }
 
 input, select {
-padding: 8px;
-font-size: 14px;
-width: 100%;
-border: 1px solid #ccc;
 border-radius: 4px;
 }
 
 .form-row {
   display: flex;
-  gap: 0.8rem;
+  gap: 1rem;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -746,8 +763,6 @@ margin-top: 10px;
 border-radius: 5px;
 }
 
-
-
 .success-message {
 color: green;
 font-size: 1rem;
@@ -762,23 +777,104 @@ font-size: 0.8rem;
 margin-top: 5px;
 }
 
-
-.btn:disabled {
+button:disabled {
 background-color: gray;
 cursor: not-allowed;
 }
 
 
 
+@media screen and (max-width: 576px) {
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-group label {
+    width: 100%;
+    /* margin-bottom: 5px; */
+    font-size: 13px;
+  }
+
+  .form-group input {
+    width: 100%;
+  }
 
 
+
+.error{
+    color: red;
+    font-size: 0.6rem;
+    margin-top: 3px;
+}
+
+.btns {
+  border: none;
+  background-color: #2563eb;
+  padding: 8px 20px;         /* Padding inside the button */
+  border-radius: 28px;         /* Rounded corners */
+  font-size: 0.9rem;            /* Font size */
+
+}
+}
+
+
+
+.requirement-box {
+  width: 100%;
+  /* min-height: 120px; default height */
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+/* When user focuses on the box */
+.requirement-box:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* ✅ Make box taller on larger screens */
+@media (min-width: 768px) {
+  .requirement-box {
+    padding: 12px;
+    font-size: 15px;
+
+} 
+}
+
+@media screen and (max-width: 576px){
+  .requirement-box {
+    padding: 12px;
+    font-size: 10px;
+
+} 
+
+}
+
+@media (min-width: 1024px) {
+  .requirement-box {
+    /* min-height: 200px; 👈 looks great on desktop screens */
+  }
+}
+
+
+
+
+
+
+/* Message */
 .toast-message {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #070c02;
-  color: white;
+  background-color: #f8043d;
+  color: rgb(243, 238, 238);
   padding: 12px 24px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -800,10 +896,153 @@ cursor: not-allowed;
     bottom: 28px;               /* a bit closer to edge */
     padding: 10px 10px;         /* slimmer padding */
     border-radius: 6px;      
-    background: rgba(0, 0, 0, 0.80); 
+    background-color: #f8043d;
     text-align: center;   
     white-space: normal;  
   }
 }
 
 
+@media screen and (max-width: 576px){
+ .toast-message {
+    font-size: 12px;
+    width: 60%;                 /* stretch nearly full-width */
+    bottom: 28px;               /* a bit closer to edge */
+    padding: 10px 10px;         /* slimmer padding */
+    border-radius: 6px;      
+    background-color: #f8043d;
+    text-align: center;   
+    white-space: normal;  
+  }
+ }
+
+
+
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 70px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  opacity: 0.9;
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.toast-success {
+  background-color: #4caf50; 
+}
+
+.toast-error {
+  background-color: #f44336; 
+}
+
+@media (max-width: 480px) {
+  .toast-container {
+    bottom: 45px;
+    right: 30px;
+    padding: 10px 15px;
+    font-size: 14px;
+    max-width: 100vw;
+  }
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 12px;
+}
+
+
+@media screen and (max-width: 576px){
+  .error-text {
+    color: red;
+    font-size: 10px;
+    margin-top: -5px;
+    margin-bottom: 12px;
+}
+ }
+
+
+
+
+ input,
+select {
+  
+    border: 1px solid #d1d1d1;
+    font-size: 14px;
+    padding: 8px 15px;
+    width: 100%;
+    /* margin: 0 0 5px 0; */
+    max-width: 100%;
+    resize: none;
+  /* height: 50px; */
+}
+textarea{
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+  font-size: 14px;
+  padding: 8px 15px;
+  width: 100%;
+  margin: 0 0 0px 0;
+  max-width: 100%;
+  resize: none;
+   /* height: 200px;  */
+}
+
+input[type="button"],
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+textarea,
+input[type="submit"] {
+  -webkit-appearance: none;
+  outline: none
+
+}
+
+input:focus,
+textarea:focus {
+  border-color: #585858;
+  outline: none
+}
+
+input[type="button"]:focus {
+  outline: none
+}
+
+select::-ms-expand {
+  display: none
+}
+
+iframe {
+  border: 0
+}
+.padding-30px-left {
+  padding-left: 30px;
+}
+.list-style-1 li {
+  padding: 5px 0;
+  list-style-type: none;
+}
+
+
+
+
+
+ @media screen and (max-width: 576px){
+ input, select{
+    border: 1px solid #d1d1d1;
+    font-size: 10px;
+    padding: 9px 10px;
+    width: 100%;
+    max-width: 100%;
+    resize: none;
+
+}
+ }
