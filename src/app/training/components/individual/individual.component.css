@@ -1250,8 +1250,8 @@ textarea{
  
 .apply-button {
   position: relative;
-  padding: 12px 36px;
-  font-size: 1.125rem;
+  /* padding: 12px 36px; */
+  /* font-size: 1.125rem; */
   color: white;
   border: 2px solid white;
   border-radius: 9999px;
