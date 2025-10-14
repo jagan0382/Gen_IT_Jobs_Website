@@ -140,7 +140,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       email: this.demoForm.value.email,
       phoneNumber: this.demoForm.value.phoneNumber,
       appliedFor: this.demoForm.value.appliedFor,
-      requirement: this.demoForm.value.requirement
+      requirement: this.demoForm.value.requirement,
+      otherJobTitle: this.demoForm.value.otherJobTitle
     };
 
     this.submitting = true;

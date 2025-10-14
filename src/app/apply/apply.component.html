@@ -1,26 +1,170 @@
-<h1 class="job-title">{{ jobDetail.title }}</h1>
+<div class="job-container">
+  <h1 class="job-title">{{ jobDetail.title }}</h1>
 
-<!-- Job Description Section (Left) -->
-<section class="job-section-left">
-  <h3>Job Description:</h3>
-  <p><strong>{{ jobDetail.designation }}</strong></p>
-  <p><strong>Work location:</strong> {{ jobDetail.location }}</p>
-  <p><strong>Shift:</strong> {{ jobDetail.shift }}</p>
-  <h4>Responsibilities:</h4>
-  <ul>
-    <li *ngFor="let item of jobDetail.responsibilities">{{ item }}</li>
-  </ul>
-</section>
+  <div class="job-content">
+    <!-- Left: Job Description -->
+    <section class="job-left">
+      <h3>Job Description</h3>
+      <p><strong>Designation:</strong> {{ jobDetail.designation }}</p>
+      <p><strong>Work Location:</strong> {{ jobDetail.location }}</p>
+      <p><strong>Shift:</strong> {{ jobDetail.shift }}</p>
 
-<!-- Job Apply Details Section (Right) -->
-<aside class="job-section-right">
-  <button class="apply-button">APPLY NOW</button>
-  <div class="job-details">
-    <p><strong>Location:</strong> {{ jobDetail.location }}</p>
-    <p><strong>Experience:</strong> {{ jobDetail.experience }}</p>
-    <p><strong>Skills:</strong> {{ jobDetail.skills || '-' }}</p>
-    <p><strong>Posted Date:</strong> {{ jobDetail.postedDate }}</p>
-    <p><strong>No Of Openings:</strong> {{ jobDetail.openings }}</p>
-    <p><strong>Job Category:</strong> {{ jobDetail.category }}</p>
+      <h4>Responsibilities</h4>
+      <ul>
+        <li *ngFor="let item of jobDetail.responsibilities">{{ item }}</li>
+      </ul>
+    </section>
+
+    <!-- Right: Job Apply & Details -->
+    <aside class="job-right">
+      <button class="apply-button" (click)="openModal()">Apply Now</button>
+      <div class="job-info">
+        <p><strong>Location:</strong> {{ jobDetail.location }}</p>
+        <p><strong>Experience:</strong> {{ jobDetail.experience }}</p>
+        <p><strong>Skills:</strong> {{ jobDetail.skills || '-' }}</p>
+        <p><strong>Posted Date:</strong> {{ jobDetail.postedDate }}</p>
+        <p><strong>Openings:</strong> {{ jobDetail.openings }}</p>
+        <p><strong>Category:</strong> {{ jobDetail.category }}</p>
+      </div>
+    </aside>
   </div>
-</aside>
+</div>
+
+
+
+
+<!-- Popup Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <button class=" btn close-button" (click)="closeModal()">✖</button>
+    <!-- <h2 class="head">Make Your Hiring Process Smart and Fast</h2> -->
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <form [formGroup]="demoForm" (ngSubmit)="submitForm()">
+      <!-- First Name -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>First Name*</label>
+          <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+          <div class="error" *ngIf="demoForm.controls['firstName'].invalid && demoForm.controls['firstName'].touched">
+            First Name is required
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group half">
+          <label>Last Name*</label>
+          <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+          <div class="error" *ngIf="demoForm.controls['lastName'].invalid && demoForm.controls['lastName'].touched">
+            Last Name is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Mail ID -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Mail ID*</label>
+          <input type="email" formControlName="email" placeholder="Enter your email" />
+          <div class="error" *ngIf="demoForm.controls['email'].invalid && demoForm.controls['email'].touched">
+            Valid Email is required
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group half">
+          <label>Phone Number*</label>
+          <input type="tel" formControlName="phoneNumber" placeholder="Enter 10-digit phone number" />
+          <div class="error"
+            *ngIf="demoForm.controls['phoneNumber'].invalid && demoForm.controls['phoneNumber'].touched">
+            Enter a valid 10-digit phone number
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Applied For -->
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Applying For*</label>
+          <select formControlName="appliedFor" (change)="onAppliedForChange($event)">
+           <option value="">Select an option</option>
+             <option value="IT Jobs">IT Jobs</option>
+            <!-- <option value="Software Developer">Software Developer</option>
+            <option value="Desktop Engineer">Desktop Engineer</option>
+            <option value="Automation Test Engineer">Automation Test Engineer</option>
+            <option value="Recruitment Specialist">Recruitment Specialist</option>
+            <option value="UI/UX Developer">UI/UX Developer</option> -->
+            <option value="Others">Others</option>
+          </select>
+          <div class="error" *ngIf="demoForm.controls['appliedFor'].invalid && demoForm.controls['appliedFor'].touched">
+            Please select an option
+          </div>
+        </div>
+
+        <!-- Conditional "Other Job Title" field -->
+        <div class="form-group half" *ngIf="showOtherJobField">
+          <label>Specify Job Title*</label>
+          <input type="text" formControlName="otherJobTitle" placeholder="Enter job title" />
+          <div class="error"
+            *ngIf="demoForm.controls['otherJobTitle'].invalid && demoForm.controls['otherJobTitle'].touched">
+            Job title is required
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Upload Resume  -->
+      <div class="form-group">
+        <label>Upload Resume</label>
+        <input type="file" (change)="onFileChange($event)" />
+        <!-- <div class="error" *ngIf="resumeRequired">
+                        Resume is required
+                    </div> -->
+      </div>
+
+
+
+      <!-- Requirement -->
+      <div class="form-row">
+        <div class="form-group full">
+          <label>Requirement*</label>
+          <textarea formControlName="requirement" placeholder="Enter your requirement"
+            class="requirement-box"></textarea>
+          <div class="error"
+            *ngIf="demoForm.controls['requirement'].invalid &&demoForm.controls['requirement'].touched">
+            Requirement is required
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <!-- <button class="btns" type="submit" [disabled]="demoForm.invalid || !resumeFile">Submit</button> -->
+      <!-- <button class="btns" type="submit" [disabled]="demoForm.invalid">Submit</button> -->
+      <button class="btns" type="submit" [disabled]="demoForm.invalid || submitting">
+        {{ submitting ? 'Submitting...' : 'Submit' }}
+      </button>
+
+
+
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- Toast message -->
+<!-- Toast message -->
+<div *ngIf="showToast" class="toast-message" [ngClass]="toastType">
+  {{ toastMessage }}
+</div>

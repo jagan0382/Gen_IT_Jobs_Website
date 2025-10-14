@@ -102,7 +102,8 @@ document.getElementById('backToTop6').addEventListener('click', function () {
     email: this.demoForm.value.email,
     phoneNumber: this.demoForm.value.phoneNumber,
      appliedFor: this.demoForm.value.appliedFor,
-      requirement: this.demoForm.value.requirement   // ✅ now included
+      requirement: this.demoForm.value.requirement,   // ✅ now included
+      otherJobTitle: this.demoForm.value.otherJobTitle
   };
 
     this.submitting = true;  // Disable button

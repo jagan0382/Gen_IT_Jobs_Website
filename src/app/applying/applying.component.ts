@@ -51,7 +51,8 @@ export class ApplyingComponent  {
     email: '',
     phoneNumber: '',
     appliedFor: '',
-    requirement: ''
+    requirement: '',
+    otherJobTitle: '',
    // currentCompany: '',
     //position: '',
     //country: '',

@@ -21,6 +21,8 @@ interface Job {
 })
 export class JobsComponent implements OnInit {
 
+
+  
   // Search term for filtering via input
   searchTerm = '';
   // Toggle flag to show/hide filter box
@@ -229,7 +231,7 @@ document.getElementById('backToTop30').addEventListener('click', function () {
 }
     
       showToast: boolean = false;
-    
+     showOtherJobField = false;
     
       isModalOpen = false;
       demoForm: FormGroup;
@@ -249,9 +251,23 @@ document.getElementById('backToTop30').addEventListener('click', function () {
           phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
            appliedFor: ['', Validators.required] ,  
           requirement: ['', Validators.required], 
+           otherJobTitle: [''] // Add this new control (initially empty)
          
         });
       }
+
+      onAppliedForChange(event: any) {
+    const value = event.target.value;
+    if (value === 'Others') {
+      this.showOtherJobField = true;
+      this.demoForm.get('otherJobTitle')?.setValidators([Validators.required]);
+    } else {
+      this.showOtherJobField = false;
+      this.demoForm.get('otherJobTitle')?.clearValidators();
+      this.demoForm.get('otherJobTitle')?.reset();
+    }
+    this.demoForm.get('otherJobTitle')?.updateValueAndValidity();
+  }
     
       openModal() {
         this.isModalOpen = true;
@@ -301,6 +317,12 @@ document.getElementById('backToTop30').addEventListener('click', function () {
     return; // Only stop if form is invalid
   }
 
+  
+  const appliedForValue =
+    this.demoForm.value.appliedFor === 'Others'
+      ? this.demoForm.value.otherJobTitle
+      : this.demoForm.value.appliedFor;
+
   // Build Application object
   const application: Application = {
     firstName: this.demoForm.value.firstName,
@@ -308,7 +330,8 @@ document.getElementById('backToTop30').addEventListener('click', function () {
     email: this.demoForm.value.email,
     phoneNumber: this.demoForm.value.phoneNumber,
      appliedFor: this.demoForm.value.appliedFor,
-      requirement: this.demoForm.value.requirement   // ✅ now included
+      requirement: this.demoForm.value.requirement,   // ✅ now included
+      otherJobTitle: this.demoForm.value.otherJobTitle
   };
 
     this.submitting = true;  // Disable button

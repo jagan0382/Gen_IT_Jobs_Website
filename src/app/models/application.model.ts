@@ -6,6 +6,7 @@ export interface Application {
   appliedFor: string;     // existing
   requirement: string;    // ✅ add this field
   resumeFile?: File;      // optional (for upload)
+  otherJobTitle: string;
 }
 
 
