@@ -462,22 +462,33 @@ footer a:hover {
   color: #fff; /* Change icon color on hover */
 }
 
-
 @media (max-width: 768px) {
-  .social-icons a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
-@media (max-width: 480px) {
-  /* .social-icons a {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  } */
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 30%;
 }
+
+
+}
+
+@media (max-width: 576px) {
+
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 20%;
+}
+
+
+}
+
 
 
 
@@ -660,9 +671,9 @@ img {
   
     display: flex;
     justify-content: center;
-    width: 50%;
+    /* width: 50%; */
     margin-top: 40px;
-    margin-left: 70px;
+    margin-left: 150px;
     border-radius: 25px;
   }
 
@@ -674,6 +685,27 @@ img {
 
 }
 }
+
+@media (max-width: 576px) {
+
+    .responsive-section button {
+  
+    display: flex;
+    justify-content: center;
+    /* width: 50%; */
+    margin-top: 40px;
+    margin-left: 80px;
+    border-radius: 25px;
+  }
+
+
+
+}
+
+
+
+
+
 
 /* General Styles for the About Section */
 .container1-fluid.py-5.my-5 {
@@ -1238,7 +1270,7 @@ footer {
 
   .comparison-table {
     margin-left: -15px;
-    width: 110%;
+    width: 90%;
   }
 
   .container3 h1.title {
@@ -1296,8 +1328,13 @@ footer {
 
 .faq-list {
   flex: 1;
+  width: 50%;
+  margin-right: 280px;
+  margin-left: -20px;
   max-width: 600px;
-  margin-right: 420px;
+  /* margin-right: 420px; */
+  margin-top: 50px;
+  
 }
 
 .faq-item {
@@ -1316,6 +1353,7 @@ footer {
 
 .faq-question {
   font-size: 0.9rem;
+  
   font-weight: bold;
   display: flex;
   justify-content: space-between;
@@ -1341,9 +1379,10 @@ footer {
 
   .faq-content {
     padding-right: 0;
-    margin-left: 0;
+    margin-left: 45px;
     width: 100%;
     margin-bottom: 20px;
+    
   }
 
     .faq-content p {
@@ -1358,8 +1397,8 @@ footer {
   }
 
   .faq-button {
-    margin-left: 70px;
-    width: 50%;
+    margin-left: 280px;
+    /* width: 50%; */
     padding: 12px;
     font-size: 1rem;
   }
@@ -1367,6 +1406,7 @@ footer {
   .faq-list {
     width: 100%;
     margin-right: 0;
+    margin-left: 70px;
   }
 
   .faq-item {
@@ -1382,7 +1422,40 @@ footer {
   }
 }
 
+@media (max-width: 576px) {
+ .faq-button {
+    margin-left: 60px;
+    width: 50%;
+    padding: 12px;
+    font-size: 1rem;
+  }
 
+    .faq-item {
+      padding: 12px;
+     
+  }
+
+  .faq-list {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 28px;
+  }
+
+
+   .faq-content h2 {
+      margin-right: 30px;
+      font-size: 1.5rem;
+      line-height: 1.4;
+    
+  }
+    .faq-content p {
+        margin-right: 30px;
+        font-size: 0.8rem;
+        text-align: center;
+
+  }
+
+}
 
 
 

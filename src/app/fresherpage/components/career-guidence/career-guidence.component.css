@@ -489,19 +489,30 @@ footer a:hover {
 
 
 @media (max-width: 768px) {
-  .social-icons a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
-@media (max-width: 480px) {
-  /* .social-icons a {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  } */
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 30%;
+}
+
+
+}
+
+@media (max-width: 576px) {
+
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 20%;
+}
+
+
 }
 
 

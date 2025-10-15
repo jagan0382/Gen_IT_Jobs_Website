@@ -309,20 +309,32 @@ footer a:hover {
 
 
 @media (max-width: 768px) {
-  .social-icons a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
-@media (max-width: 480px) {
-  /* .social-icons a {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  } */
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 30%;
 }
+
+
+}
+
+@media (max-width: 576px) {
+
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 20%;
+}
+
+
+}
+
 
 
 
@@ -380,7 +392,8 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     margin-bottom: 60px;
-    margin-left: -12px;
+    padding: 12px 12px;
+    /* margin-left: -12px; */
   }
 
   .apply-button .outline {
@@ -388,8 +401,6 @@ footer a:hover {
     max-width: 300px;
   }
 }
-
-
 
 
 
@@ -813,7 +824,7 @@ textarea{
 
 .apply-button {
   position: relative;
-  padding: 12px 36px;
+  padding: 12px 25px;
   font-size: 1.125rem;
   color: #060515;
   border: 2px solid #242037;
@@ -848,6 +859,20 @@ textarea{
   z-index: 1; /* Important: keep text above background */
 }
 
+
+@media (max-width: 576px) {
+.apply-button {
+  position: relative;
+  padding: 10px 15px;
+  font-size: 1.125rem;
+  color: #060515;
+  border: 2px solid #242037;
+  border-radius: 9999px;
+  background-color: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}}
 
 
 

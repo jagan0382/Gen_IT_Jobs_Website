@@ -309,20 +309,32 @@ footer a:hover {
 
 
 @media (max-width: 768px) {
-  .social-icons a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
-@media (max-width: 480px) {
-  /* .social-icons a {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  } */
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 30%;
 }
+
+
+}
+
+@media (max-width: 576px) {
+
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 20%;
+}
+
+
+}
+
 
 
 
@@ -524,13 +536,13 @@ button:hover {
   }
 
    .responsive-section button {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 40px;
-    margin-left: 0px;
-    border-radius: 25px;
-    margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        /* width: 100%; */
+        margin-top: 40px;
+        margin-left: 140px;
+        border-radius: 25px;
+        margin-bottom: 40px;
   }
 
   .responsive-section .img-block img {
@@ -541,6 +553,18 @@ button:hover {
 }
 
 
+@media (max-width: 576px) {
+     .responsive-section button {
+        display: flex;
+        justify-content: center;
+        width: 75%;
+        margin-top: 40px;
+        margin-left: 30px;
+        border-radius: 25px;
+        margin-bottom: 40px;
+  }
+
+}
 
 
 footer {
@@ -922,7 +946,7 @@ footer {
   .upload-btn,
   .back-btn,
   .scan-btn {
-    width: 47%;
+    /* width: 47%; */
     font-size: 15px;
     border-radius: 25px;
   }
@@ -1107,7 +1131,7 @@ p{
   }
 
   .primary-btn {
-    width: 75%;
+    /* width: 75%; */
     font-size: 15px;
     padding: 12px;
     margin-top: 20px;

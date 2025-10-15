@@ -311,16 +311,32 @@ footer a:hover {
 
 
 @media (max-width: 768px) {
-  .social-icons a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
-@media (max-width: 480px) {
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 30%;
+}
+
 
 }
+
+@media (max-width: 576px) {
+
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 20%;
+}
+
+
+}
+
 
 
 
@@ -523,16 +539,16 @@ img {
   }
 
   .flex h1 {
-    font-size: 35px;
+    font-size: 55px;
   }
 
   .flex h2 {
-    font-size: 20px;
+    font-size: 27px;
   }
 
   .flex p {
-    font-size: 13px;
-    text-align: justify;
+    font-size: 16px;
+    text-align: center;
   }
 
    .flex button {
@@ -545,6 +561,17 @@ img {
 }
 
 
+@media screen and (max-width: 576px) {
+    .flex h1 {
+       font-size: 35px;
+  }
+
+   .flex p {
+      font-size: 13px;
+      text-align: center;
+  }
+
+}
 
 
 .why-join-section {

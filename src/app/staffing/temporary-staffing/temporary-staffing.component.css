@@ -446,6 +446,11 @@ footer a:hover {
     height: 40px;
     font-size: 20px;
   }
+  .social-icons {
+display: flex;
+gap: 12px;
+padding-left: 30%;
+}
 }
 
 @media (max-width: 480px) {
@@ -456,7 +461,16 @@ footer a:hover {
   } */
 }
 
+@media (max-width: 576px) {
 
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 20%;
+}
+
+
+}
 
 
 

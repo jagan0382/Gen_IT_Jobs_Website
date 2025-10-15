@@ -325,20 +325,32 @@ footer a:hover {
 
 
 @media (max-width: 768px) {
-  .social-icons a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
-@media (max-width: 480px) {
-  /* .social-icons a {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  } */
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 30%;
 }
+
+
+}
+
+@media (max-width: 576px) {
+
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 20%;
+}
+
+
+}
+
 
 
 
@@ -511,7 +523,7 @@ button {
   }
 
   .secondary-btn {
-    width: 50%;
+    /* width: 50%; */
     max-width: 300px;
   }
 
@@ -638,6 +650,34 @@ footer {
   flex-direction: row-reverse;
 }
 
+
+
+@media screen and (max-width: 768px) {
+  .image-content img {
+      width: 100%;
+      max-width: 200%;
+      height: 150%;
+      max-height: 200%;
+      /* border-radius: 10px; */
+      object-fit: cover;
+      padding-top: 100px;
+}
+
+}
+
+
+@media screen and (max-width: 576px) {
+       .image-content img {
+            width: 100%;
+            max-width: 200%;
+            height: 150%;
+            max-height: 200%;
+            border-radius: 10px;
+            object-fit: cover;
+            /* padding-top: 100px; */
+            margin-top: -80px;
+      }
+}
 
 
 

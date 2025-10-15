@@ -322,20 +322,32 @@ footer a:hover {
 
 
 @media (max-width: 768px) {
-  .social-icons a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
-@media (max-width: 480px) {
-  /* .social-icons a {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  } */
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 30%;
 }
+
+
+}
+
+@media (max-width: 576px) {
+
+.social-icons {
+display: flex;
+gap: 12px;
+padding-left: 20%;
+}
+
+
+}
+
 
 
 
@@ -465,14 +477,14 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    /* gap: 30px; */
     margin-top: 30px;
   }
   
   .clients img {
-    width: 220%;
-    height: 250px;
-    max-width: 300px;
+    width: 40%;
+    height: 180px;
+    max-width: 200px;
     animation: float 3s ease-in-out infinite;
     transition: transform 0.3s;
   }
@@ -650,7 +662,7 @@ body {
   }
 
   .causes-img img {
-    max-height: 200px;
+    /* max-height: 200px; */
     object-fit: cover;
     /* border-radius: 8px; */
   }
@@ -664,6 +676,15 @@ body {
   }
 }
 
+@media (max-width: 576px) {
+    .causes-img img {
+         /* max-height: 200px; */
+         object-fit: cover;
+    /* border-radius: 8px; */
+  }
+
+
+}
 
   
 /* <!-- Training Categories */
