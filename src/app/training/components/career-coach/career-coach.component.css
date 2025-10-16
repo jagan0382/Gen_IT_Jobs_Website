@@ -824,6 +824,24 @@ select,
 }
 
 
+@media (max-width: 576px) {
+
+    .hero h1 {
+       font-size: 2rem;
+       font-weight: 600;
+  }
+
+    .hero h2 {
+       font-size: 1.2rem;
+       font-weight: 400;
+  }
+
+    .hero p {
+      font-size: 0.8rem;
+    
+  }
+
+}
 
 
 /* footer section */
